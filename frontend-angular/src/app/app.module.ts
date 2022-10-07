@@ -1,28 +1,54 @@
+//------------------------------------MODULOS------------------------------------
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from '@auth0/auth0-angular';
+//------------------------------------MODULOS------------------------------------
+
+//------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
-import { BuscarComponentComponent } from './buscar-component/buscar-component.component';
-import { TableroComponentComponent } from './tablero-component/tablero-component.component';
-import { MenuComponentComponent } from './menu-component/menu-component.component';
-import { ActivoComponentComponent } from './activo-component/activo-component.component';
-import { CarrouselComponentComponent } from './carrousel-component/carrousel-component.component';
-import { BarraRecomendacionComponentComponent } from './barra-recomendacion-component/barra-recomendacion-component.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TableroComponent } from './tablero/tablero.component';
+import { MenuComponent } from './menu/menu.component';
+import { CarrouselComponent } from './carrousel/carrousel.component';
+import { BuscarComponent } from './buscar/buscar.component';
+import { BarraRecomendacionComponent } from './barra-recomendacion/barra-recomendacion.component';
+import { ActivoComponent } from './activo/activo.component';
+import { CardComponent } from './card/card.component';
+import { ProfileComponent } from './profile/profile.component';
+//------------------------------------COMPONENTES------------------------------------
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuscarComponentComponent,
-    TableroComponentComponent,
-    MenuComponentComponent,
-    ActivoComponentComponent,
-    CarrouselComponentComponent,
-    BarraRecomendacionComponentComponent
+    BuscarComponent,
+    TableroComponent,
+    MenuComponent,
+    ActivoComponent,
+    CarrouselComponent,
+    BarraRecomendacionComponent,
+    FooterComponent,
+    NavbarComponent,
+    TableroComponent,
+    MenuComponent,
+    CarrouselComponent,
+    BuscarComponent,
+    BarraRecomendacionComponent,
+    ActivoComponent,
+    CardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      //CAMBIAR DATOS DE M2M, API Y SPA
+      domain: "dev-3h2tiekd.us.auth0.com",
+      clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
+      ApiClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
+      ApiClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

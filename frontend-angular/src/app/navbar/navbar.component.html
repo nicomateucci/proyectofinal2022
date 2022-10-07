@@ -1,0 +1,19 @@
+<div class="navbar-nav">
+  <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+    <!--LOGOUT-->
+    <a class="nav-item nav-link btn btn-link" (click)="closeSession()">
+      Cerrar Sesion
+    </a>
+    <!--LOGOUT-->
+    <!--PERFIL-->
+    <a class="nav-item nav-link btn btn-link" routerLink="/perfil" routerLinkActive="active">
+      Perfil
+    </a>
+    <!--PERFIL-->
+  </ng-container>   
+  <!--LOGIN-->
+  <ng-template #loggedOut>
+    <a class="nav-item nav-link btn btn-link" (click)="loginUser()">Iniciar Sesion</a>
+  </ng-template>
+  <!--LOGIN-->
+</div>
