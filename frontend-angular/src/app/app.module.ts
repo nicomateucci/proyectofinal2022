@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from '@auth0/auth0-angular';
+import { Auth0ClientService, AuthModule } from '@auth0/auth0-angular';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -46,8 +46,8 @@ import { ProfileComponent } from './profile/profile.component';
       //CAMBIAR DATOS DE M2M, API Y SPA
       domain: "dev-3h2tiekd.us.auth0.com",
       clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
-      ApiClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
-      ApiClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
+      M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
+      M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     })
   ],
   providers: [],
