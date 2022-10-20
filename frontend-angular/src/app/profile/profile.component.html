@@ -1,4 +1,4 @@
-<div class="mt-2 p-2" *ngIf="authService.user$ | async as user">
+<div class="container-fluid text-bg-primary" *ngIf="authService.user$ | async as user">
     <div class="row align-items-center profile-header">
       <div class="col-md-2 mb-3">
         <img
@@ -9,10 +9,10 @@
       </div>
       <div class="col-md text-center text-md-left">
         <h2>{{ user.name }}</h2>
-        <p class="lead text-muted">{{ user.email }}</p>
+        <p class="lead text-light">{{ user.email }}</p>
       </div>
     </div>
-    <div class="row" *ngIf="profileJSON">
-      <pre class="col-12 text-light bg-dark p-4">{{ profileJSON}}</pre>
+    <div *ngIf="profileJSON">
+      <pre class="text-light bg-dark ">{{ profileJSON}}</pre>
     </div>
 </div>

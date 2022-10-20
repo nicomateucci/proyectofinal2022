@@ -9,8 +9,8 @@
         </li>
       </ul>
       <span>
-        <div class="navbar-nav me-auto ps-2 container-fluid">
-          <ng-container class="me-auto ps-2" *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+        <div class="navbar-nav ">
+          <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
             <!--PERFIL-->
             <a class="nav-item nav-link btn text-bg-primary me-auto m-1" routerLink="/perfil" routerLinkActive="active">
               Perfil
