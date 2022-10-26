@@ -1,34 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
-    <a class="navbar-brand disabled text-light">FinanSys</a>
-    <div class="collapse navbar-collapse" >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <!-- PARA QUE EL BOTON VAYA AL LADO DERECHO DE LA PAGINA TIENE QUE HABER UN LINK INVISIBLE-->
-          <a class="nav-item nav-link text-bg-primary btn invisible" aria-current="page" href="#"></a>
-        </li>
-      </ul>
-      <span>
-        <div class="navbar-nav ">
-          <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
-            <!--PERFIL-->
-            <a class="nav-item nav-link btn text-bg-primary me-auto m-1" routerLink="/perfil" routerLinkActive="active">
-              Perfil
-            </a>
-            <!--PERFIL-->
-            <!--LOGOUT-->
-            <a class="nav-item nav-link btn text-bg-danger me-auto m-1" (click)="closeSession()">
-              Cerrar Sesion
-            </a>
-            <!--LOGOUT-->
-          </ng-container>   
-          <!--LOGIN-->
-          <ng-template #loggedOut>
-              <a class="nav-item nav-link btn text-bg-primary" (click)="loginUser()">Iniciar Sesion</a>
-          </ng-template>
-          <!--LOGIN-->
-        </div>
-      </span>
+    <a class="navbar-brand text-light mr-auto" href="">FinanSys</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0 invisible">
+      </div>
+      <!--
+        FORMULARIO PARA BUSQUEDA VER SI SIRVE IMPLEMENTARLO
+        <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      -->
+      <div class="d-flex">
+        <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+          <!--PERFIL-->
+          <a class="btn btn-outline-success m-1" href="/perfil">Perfil</a>
+          <!--PERFIL-->
+          <!--LOGOUT-->
+          <button type="button" class="btn btn-outline-danger m-1" (click)="closeSession()">Cerrar Sesion</button>
+          <!--LOGOUT-->
+        </ng-container>   
+        <!--LOGIN-->
+        <ng-template #loggedOut>
+            <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
+        </ng-template>
+        <!--LOGIN-->
+      </div>
     </div>
   </div>
 </nav>
