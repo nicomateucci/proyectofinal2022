@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { Auth0ClientService, AuthModule } from '@auth0/auth0-angular';
+import {AuthModule } from '@auth0/auth0-angular';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -13,10 +13,15 @@ import { TableroComponent } from './tablero/tablero.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { BarraRecomendacionComponent } from './barra-recomendacion/barra-recomendacion.component';
-import { ActivoComponent } from './activo/activo.component';
 import { CardComponent } from './card/card.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
+
+//------------------------------------RUTAS------------------------------------
+import { ActivoComponent } from './routes/activo/activo.component';
+import { ProfileComponent } from './routes/profile/profile.component';
+import { HomeComponent } from './routes/home/home.component';
+import { CursosComponent } from './cursos/cursos.component';
+//------------------------------------RUTAS------------------------------------
+
 //------------------------------------COMPONENTES------------------------------------
 
 @NgModule({
@@ -36,7 +41,8 @@ import { HomeComponent } from './home/home.component';
     ActivoComponent,
     CardComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    CursosComponent
   ],
   imports: [
     BrowserModule,

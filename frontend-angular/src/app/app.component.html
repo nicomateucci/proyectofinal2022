@@ -1,4 +1,4 @@
-<div id="app" class="d-flex flex-column h-100">   
+<div id="app" class="d-flex flex-column h-100 w-100">   
     <div class="container-fluid" *ngIf="authService.isLoading$ | async; else loaded">
       <!--CARGA DE DATOS DEL USUARIO DE SESION-->
       <div class="container-fluid h-100 justify-content-center mt-lg-5"> 
@@ -14,9 +14,7 @@
       <!--CARGA DE DATOS DEL USUARIO DE SESION-->
     </div>
     <ng-template #loaded>
-        <app-navbar>  </app-navbar>
-            <router-outlet> </router-outlet>           
-        <app-footer></app-footer>
+        <router-outlet> </router-outlet>           
     </ng-template>
 </div>
 

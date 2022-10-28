@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+<!--PERFIL-->
 <div class="text-bg-primary" *ngIf="authService.user$ | async as user">
     <div class="row" style="margin: 0 0 0 0;">
       <div class="col-md-2 solid border">
@@ -16,3 +18,5 @@
       <pre class="text-light bg-dark">{{profileJSON}}</pre>
     </div>
 </div>
+<!--PERFIL-->
+<app-footer></app-footer>
