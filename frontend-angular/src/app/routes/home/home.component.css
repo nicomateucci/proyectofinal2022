@@ -1,0 +1,18 @@
+*{
+    background-color: rgb(163, 241, 241);
+}
+
+/* Bootstrap le saca -15 px de margen, se rompe todo si no se le saca por defecto*/
+.row{
+    margin: 0 0 0 0;
+}
+
+p{
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Este formato de letra fue a mi gusto, pero hay que definirlo*/
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -1,20 +1,27 @@
-<div id="app" class="d-flex flex-column h-100 w-100">   
+<div class="d-flex flex-column h-100 w-100">
     <div class="container-fluid" *ngIf="authService.isLoading$ | async; else loaded">
-      <!--CARGA DE DATOS DEL USUARIO DE SESION-->
-      <div class="container-fluid h-100 justify-content-center mt-lg-5"> 
-        <div class="row w-100 align-items-center mt-5">
-            <div class="text-center mt-5">
-                <button class="btn btn-dark btn-lg mt-5 p-4" type="button" disabled>
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    Cargando...
-                </button>
-            </div>	
+        <!--CARGA DE DATOS DEL USUARIO DE SESION-->
+        <div class="container-fluid h-100 justify-content-center mt-lg-5">
+            <div class="row w-100 align-items-center mt-5">
+                <div class="text-center mt-5">
+                    <button class="btn btn-dark btn-lg mt-5 p-4" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Cargando...
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <!--CARGA DE DATOS DEL USUARIO DE SESION-->
+        <!--CARGA DE DATOS DEL USUARIO DE SESION-->
     </div>
     <ng-template #loaded>
-        <router-outlet> </router-outlet>           
+        <!--NAVBAR-->
+        <app-navbar></app-navbar>
+        <!--NAVBAR-->
+        <!--APP-->
+        <router-outlet> </router-outlet>
+        <!--APP-->
+        <!--FOOTER-->
+        <app-footer></app-footer>
+        <!--FOOTER-->
     </ng-template>
 </div>
-

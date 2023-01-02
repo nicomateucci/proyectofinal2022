@@ -1,22 +1,14 @@
-<app-navbar></app-navbar>
-<!--PERFIL-->
 <div class="text-bg-primary" *ngIf="authService.user$ | async as user">
-    <div class="row" style="margin: 0 0 0 0;">
-      <div class="col-md-2 solid border">
-        <img
-          [src]="user.picture"
-          alt="User's profile picture"
-          class="rounded-circle img-fluidprofile-picture"
-        />
-      </div>
-      <div class="col-md solid border">
-          <h2>{{user.name}}</h2>
-          <p class=" text-light">{{user.email}}</p>
-      </div>
+  <div class="row" style="margin: 0 0 0 0;">
+    <div class="col-md-2 solid border m-1">
+      <img [src]="user.picture" alt="User's profile picture" class="rounded-circle img-fluidprofile-picture" />
     </div>
-    <div class="solid border" *ngIf="profileJSON">
-      <pre class="text-light bg-dark">{{profileJSON}}</pre>
+    <div class="col-md solid border m-1">
+      <h2>{{user.name}}</h2>
+      <p class=" text-light">{{user.email}}</p>
     </div>
+  </div>
+  <div class="solid border m-1" *ngIf="profileJSON">
+    <pre class="text-light bg-dark ">{{profileJSON}}</pre>
+  </div>
 </div>
-<!--PERFIL-->
-<app-footer></app-footer>

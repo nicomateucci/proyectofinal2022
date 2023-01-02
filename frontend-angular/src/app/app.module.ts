@@ -12,17 +12,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TableroComponent } from './tablero/tablero.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { BuscarComponent } from './buscar/buscar.component';
-import { BarraRecomendacionComponent } from './barra-recomendacion/barra-recomendacion.component';
 import { CardComponent } from './card/card.component';
+//------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------RUTAS------------------------------------
-import { ActivoComponent } from './routes/activo/activo.component';
+import { ActivoComponent } from './activo/activo.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 import { HomeComponent } from './routes/home/home.component';
-import { CursosComponent } from './cursos/cursos.component';
+import { CursosComponent } from './routes/cursos/cursos.component';
 //------------------------------------RUTAS------------------------------------
-
-//------------------------------------COMPONENTES------------------------------------
 
 @NgModule({
   declarations: [
@@ -31,13 +29,11 @@ import { CursosComponent } from './cursos/cursos.component';
     TableroComponent,
     ActivoComponent,
     CarrouselComponent,
-    BarraRecomendacionComponent,
     FooterComponent,
     NavbarComponent,
     TableroComponent,
     CarrouselComponent,
     BuscarComponent,
-    BarraRecomendacionComponent,
     ActivoComponent,
     CardComponent,
     ProfileComponent,

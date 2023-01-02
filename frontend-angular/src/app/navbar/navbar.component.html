@@ -1,19 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
     <a class="navbar-brand text-light mr-auto" href="">FinanSys</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!--Buscador-->
+    <!--ACA FALTA EL TEMA DEL FILTRADO DE LAS BUSQUEDAS Y COMO MIERDA HARIAMOS, 
+    QUEDA PENDIENTE PARA EL DESARROLLO FUTURO.
+    VER SI SE PUEDE HACER CON UN RUTEO O SI DIRECTAMENTE SE CARGA ALGUN COMPONENTE-->
+    <!--Buscador-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ml-3">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/cursos2">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Activos</a>
+        </li>
+      </ul>
       <div class="navbar-nav me-auto mb-2 mb-lg-0 invisible">
       </div>
-      <!--
-        FORMULARIO PARA BUSQUEDA VER SI SIRVE IMPLEMENTARLO
-        <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      -->
       <div class="d-flex">
         <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
           <!--PERFIL-->
@@ -22,10 +32,10 @@
           <!--LOGOUT-->
           <button type="button" class="btn btn-outline-danger m-1" (click)="closeSession()">Cerrar Sesion</button>
           <!--LOGOUT-->
-        </ng-container>   
+        </ng-container>
         <!--LOGIN-->
         <ng-template #loggedOut>
-            <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
+          <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
         </ng-template>
         <!--LOGIN-->
       </div>

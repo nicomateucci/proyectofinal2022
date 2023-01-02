@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
-import { ActivoComponent } from './routes/activo/activo.component';
+import { ActivoComponent } from './activo/activo.component';
+import { CursosComponent } from './routes/cursos/cursos.component';
 import { HomeComponent } from './routes/home/home.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 
 const routes: Routes = [
   //Public Routes
   { path: 'home', component: HomeComponent },
+  { path: 'cursos2', component: CursosComponent, },
   //Privates Routes
-  { path: 'perfil', component: ProfileComponent, canActivate:[AuthGuard]},
-  //{ path: 'cursos', component: ProfileComponent, canActivate:[AuthGuard]},
-  { path: 'activos-digitales', component: ActivoComponent, canActivate:[AuthGuard]},
+  { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'cursos', component: CursosComponent, canActivate: [AuthGuard] },
+  //{ path: 'activos-digitales', component: ActivoComponent, canActivate:[AuthGuard]},
   //Default routes redirect home
   { path: '**', redirectTo: 'home' },
- 
+
 ];
 
 @NgModule({
