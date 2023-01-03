@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivoService } from '../services/activo.service';
 
 @Component({
   selector: 'app-tablero',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableroComponent implements OnInit {
 
-  constructor() { }
+  activos:any[]=[];
+
+  constructor(
+    private activoService:ActivoService
+  ) { }
 
   ngOnInit(): void {
+    this.activos = this.activoService.getData()
   }
 
 }

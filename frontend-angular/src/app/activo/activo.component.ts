@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivoService } from '../services/activo.service';
 
 @Component({
   selector: 'app-activo',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private activos : ActivoService
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.activos.getData())
   }
 
 }

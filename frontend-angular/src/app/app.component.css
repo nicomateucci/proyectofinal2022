@@ -1,2 +1,5 @@
-
+/* Bootstrap le saca -15 px de margen, se rompe todo si no se le saca por defecto*/
+.row{
+    margin: 0 0 0 0;
+}
 
