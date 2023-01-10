@@ -5,21 +5,31 @@
       <tr class="table-active">
         <th scope="col">Rank</th>
         <th scope="col">Coin</th>
-        <th scope="col">Codigo</th>
+        <th scope="col">Precio Maximo</th>
         <th scope="col">Volumen 24 Hrs</th>
-        <th scope="col">1 Hrs</th>
-        <th scope="col">24 Hrs</th>
+        <th scope="col">Variacion 1 Hrs</th>
+        <th scope="col">Variacion 24 Hrs</th>
       </tr>
     </thead>
-    <tbody *ngFor="let activo of activos">
+    <!--ACA PODRIAMOS DE SACAR CADA UNO DE LOS activos-->
+    <tbody *ngFor="let activo of activos ">
       <tr>
         <th scope="row">{{activo.rank}}</th>
-        <td scope="col"> <img  class="ml-5" src="{{activo.png32}}" alt=""> {{activo.name}}</td>
-        <td scope="col">{{activo.code}}</td>
-        <td scope="col">{{activo.allTimeHighUSD | currency: 'USD' | uppercase}}</td>
+        <td scope="col"><img  class="ml-5" src="{{activo.png32}}" alt=""> {{activo.code}} -- {{activo.name}}
+        <td scope="col">{{activo.allTimeHighUSD | currency: 'USD'}}</td>
+        <td scope="col">{{activo.volume | currency: 'USD'}}</td>
         <td scope="col">{{activo.delta.hour}}</td>
         <td scope="col">{{activo.delta.day}}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<!--VER EL TEMA DEL PAGINADOR, NO FUNCIONA CON LOS ESTILOS APLICADOS POR BOOTSTRAP-->
+<!-- <mat-paginator 
+  [length]="activos.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="handlerPage($event)"
+  aria-label="Select page">
+</mat-paginator> -->

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {AuthModule } from '@auth0/auth0-angular';
+import { HttpClientModule } from '@angular/common/http';
+import {MatPaginatorModule} from '@angular/material/paginator';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -22,8 +24,13 @@ import { HomeComponent } from './routes/home/home.component';
 import { CursosComponent } from './routes/cursos/cursos.component';
 //------------------------------------RUTAS------------------------------------
 
+//------------------------------------PIPES------------------------------------
+import { PaginatePipe } from './pipes/paginate.pipe';
+//------------------------------------PIPES------------------------------------
+
 @NgModule({
   declarations: [
+    PaginatePipe,
     AppComponent,
     BuscarComponent,
     TableroComponent,
@@ -41,6 +48,8 @@ import { CursosComponent } from './routes/cursos/cursos.component';
     CursosComponent
   ],
   imports: [
+    MatPaginatorModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule.forRoot({
