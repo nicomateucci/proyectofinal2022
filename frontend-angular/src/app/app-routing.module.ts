@@ -9,11 +9,11 @@ import { ProfileComponent } from './routes/profile/profile.component';
 const routes: Routes = [
   //Public Routes
   { path: 'home', component: HomeComponent },
-  { path: 'cursos2', component: CursosComponent},
+  { path: 'cursos', component: CursosComponent},
   { path: 'activos', component: ActivoComponent},
   //Privates Routes
   { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'cursos', component: CursosComponent, canActivate: [AuthGuard] },
+  //{ path: 'cursos', component: CursosComponent, canActivate: [AuthGuard] },
   //{ path: 'activos-digitales', component: ActivoComponent, canActivate:[AuthGuard]},
   //Default routes redirect home
   { path: '**', redirectTo: 'home' },

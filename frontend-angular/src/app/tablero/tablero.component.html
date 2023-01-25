@@ -1,10 +1,11 @@
 <div class="row text-center table-responsive">
   <table class="table table-dark">
-    <caption>Tabla de ejemplo</caption>
+    <caption>Criptomonedas Live</caption>
     <thead>
       <tr class="table-active">
         <th scope="col">Rank</th>
         <th scope="col">Coin</th>
+        <th scope="col">Price</th>
         <th scope="col">Precio Maximo</th>
         <th scope="col">Volumen 24 Hrs</th>
         <th scope="col">Variacion 1 Hrs</th>
@@ -12,24 +13,24 @@
       </tr>
     </thead>
     <!--ACA PODRIAMOS DE SACAR CADA UNO DE LOS activos-->
-    <tbody *ngFor="let activo of activos ">
+    <tbody *ngFor="let activo of activos | paginate: {itemsPerPage: pageSize, currentPage: pageNum, totalItems: activos.length }">
       <tr>
         <th scope="row">{{activo.rank}}</th>
         <td scope="col"><img  class="ml-5" src="{{activo.png32}}" alt=""> {{activo.code}} -- {{activo.name}}
-        <td scope="col">{{activo.allTimeHighUSD | currency: 'USD'}}</td>
+          <td scope="col">{{activo.rate | currency: 'USD'}}</td>
+          <td scope="col">{{activo.allTimeHighUSD | currency: 'USD'}}</td>
         <td scope="col">{{activo.volume | currency: 'USD'}}</td>
         <td scope="col">{{activo.delta.hour}}</td>
         <td scope="col">{{activo.delta.day}}</td>
       </tr>
     </tbody>
   </table>
+  <div class="container bg-body w-25">
+    <pagination-controls
+      (pageChange)="pageNum = $event"
+      previousLabel="Ant"
+      nextLabel="Sig">
+    </pagination-controls>
+  </div>
+  
 </div>
-
-<!--VER EL TEMA DEL PAGINADOR, NO FUNCIONA CON LOS ESTILOS APLICADOS POR BOOTSTRAP-->
-<!-- <mat-paginator 
-  [length]="activos.length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="handlerPage($event)"
-  aria-label="Select page">
-</mat-paginator> -->

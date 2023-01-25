@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../services/activo.service';
-import {PageEvent} from "@angular/material/paginator"
-import { PaginatePipe } from '../pipes/paginate.pipe';
 
 @Component({
   selector: 'app-tablero',
@@ -10,10 +8,9 @@ import { PaginatePipe } from '../pipes/paginate.pipe';
 })
 export class TableroComponent implements OnInit {
 
-  activos:any[]=[];
-
-  pageSize: number = 30;
-  pageNum: number = 1;
+  activos : any[] = [];
+  pageSize: number = 20;
+  pageNum: number = 0;
   pageSizeOptions =[20,30,50]
 
   constructor(
@@ -29,10 +26,5 @@ export class TableroComponent implements OnInit {
     //     this.activos=data
     //   }
     // )
-  }
-
-  handlerPage(page :PageEvent){
-    this.pageNum= page.pageIndex+1;
-    this.pageSize= page.pageSize
   }
 }

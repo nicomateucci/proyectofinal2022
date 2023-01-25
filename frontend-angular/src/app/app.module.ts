@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from '@angular/common/http';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -25,12 +25,10 @@ import { CursosComponent } from './routes/cursos/cursos.component';
 //------------------------------------RUTAS------------------------------------
 
 //------------------------------------PIPES------------------------------------
-import { PaginatePipe } from './pipes/paginate.pipe';
 //------------------------------------PIPES------------------------------------
 
 @NgModule({
   declarations: [
-    PaginatePipe,
     AppComponent,
     BuscarComponent,
     TableroComponent,
@@ -48,7 +46,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     CursosComponent
   ],
   imports: [
-    MatPaginatorModule,
+    NgxPaginationModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

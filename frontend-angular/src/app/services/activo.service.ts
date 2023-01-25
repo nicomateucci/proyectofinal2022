@@ -8,6 +8,7 @@ import jsonData from '../../../dataLiveCoin.json';
 })
 export class ActivoService {
 
+  url = "https://api.livecoinwatch.com/coins/list"
 
   constructor(
     private http: HttpClient,
@@ -20,7 +21,6 @@ export class ActivoService {
   }
 
   getDataFromApi() {
-    let url = "https://api.livecoinwatch.com/coins/list"
     let payload = {
       "currency": "USD",
       "sort": "rank",
@@ -33,6 +33,6 @@ export class ActivoService {
       'content-type': 'application/json',
       'x-api-key': 'c6cd5096-b115-4ce0-b4be-5e447cf0b74b'
     }
-    return this.http.post(url,payload,{headers})
+    return this.http.post(this.url , payload, {headers} )
   }
 }
