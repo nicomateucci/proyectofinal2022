@@ -1,42 +1,54 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" matSort>
 
-        <!-- Rank Column -->
-        <ng-container matColumnDef="Rank">
-            <th mat-header-cell *matHeaderCellDef> Rank. </th>
-            <td mat-cell *matCellDef="let activo"> {{activo.rank}} </td>
-        </ng-container>
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef 
+            mat-sort-header> 
+            Rank. 
+        </th>
+        <td mat-cell *matCellDef="let activo">{{activo.rank}}</td>
+    </ng-container>
 
-        <!-- Coin Column -->
-        <ng-container matColumnDef="Coin">
-            <th mat-header-cell *matHeaderCellDef> Coin </th>
-            <td mat-cell *matCellDef="let activo"> <img src="{{activo.png32}}" alt=""> {{activo.code}} --
-                {{activo.name}} </td>
-        </ng-container>
+    <!-- Coin Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Coin </th>
+        <td mat-cell *matCellDef="let activo">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                <img src="{{activo.png32}}" alt="" style="margin: 10px 0 0 0;">
+                {{activo.code}} <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{activo.name}} 
+            </a>
+        </td>
+    </ng-container>
 
-        <!-- Price Column -->
-        <ng-container matColumnDef="Price">
-            <th mat-header-cell *matHeaderCellDef> Price </th>
-            <td mat-cell *matCellDef="let activo"> {{activo.rate | currency: 'USD'}} </td>
-        </ng-container>
+    <!-- Price Column -->
+    <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let activo"> {{activo.rate | currency: 'USD'}} </td>
+    </ng-container>
 
-        <!--Maximum price Column -->
-        <ng-container matColumnDef="Maximum Price">
-            <th mat-header-cell *matHeaderCellDef> Maximum Price </th>
-            <td mat-cell *matCellDef="let activo"> {{activo.allTimeHighUSD | currency: 'USD'}} </td>
-        </ng-container>
+    <!--Maximum price Column -->
+    <ng-container matColumnDef="allTimeHighUSD">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Maximum Price </th>
+        <td mat-cell *matCellDef="let activo"> {{activo.allTimeHighUSD | currency: 'USD'}} </td>
+    </ng-container>
 
-        <!--Maximum price Column -->
-        <ng-container matColumnDef="Volumen 24 Hrs">
-            <th mat-header-cell *matHeaderCellDef> Volumen 24 Hrs </th>
-            <td mat-cell *matCellDef="let activo"> {{activo.volume | currency: 'USD'}} </td>
-        </ng-container>
+    <!--Maximum price Column -->
+    <ng-container matColumnDef="volume">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Volumen 24 Hrs </th>
+        <td mat-cell *matCellDef="let activo"> {{activo.volume | currency: 'USD'}} </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 
-    <mat-paginator #paginator [length]="getLength()" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-        (page)="handlePage($event)" showFirstLastButtons>
-    </mat-paginator>
-</div>
+<!--ESTO DEBERIA SER UN TAB POR TIPO DE ACTIVO O DEBERIAMOS CREAR 3 COMPONENTES Y CONFIGURARLOS ESTATICAMENTE-->
+<mat-paginator 
+    #paginator 
+    [length]="getLength()" 
+    [pageSize]="pageSize" 
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePage($event)" 
+    showFirstLastButtons>
+</mat-paginator>

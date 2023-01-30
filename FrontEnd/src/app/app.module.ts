@@ -7,10 +7,11 @@ import {HttpClientModule } from '@angular/common/http';
 import {MatPaginatorModule } from '@angular/material/paginator';
 import {MatTableModule } from '@angular/material/table'
 import {MatTabsModule} from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSortModule } from '@angular/material/sort';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -50,6 +51,7 @@ import { CursosComponent } from './routes/cursos/cursos.component';
     ActivosComponent,
   ],
   imports: [
+    MatSortModule,
     MatButtonModule,
     MatTooltipModule,
     MatIconModule,
