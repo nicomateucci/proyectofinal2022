@@ -13,17 +13,26 @@ export class TabComponent implements OnInit,AfterViewInit {
 
   @Input()
   pageSize!: number;
-  
-  activos : any[]=[];
 
   pageNum: number = 0;
   pageSizeOptions =[5,10,20]
-  dataSource !: MatTableDataSource<any>;
+  dataSource : MatTableDataSource<any>;
   displayedColumns: string[] = ['rank', 'name', 'rate','allTimeHighUSD','volume'];
 
   constructor(
     private activoService:ActivoService
-  ) {}
+  ) 
+  {
+    //SI ESTO VA EN EL CONSTRUCTOR EL API, EL PAGINADOR Y EL ORDENAMIENTO FUNCIONA, EN EL ONINIT NO
+    this.dataSource = new MatTableDataSource();
+    this.dataSource.data = this.activoService.getData();
+    // this.activoService.getDataFromApi().subscribe(
+    //   (data:any)=>
+    //   {
+    //     this.dataSource.data = data
+    //   }
+    // )
+  }
 
   public getLength():number{
     //ACA IRIA EL TAMAÑO DE LOS DATOS TRAIDOS DE LA API
@@ -36,25 +45,14 @@ export class TabComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.activoService.getData());
-    //ACA IRIA LA CONSULTA A LA API
-    // this.activoService.getDataFromApi().subscribe(
-    //   (data:any)=>
-    //   {
-    //     this.dataSource=data
-    //     console.log(this.dataSource); 
-    //   }
-    // )
-    console.log(this.dataSource);
   }
 
-  @ViewChild('paginator') paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
+  @ViewChild('paginator') paginator !: MatPaginator;
+  @ViewChild('empTbSort') empTbSort !: MatSort;
   ngAfterViewInit() {
     //Esto para pasarle el dato del paginador
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.empTbSort;
   }
 
 }
