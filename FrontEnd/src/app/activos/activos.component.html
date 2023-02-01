@@ -1,11 +1,12 @@
 <div class="container-fluid">
-    <mat-tab-group>
+    <mat-tab-group animationDuration="800ms">
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon class="example-tab-icon">account_balance_wallet</mat-icon>
                 Criptomonedas
             </ng-template>
-            <app-tab 
+            <!--ACA PODRIAMOS PASAR POR PROPIDAD O NGCLASS EL TIPO Y MOSTRAR LSO ACTIVOS SELECCIONADOS-->
+            <app-tab     
                 [pageSize]="5">
             </app-tab>
         </mat-tab>

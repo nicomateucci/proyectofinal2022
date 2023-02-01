@@ -25,13 +25,13 @@ export class TabComponent implements OnInit,AfterViewInit {
   {
     //SI ESTO VA EN EL CONSTRUCTOR EL API, EL PAGINADOR Y EL ORDENAMIENTO FUNCIONA, EN EL ONINIT NO
     this.dataSource = new MatTableDataSource();
-    this.dataSource.data = this.activoService.getData();
-    // this.activoService.getDataFromApi().subscribe(
-    //   (data:any)=>
-    //   {
-    //     this.dataSource.data = data
-    //   }
-    // )
+    //this.dataSource.data = this.activoService.getData();
+    this.activoService.getDataFromApi().subscribe(
+      (data:any)=>
+      {
+        this.dataSource.data = data
+      }
+    )
   }
 
   public getLength():number{
@@ -53,6 +53,10 @@ export class TabComponent implements OnInit,AfterViewInit {
     //Esto para pasarle el dato del paginador
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.empTbSort;
+  }
+
+  messageAlert(){
+    alert("Abriendo pestaña emergente");
   }
 
 }

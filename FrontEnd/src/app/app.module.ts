@@ -12,6 +12,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSortModule } from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -29,6 +32,7 @@ import { ActivosComponent } from './activos/activos.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 import { HomeComponent } from './routes/home/home.component';
 import { CursosComponent } from './routes/cursos/cursos.component';
+import { MenuComponent } from './menu/menu.component';
 //------------------------------------RUTAS------------------------------------
 
 //------------------------------------PIPES------------------------------------
@@ -49,8 +53,12 @@ import { CursosComponent } from './routes/cursos/cursos.component';
     CursosComponent,
     TabComponent,
     ActivosComponent,
+    MenuComponent,
   ],
   imports: [
+    MatMenuModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
     MatSortModule,
     MatButtonModule,
     MatTooltipModule,
@@ -65,6 +73,9 @@ import { CursosComponent } from './routes/cursos/cursos.component';
       //CAMBIAR DATOS DE M2M, API Y SPA
       domain: "dev-3h2tiekd.us.auth0.com",
       clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
+      authorizationParams: {
+        redirect_uri: window.location.origin,    
+      }
       //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
       //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     }),

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'activos', component: ActivosComponent},
   { path: 'perfil', component: ProfileComponent },
   //Privates Routes
-  { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
+  //{ path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
   //{ path: 'cursos', component: CursosComponent, canActivate: [AuthGuard] },
   //{ path: 'activos-digitales', component: ActivoComponent, canActivate:[AuthGuard]},
   //Default routes redirect home
