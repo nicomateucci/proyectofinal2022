@@ -1,0 +1,48 @@
+version: '2.1'
+services:
+    postgres:
+        image: postgres:latest
+        restart: always
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=airflow
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+
+    pgadmin4:
+        image: dpage/pgadmin4:latest
+        restart: always
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=finansys@proyecto.com
+            - PGADMIN_DEFAULT_PASSWORD=finansys
+        ports:
+            - "15432:80"
+    
+    airflow:
+        build: ./docker/airflow
+        restart: always
+        volumes:
+            - ./mnt/airflow/airflow.cfg:/opt/airflow/airflow.cfg
+            - ./mnt/airflow/dags:/opt/airflow/dags
+        ports:
+            - 8080:8080
+        healthcheck:
+            test: [ "CMD", "nc", "-z", "airflow", "8080" ]
+            timeout: 45s
+            interval: 10s
+            retries: 10
+    
+    nginx:
+        image: nginx:alpine
+        container_name: nginx-server
+        restart: always
+        ports:
+          - 9080:9080
+        volumes:
+          - ./proyect:/usr/share/nginx/proyect/
+
+volumes:
+  proyect: {}
