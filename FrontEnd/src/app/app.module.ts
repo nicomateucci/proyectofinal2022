@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
 //------------------------------------RUTAS------------------------------------
 import { ProfileComponent } from './routes/profile/profile.component';
 import { HomeComponent } from './routes/home/home.component';
-import { CarouselModule } from '@coreui/angular';
 //------------------------------------RUTAS------------------------------------
 
 //------------------------------------PIPES------------------------------------
@@ -32,7 +31,6 @@ import { CarouselModule } from '@coreui/angular';
     HomeComponent
   ],
   imports: [
-    CarouselModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
     HttpClientModule,
