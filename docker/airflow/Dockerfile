@@ -1,5 +1,5 @@
 # Base Image
-FROM spark-base:latest
+FROM python:3.8-slim
 LABEL maintainer="MarcLamberti"
 
 # Arguments that can be set with docker build
