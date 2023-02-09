@@ -15,3 +15,17 @@
         <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, reprehenderit ratione. Vel consequuntur excepturi, minima earum nemo fugiat atque iste assumenda fuga molestiae recusandae voluptatibus, veritatis quisquam doloremque perferendis necessitatibus!</div>
     </div>
 </div>
+<div class="container-fluid">
+    <c-carousel (itemChange)="onItemChange($event)" [interval]="5000" transition="slide">
+        <c-carousel-inner>
+          <c-carousel-item *ngFor="let slide of slides">
+            <img
+              [src]="slide.src"
+              alt="{{slide.title}}"
+              class="d-block w-100"
+              loading="lazy"
+            />
+          </c-carousel-item>
+        </c-carousel-inner>
+      </c-carousel>
+</div>
