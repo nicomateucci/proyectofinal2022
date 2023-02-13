@@ -1,17 +1,27 @@
-<c-carousel transition="slide">
-    <c-carousel-inner>
-        <c-carousel-item *ngFor="let slide of slides">
-            <img 
-            class="w-100 bg-black"
-            [src]="slide.src" 
-            alt="{{slide.title}}" 
-            loading="lazy" />
-            <c-carousel-caption class="d-none d-md-block">
-                <h3>{{slide.title}}</h3>
-                <p>{{slide.subtitle}}</p>
-            </c-carousel-caption>
-        </c-carousel-item>
-    </c-carousel-inner>
-    <c-carousel-control caption="Anterior" direction="prev"></c-carousel-control>
-    <c-carousel-control caption="Siguiente" direction="next"></c-carousel-control>
-</c-carousel>
+<div class="container-fluid bg-dark">
+    <c-carousel 
+        [animate]="true" 
+        [interval]="2000"
+        [dark]="true">
+        <c-carousel-inner>
+            <c-carousel-item *ngFor="let slide of slides">
+                <div style="text-align: center;">
+                    <img 
+                    class="w-75"
+                    [src]="slide.src" 
+                    alt="{{slide.title}}" 
+                    loading="lazy" 
+                    width="500" 
+                    height="500"
+                    (click)="message()"/>
+                </div>
+                <c-carousel-caption class="d-none d-md-block">
+                    <h3 class="text-info">{{slide.title}}</h3>
+                    <p class="text-light">{{slide.subtitle}}</p>
+                </c-carousel-caption>
+            </c-carousel-item>
+        </c-carousel-inner>
+        <c-carousel-control caption="Anterior" direction="prev"></c-carousel-control>
+        <c-carousel-control caption="Siguiente" direction="next"></c-carousel-control>
+    </c-carousel> 
+</div>

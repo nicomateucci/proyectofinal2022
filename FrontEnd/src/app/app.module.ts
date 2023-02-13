@@ -7,19 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
+//------------------------------------MODULOS------------------------------------
+
+//------------------------------------MODULOS CUSTOM------------------------------------
 import { UtilitiesModule } from './utilities/utilities.module';
 import { AssetsModule } from './assets/assets.module';
 import { CoursesModule } from './courses/courses.module';
-//------------------------------------MODULOS------------------------------------
+//------------------------------------MODULOS CUSTOM------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 //------------------------------------COMPONENTES------------------------------------
-
-//------------------------------------RUTAS------------------------------------
-import { ProfileComponent } from './routes/profile/profile.component';
-import { HomeComponent } from './routes/home/home.component';
-//------------------------------------RUTAS------------------------------------
 
 //------------------------------------PIPES------------------------------------
 //------------------------------------PIPES------------------------------------

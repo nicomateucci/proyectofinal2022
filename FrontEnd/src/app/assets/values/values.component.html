@@ -13,7 +13,7 @@
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Coin </th>
         <td mat-cell *matCellDef="let activo">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" (click)="messageAlert()">
+            <a routerLink="values/{{activo.rank}}">
                 <img src="{{activo.png32}}" alt="" style="margin: 10px 0 0 0;">
                 {{activo.code}} <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{activo.name}} 

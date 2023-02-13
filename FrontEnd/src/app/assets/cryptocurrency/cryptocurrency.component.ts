@@ -15,21 +15,12 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
 
   pageNum: number = 0;
   pageSizeOptions = [5, 10, 20]
-  dataSource: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['rank', 'name', 'rate', 'allTimeHighUSD', 'volume'];
 
   constructor(
     private activoService: ActivoService
-  ) {
-    //SI ESTO VA EN EL CONSTRUCTOR EL API, EL PAGINADOR Y EL ORDENAMIENTO FUNCIONA, EN EL ONINIT NO
-    this.dataSource = new MatTableDataSource();
-    //this.dataSource.data = this.activoService.getData();
-    this.activoService.getDataFromApi().subscribe(
-      (data: any) => {
-        this.dataSource.data = data
-      }
-    )
-  }
+  ) {}
 
   public getLength(): number {
     //ACA IRIA EL TAMAÑO DE LOS DATOS TRAIDOS DE LA API
@@ -42,6 +33,12 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource();
+    this.activoService.getDataFromApi().subscribe(
+      (data: any) => {
+        this.dataSource.data = data
+      }
+    )
   }
 
   @ViewChild('paginator') paginator !: MatPaginator;
@@ -51,9 +48,4 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.empTbSort;
   }
-
-  messageAlert() {
-    alert("Abriendo pestaña emergente");
-  }
-
 }

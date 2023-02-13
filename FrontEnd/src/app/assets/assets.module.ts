@@ -9,12 +9,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
 import { ValuesComponent } from './values/values.component';
+import { CryptocurrencyItemComponent } from './cryptocurrency-item/cryptocurrency-item.component';
+import { ValuesItemComponent } from './values-item/values-item.component';
 
 @NgModule({
   declarations: [
     AssetsComponent,
     CryptocurrencyComponent,
     ValuesComponent,
+    CryptocurrencyItemComponent,
+    ValuesItemComponent,
   ],
   imports: [
     CommonModule,

@@ -30,4 +30,8 @@ export class CarrouselComponent implements OnInit {
     }
   }
 
+  message(){
+    alert("SI PIBE SOMOS CAMPEONES DE TODO");
+  }
+
 }
