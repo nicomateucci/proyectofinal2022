@@ -4,9 +4,9 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { CardComponent } from './card/card.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { CarouselModule } from '@coreui/angular';
 import { RouterModule } from '@angular/router';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,10 @@ import { RouterModule } from '@angular/router';
     CardComponent
   ],
   imports: [
-    MatToolbarModule,
     CarouselModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    AngularMaterialModule
   ],
   exports:[
     FooterComponent,

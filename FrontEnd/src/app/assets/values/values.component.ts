@@ -1,8 +1,10 @@
 import { Component, ViewChild, AfterViewInit, OnInit, Input } from '@angular/core';
+import { ActivoService } from 'src/app/services/activo.service';
+
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivoService } from 'src/app/services/activo.service';
+
 @Component({
   selector: 'app-values',
   templateUrl: './values.component.html',

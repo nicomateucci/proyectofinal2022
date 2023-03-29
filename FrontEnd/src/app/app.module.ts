@@ -5,14 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from '@auth0/auth0-angular'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatToolbarModule } from '@angular/material/toolbar';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------MODULOS CUSTOM------------------------------------
 import { UtilitiesModule } from './utilities/utilities.module';
 import { AssetsModule } from './assets/assets.module';
 import { CoursesModule } from './courses/courses.module';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
 //------------------------------------MODULOS CUSTOM------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
@@ -31,8 +30,7 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    MatToolbarModule,
-    MatProgressSpinnerModule,
+    AngularMaterialModule,
     HttpClientModule,
     BrowserModule,
     UtilitiesModule,

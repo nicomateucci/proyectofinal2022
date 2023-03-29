@@ -17,7 +17,6 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //console.log(this.coursesService.getCourses());
   }
 
 }

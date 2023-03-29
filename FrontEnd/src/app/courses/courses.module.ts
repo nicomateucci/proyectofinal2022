@@ -4,6 +4,7 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { UtilitiesModule } from '../utilities/utilities.module';
 import { CourseItemComponent } from './course-item/course-item.component';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -12,8 +13,9 @@ import { CourseItemComponent } from './course-item/course-item.component';
   ],
   imports: [
     CommonModule,
+    CoursesRoutingModule,
     UtilitiesModule,
-    CoursesRoutingModule
+    AngularMaterialModule,
   ]
 })
 export class CoursesModule { }
