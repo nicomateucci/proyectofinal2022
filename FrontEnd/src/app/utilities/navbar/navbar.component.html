@@ -1,16 +1,17 @@
 <mat-toolbar class="bg-black">
-    <span class="text-light m-1 h3">
+    <span class="text-light m-1 h4">
       FinanSys
     </span>
     <a class="btn text-light" routerLink="/home" >Home</a>
-    <a class="btn text-light" routerLink="/courses" >Cursos</a>
+    <a class="btn text-light" routerLink="/courses">Cursos</a>
     <a class="btn text-light" routerLink="/assets">Activos</a>
     <span style="flex: 1 1 auto;"></span>
     <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
-      <a type="button" class="btn btn-primary btn-outline-success text-light" href="/profile">Perfil</a>
+      <a type="button" class="btn btn-primary btn-outline-success text-light" routerLink="/profile">Perfil</a>
       <button mat-button class="btn btn-outline-danger m-1 text-light" (click)="closeSession()">Cerrar Sesion</button>
     </ng-container>
     <ng-template #loggedOut>
       <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
+      <a type="button" class="btn btn-outline-success m-1" routerLink="/login">Iniciar Sesion</a>
     </ng-template>
 </mat-toolbar>

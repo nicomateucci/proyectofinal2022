@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from '@auth0/auth0-angular'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------MODULOS CUSTOM------------------------------------
 import { UtilitiesModule } from './utilities/utilities.module';
 import { AssetsModule } from './assets/assets.module';
 import { CoursesModule } from './courses/courses.module';
+
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 //------------------------------------MODULOS CUSTOM------------------------------------
 
@@ -18,6 +21,8 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 //------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------PIPES------------------------------------
@@ -27,9 +32,13 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
+    ToastrModule.forRoot({/* ACA VAN LOS CAMBIOS GLOBALES*/ }),
+    ReactiveFormsModule,
     AngularMaterialModule,
     HttpClientModule,
     BrowserModule,
@@ -47,7 +56,7 @@ import { HomeComponent } from './home/home.component';
       //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
       //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

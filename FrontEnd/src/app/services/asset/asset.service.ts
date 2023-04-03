@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import jsonData from '../../../dataLiveCoin.json';
-
 @Injectable({
   providedIn: 'root'
 })
-export class ActivoService {
+export class AssetService {
 
   url = "https://api.livecoinwatch.com/coins/list"
+  urlLocal="http://localhost:3000"
 
   constructor(
     private http: HttpClient,
@@ -17,7 +16,7 @@ export class ActivoService {
 
   //ACA HABRIA QUE HACER LA LLAMADA A LA API PARA OBTENER LOS DATOS
   getData() {
-    return jsonData;
+    return this.http.get(this.urlLocal+"/coins");
   }
 
   getDataFromApi() {
@@ -36,3 +35,4 @@ export class ActivoService {
     return this.http.post(this.url , payload, {headers} )
   }
 }
+

@@ -10,13 +10,14 @@ import { CourseService } from 'src/app/services/courses/course.service';
 export class CoursesComponent implements OnInit {
   
   courses : any[]=[]
+  
   constructor(
     private coursesService : CourseService
-  ) {
-    this.courses = this.coursesService.getCourses()
+  ){  
   }
 
   ngOnInit(): void {
+    this.courses = this.coursesService.getCourses()
   }
 
 }

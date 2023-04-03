@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit, OnInit, Input } from '@angular/cor
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivoService } from 'src/app/services/activo.service';
+import { AssetService } from 'src/app/services/asset/asset.service';
 
 @Component({
   selector: 'app-cryptocurrency',
@@ -13,19 +13,15 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
   @Input()
   pageSize!: number;
 
+  lenght!:number;
   pageNum: number = 0;
   pageSizeOptions = [5, 10, 20]
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['rank', 'name', 'rate', 'allTimeHighUSD', 'volume'];
 
   constructor(
-    private activoService: ActivoService
+    private assetService: AssetService
   ) {}
-
-  public getLength(): number {
-    //ACA IRIA EL TAMAÑO DE LOS DATOS TRAIDOS DE LA API
-    return this.activoService.getData().length;
-  }
 
   handlePage(e: PageEvent) {
     this.pageNum = e.pageIndex + 1;
@@ -34,11 +30,16 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource();
-    this.activoService.getDataFromApi().subscribe(
+    this.assetService.getData().subscribe(
       (data: any) => {
-        this.dataSource.data = data
+        this.dataSource.data = data;
       }
     )
+    // this.assetService.getDataFromApi().subscribe(
+    //   (data: any) => {
+    //     this.dataSource.data = data
+    //   }
+    // )
   }
 
   @ViewChild('paginator') paginator !: MatPaginator;
