@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AssetService {
 
-  url = "https://api.livecoinwatch.com/coins/list"
-  urlLocal="http://localhost:3000"
+  urlApi = "https://api.livecoinwatch.com/coins/list"
+  urlBackend : string ="http://localhost:3000/";
 
   constructor(
     private http: HttpClient,
@@ -16,7 +16,7 @@ export class AssetService {
 
   //ACA HABRIA QUE HACER LA LLAMADA A LA API PARA OBTENER LOS DATOS
   getData() {
-    return this.http.get(this.urlLocal+"/coins");
+    return this.http.get(this.urlBackend+"coins");
   }
 
   getDataFromApi() {
@@ -32,7 +32,7 @@ export class AssetService {
       'content-type': 'application/json',
       'x-api-key': 'c6cd5096-b115-4ce0-b4be-5e447cf0b74b'
     }
-    return this.http.post(this.url , payload, {headers} )
+    return this.http.post(this.urlApi , payload, {headers} )
   }
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/services/users/user.service';
 
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/users/user.service';
 export class LoginComponent implements OnInit {
 
 
-  loginform = this.builder.group({
+  loginForm = this.builder.group({
     id: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required)
   });
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
-    private userService: UserService) {
+    private userService: UserService,
+    private router: Router) {
     sessionStorage.clear();
   }
 
@@ -28,12 +30,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  proceedlogin() {
+  loginUser() {
     //ESTO PODRIA RESOLVERSE CON UN TRY CATCHEN LA BD
-    if (this.loginform.valid) {
-      this.userService.getUser(String(this.loginform.value.id),String(this.loginform.value.password)).subscribe((data: any) => {
-        if (data.password === this.loginform.value.password) {
-          console.log(data);
+    if (this.loginForm.valid) {
+      let userName = String(this.loginForm.value.id);
+      let password = String(this.loginForm.value.password)
+      this.userService.getUser(userName).subscribe((data: any) => {
+        //Aca la contraseña tiene que estar hasheada para mayor seguridad
+        if (data.password === password) {
+          this.toastr.success("User Login succesfull!", data.id);
+          this.router.navigate(["/home"]);
         }
         else {
           this.toastr.error('Invalid credentials');

@@ -11,14 +11,14 @@ import { UserService } from '../services/users/user.service';
 })
 export class RegisterComponent {
 
-  registerform = this.builder.group({
+  registerForm = this.builder.group({
     id: this.builder.control('', Validators.compose([Validators.required, Validators.minLength(5)])),
     name: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.compose([Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])),
     email: this.builder.control('', Validators.compose([Validators.required, Validators.email])),
-    gender: this.builder.control('male'),
-    role: this.builder.control(''),
-    isactive: this.builder.control(false)
+    // gender: this.builder.control('male'),
+    // role: this.builder.control(''),
+    // isactive: this.builder.control(false)
   });
 
   constructor(
@@ -28,11 +28,11 @@ export class RegisterComponent {
     private toastr: ToastrService) {
   }
 
-  proceedregister() {
-    if (this.registerform.valid) {
-      this.service.RegisterUser(this.registerform.value).subscribe(result => {
+  registerUser() {
+    if (this.registerForm.valid) {
+      this.service.RegisterUser(this.registerForm.value).subscribe(result => {
         this.toastr.success('Please contact admin for enable access.', 'Registered successfully')
-        this.router.navigate(['login'])
+        this.router.navigate(['/login'])
       });
     } else {
       this.toastr.warning('Please enter valid data.')

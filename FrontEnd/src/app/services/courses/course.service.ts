@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const arrCourses: any[] = [
@@ -18,14 +19,21 @@ const arrCourses: any[] = [
 })
 export class CourseService {
 
-  constructor() { }
+  urlBackend : string ="http://localhost:3000/";
 
-  getCourses(): any[] {
-    return arrCourses
+  constructor(
+    private http: HttpClient){ 
+  
+    }
+
+  getCourses() {
+    //return arrCourses;
+    return this.http.get(this.urlBackend+"courses");
   }
 
   getCourse(nameCourse: string) {
-    return arrCourses.find(element => element.name == nameCourse);
+    return this.http.get(this.urlBackend+"courses?name="+nameCourse)
+    //return arrCourses.find(element => element.name == nameCourse);
   }
 
 }

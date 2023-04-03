@@ -2,7 +2,7 @@
     <div class="row">
         <h1 class="p-2">Principiantes</h1>
         <div class="col" *ngFor="let course of courses">
-            <app-card style="height: auto;" [idCourse]="course.name"></app-card>
+            <app-card [idCourse]="course.name"></app-card>
         </div>
     </div>
     <div class="row">

@@ -4,7 +4,7 @@
             <h2>Registrar</h2>
         </mat-card-header>
         <mat-card-content>
-            <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
+            <form class="example-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
                 <mat-form-field class="col example-full-width">
                     <mat-label>Username</mat-label>
                     <input matInput formControlName="id">
@@ -21,10 +21,10 @@
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email">
                 </mat-form-field>
-                <mat-radio-group clas="col" formControlName="gender" aria-label="Select an option">
+                <!-- <mat-radio-group  formControlName="gender" aria-label="Select an option">
                     <mat-radio-button value="male">Hombre</mat-radio-button>
                     <mat-radio-button value="female">Mujer</mat-radio-button>
-                </mat-radio-group>
+                </mat-radio-group> -->
                 <div>
                     <button class="m-1" mat-raised-button color="primary">Registrar</button>
                     <a class="m-1" routerLink="/login" mat-raised-button color="accent">Volver a Login</a>

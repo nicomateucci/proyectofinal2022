@@ -8,16 +8,16 @@ import { Observable } from 'rxjs';
 
 export class UserService {
 
-  urlLocal="http://localhost:3000/";
+  urlBackend : string ="http://localhost:3000/";
 
   constructor(private http: HttpClient
     ){ }
   
-  getUser(userName:string,userPassword:string){
-    return this.http.get(this.urlLocal+"users/"+userName)
+  getUser(userName:string){
+    return this.http.get(this.urlBackend+"users/"+userName)
   }
 
   RegisterUser(valueForm:any){
-    return new Observable<any>;
+    return this.http.post(this.urlBackend+"users/",valueForm)
   }
 }
