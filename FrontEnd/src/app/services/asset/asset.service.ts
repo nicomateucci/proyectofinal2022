@@ -4,19 +4,22 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AssetService {
 
   urlApi = "https://api.livecoinwatch.com/coins/list"
-  urlBackend : string ="http://localhost:3000/";
+  urlBackend: string = "http://localhost:3000/coins/";
 
   constructor(
     private http: HttpClient,
-  ) {
+  ) { }
+
+  getDataAllCoins() {
+    return this.http.get(this.urlBackend);
   }
 
-  //ACA HABRIA QUE HACER LA LLAMADA A LA API PARA OBTENER LOS DATOS
-  getData() {
-    return this.http.get(this.urlBackend+"coins");
+  getDataCoin(nameCoin:string) {
+    return this.http.get(this.urlBackend+"?name="+nameCoin);
   }
 
   getDataFromApi() {
@@ -32,7 +35,7 @@ export class AssetService {
       'content-type': 'application/json',
       'x-api-key': 'c6cd5096-b115-4ce0-b4be-5e447cf0b74b'
     }
-    return this.http.post(this.urlApi , payload, {headers} )
+    return this.http.post(this.urlApi, payload, { headers })
   }
 }
 

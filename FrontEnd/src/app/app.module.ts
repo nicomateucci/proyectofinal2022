@@ -13,7 +13,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { UtilitiesModule } from './utilities/utilities.module';
 import { AssetsModule } from './assets/assets.module';
 import { CoursesModule } from './courses/courses.module';
-
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 //------------------------------------MODULOS CUSTOM------------------------------------
 
@@ -26,6 +25,7 @@ import { RegisterComponent } from './register/register.component';
 //------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------PIPES------------------------------------
+//Declaracion de pipes custom
 //------------------------------------PIPES------------------------------------
 
 @NgModule({

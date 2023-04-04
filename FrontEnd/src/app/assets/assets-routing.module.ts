@@ -6,8 +6,8 @@ import { ValuesItemComponent } from './values-item/values-item.component';
 
 const routes: Routes = [
   { path: 'assets', component: AssetsComponent},
-  { path: 'assets/cryptocurrency/:id', component: CryptocurrencyItemComponent},
-  { path: 'assets/values/:id', component: ValuesItemComponent},
+  { path: 'assets/cryptocurrency/:name', component: CryptocurrencyItemComponent},
+  { path: 'assets/values/:name', component: ValuesItemComponent},
 ];
 
 @NgModule({

@@ -30,7 +30,7 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource();
-    this.assetService.getData().subscribe(
+    this.assetService.getDataAllCoins().subscribe(
       (data: any) => {
         this.dataSource.data = data;
       }

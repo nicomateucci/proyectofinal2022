@@ -13,16 +13,16 @@ export class CourseItemComponent implements OnInit {
 
   constructor(
     private courseService: CourseService,
-    private route: ActivatedRoute
-  ) {
+    private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
     this.route.params.subscribe((data: any) => {
       this.course = data.id;
     })
-  }
-
-  ngOnInit(): void {
     this.courseService.getCourse(this.course).subscribe((data: any) => {
-      this.course = data;
+      this.course = data[0];
     })
   }
+
 }

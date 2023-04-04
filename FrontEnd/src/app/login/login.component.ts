@@ -12,7 +12,6 @@ import { UserService } from 'src/app/services/users/user.service';
 
 export class LoginComponent implements OnInit {
 
-
   loginForm = this.builder.group({
     id: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required)
@@ -26,12 +25,9 @@ export class LoginComponent implements OnInit {
     sessionStorage.clear();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   loginUser() {
-    //ESTO PODRIA RESOLVERSE CON UN TRY CATCHEN LA BD
     if (this.loginForm.valid) {
       let userName = String(this.loginForm.value.id);
       let password = String(this.loginForm.value.password)

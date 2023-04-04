@@ -33,7 +33,7 @@ export class ValuesComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     //SI ESTO VA EN EL CONSTRUCTOR EL API, EL PAGINADOR Y EL ORDENAMIENTO FUNCIONA, EN EL ONINIT NO
     this.dataSource = new MatTableDataSource();
-    this.assetService.getData().subscribe(
+    this.assetService.getDataAllCoins().subscribe(
       (data: any) => {
         this.dataSource.data = data
       }
