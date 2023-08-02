@@ -2141,9 +2141,9 @@
   ],
   "users": [
     {
-      "id": "Zalito",
+      "id": "zalo",
       "name": "Gonza",
-      "password": "zalo123",
+      "password": "zalo",
       "email": "test@gmail.com",
       "gender": "male",
       "role": "admin"
@@ -2156,11 +2156,47 @@
       "gender": "male",
       "role": "admin",
       "isactive": false
+    },
+    {
+      "id": "asdsadasd",
+      "name": "Zalito",
+      "password": "Z@lito123",
+      "email": "asdasdas@gmail.com"
     }
   ],
   "courses": [
     {
       "id": 1,
+      "name": "Bitcoin Academy",
+      "weight": 1.0079,
+      "symbol": "H"
+    },
+    {
+      "id": 2,
+      "name": "Bitcoin Academy",
+      "weight": 1.0079,
+      "symbol": "H"
+    },
+    {
+      "id": 3,
+      "name": "Bitcoin Academy",
+      "weight": 1.0079,
+      "symbol": "H"
+    },
+    {
+      "id": 4,
+      "name": "Bitcoin Academy",
+      "weight": 1.0079,
+      "symbol": "H"
+    },
+    {
+      "id": 5,
+      "name": "Bitcoin Academy",
+      "weight": 1.0079,
+      "symbol": "H"
+    },
+    {
+      "id": 6,
       "name": "Bitcoin Academy",
       "weight": 1.0079,
       "symbol": "H"

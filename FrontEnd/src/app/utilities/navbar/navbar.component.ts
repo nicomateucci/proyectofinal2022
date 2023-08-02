@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '@auth0/auth0-angular';
+import { ToastrService } from 'ngx-toastr';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,17 +13,24 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public authService:AuthService,
+    public dialog : MatDialog,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
   }
 
-  loginUser(){
-    this.authService.loginWithRedirect();
-  }
+  //0AUTH METODOS
+  // loginUser(){
+  //   this.authService.loginWithRedirect();
+  // }
 
-  closeSession(){
-    this.authService.logout();
+  // closeSession(){
+  //   this.authService.logout();
+  // }
+
+  login(){
+    const dialogRef = this.dialog.open(LoginComponent);
   }
 
 }

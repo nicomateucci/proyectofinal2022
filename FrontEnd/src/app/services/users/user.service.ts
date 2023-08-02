@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   urlBackend: string = "http://localhost:3000/users/";
-
+  user$ :Observable <any> | undefined;
+  
   constructor(private http: HttpClient
   ) { }
 

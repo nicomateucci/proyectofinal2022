@@ -8,12 +8,16 @@ import { CarouselModule } from '@coreui/angular';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
+let utilities = [
+  FooterComponent,
+  NavbarComponent,
+  CarrouselComponent,
+  CardComponent
+]
+
 @NgModule({
   declarations: [
-    FooterComponent,
-    NavbarComponent,
-    CarrouselComponent,
-    CardComponent
+  ...utilities
   ],
   imports: [
     CarouselModule,
@@ -22,10 +26,7 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
     AngularMaterialModule
   ],
   exports:[
-    FooterComponent,
-    NavbarComponent,
-    CarrouselComponent,
-    CardComponent
+    ...utilities
   ]
 })
 export class UtilitiesModule { }

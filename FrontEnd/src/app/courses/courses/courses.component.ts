@@ -9,12 +9,11 @@ import { CourseService } from 'src/app/services/courses/course.service';
 
 export class CoursesComponent implements OnInit {
   
-  courses : any[]=[];
+  courses : any;
   
   constructor(
     private coursesService : CourseService
-  ){  
-  }
+  ){}
 
   ngOnInit(): void {
     this.coursesService.getCourses().subscribe(

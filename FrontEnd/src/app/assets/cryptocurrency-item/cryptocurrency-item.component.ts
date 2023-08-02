@@ -14,15 +14,16 @@ export class CryptocurrencyItemComponent implements OnInit {
   constructor(
     private assetService: AssetService,
     private route: ActivatedRoute
-    ){ 
-      this.route.params.subscribe((data: any) => {
-        this.item = data.name;
-      })
+  ){ 
+    this.route.params.subscribe((data: any) => {
+      this.item = data.name;
+    })
   }
 
   ngOnInit() {
     this.assetService.getDataCoin(this.item).subscribe((data:any) => {
-      this.item = JSON.stringify(data[0],null, 2);
+      this.item = data[0];
+      console.log(data[0])
     })
   }
 }

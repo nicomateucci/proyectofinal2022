@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +6,10 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+
   title = 'FinanSys';
 
-  constructor(
-    public authService:AuthService,
-  ){
-    
-  }
-  
-  onInit(){
+  constructor() { }
 
-  }
+  onInit() {}
 }

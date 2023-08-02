@@ -1,26 +1,26 @@
-<div class="m-2">
-  <mat-card class="m-auto align-items-center w-50  border solid">
-    <mat-card-header>
-      <h2>Login</h2>
-    </mat-card-header>
-    <mat-card-content>
-      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
-        <div>
-          <mat-form-field class="col example-full-width ">
-            <mat-label>Usuario/Email</mat-label>
-            <input matInput formControlName="id">
-          </mat-form-field>
-          <mat-form-field class="col example-full-width ">
-            <mat-label>Contraseña</mat-label>
-            <input matInput type="password" formControlName="password">
-          </mat-form-field>
-        </div>
-        <a href="/" (click)="mostrarMensaje">Contraseña olvidada?</a>
-        <div>
-          <button class="m-1" mat-raised-button color="primary">Login</button>
-          <a class="m-1" routerLink="/register" mat-raised-button color="accent">Nuevo?</a>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<div class="container-fluid w-100 h-100">
+  <h1 mat-dialog-title class="text-center">Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <mat-dialog-content>
+      <mat-form-field class="col example-full-width ">
+        <mat-label>Usuario/Email</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+      <mat-form-field class="col example-full-width ">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="start">
+      <a mat-button href="https://www.google.com/" [mat-dialog-close]="false" target="_blank">Contraseña olvidada?</a>
+      <a mat-button href="https://www.google.com/" [mat-dialog-close]="false" target="_blank">Nuevo?</a>
+    </mat-dialog-actions>
+    <mat-dialog-actions align="end">
+      <button class="m-1" mat-raised-button color="primary" >Login</button>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Cerrar</button>
+    </mat-dialog-actions>
+  </form>
 </div>
+
+
+

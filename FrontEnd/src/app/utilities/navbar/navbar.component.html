@@ -1,17 +1,28 @@
 <mat-toolbar class="bg-black">
-    <span class="text-light m-1 h4">
-      FinanSys
-    </span>
-    <a class="btn text-light" routerLink="/home" >Home</a>
-    <a class="btn text-light" routerLink="/courses">Cursos</a>
-    <a class="btn text-light" routerLink="/assets">Activos</a>
+    <button class="text-light h3" mat-button routerLink="/home">FinanSys</button>
+    <button class="text-light" mat-button [matMenuTriggerFor]="courses"> Cursos </button>
+    <button class="text-light" mat-button [matMenuTriggerFor]="assets"> Activos </button>
+
+    <mat-menu #courses="matMenu">
+      <button mat-menu-item routerLink="/courses">Todos</button>
+      <button mat-menu-item routerLink="/courses">Principiantes</button>
+      <button mat-menu-item routerLink="/courses">Intermedios</button>
+      <button mat-menu-item routerLink="/courses">Avanzados</button>
+    </mat-menu>
+
+    <mat-menu #assets="matMenu">
+      <button mat-menu-item routerLink="/assets">Todos</button>
+      <button mat-menu-item routerLink="/assets">Criptomonedas</button>
+      <button mat-menu-item routerLink="/assets">Valores</button>
+    </mat-menu>
+    
     <span style="flex: 1 1 auto;"></span>
     <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
       <a type="button" class="btn btn-primary btn-outline-success text-light" routerLink="/profile">Perfil</a>
-      <button mat-button class="btn btn-outline-danger m-1 text-light" (click)="closeSession()">Cerrar Sesion</button>
+      <!-- <button mat-button class="btn btn-outline-danger m-1 text-light" (click)="closeSession()">Cerrar Sesion</button> -->
     </ng-container>
     <ng-template #loggedOut>
       <!-- <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button> -->
-      <a type="button" class="btn btn-outline-success m-1" routerLink="/login">Iniciar Sesion</a>
+      <button class="btn btn-outline-success m-1" (click)="login()">Iniciar Sesion </button>
     </ng-template>
 </mat-toolbar>

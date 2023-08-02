@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/services/users/user.service';
 
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     private builder: FormBuilder,
     private toastr: ToastrService,
     private userService: UserService,
-    private router: Router) {
+    private dialogRef: MatDialogRef<LoginComponent>
+  ){
     sessionStorage.clear();
   }
 
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
         //Aca la contraseña tiene que estar hasheada para mayor seguridad
         if (data.password === password) {
           this.toastr.success("User Login succesfull!", data.id);
-          this.router.navigate(["/home"]);
+          this.dialogRef.close();
         }
         else {
           this.toastr.error('Invalid credentials');
@@ -46,7 +47,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  mostrarMensaje() {
-    this.toastr.info("Era por abajo palacio", "2014")
+  closePopup(){
+    this.dialogRef.close();
   }
+
 }
