@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/services/users/user.service';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,19 @@ import { UserService } from 'src/app/services/users/user.service';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginForm = this.builder.group({
-    id: this.builder.control('', Validators.required),
-    password: this.builder.control('', Validators.required)
+  loginForm = new FormGroup({
+    id: new FormControl('',[Validators.required]),
+    password: new FormControl('',[Validators.required])
   });
 
   constructor(
-    private builder: FormBuilder,
     private toastr: ToastrService,
     private userService: UserService,
+    private dialog : MatDialog,
     private dialogRef: MatDialogRef<LoginComponent>
-  ){
-    sessionStorage.clear();
-  }
-
-  ngOnInit(): void {}
+  ){}
 
   loginUser() {
     if (this.loginForm.valid) {
@@ -41,7 +38,8 @@ export class LoginComponent implements OnInit {
         else {
           this.toastr.error('Invalid credentials');
         }
-      });
+      }
+      );
     } else {
       this.toastr.warning('Please enter valid data.')
     }
@@ -49,6 +47,11 @@ export class LoginComponent implements OnInit {
 
   closePopup(){
     this.dialogRef.close();
+  }
+
+  register(){
+    this.closePopup();
+    this.dialog.open(RegisterComponent);
   }
 
 }

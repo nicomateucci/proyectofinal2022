@@ -17,12 +17,13 @@
     </mat-menu>
     
     <span style="flex: 1 1 auto;"></span>
-    <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+    <!-- <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
       <a type="button" class="btn btn-primary btn-outline-success text-light" routerLink="/profile">Perfil</a>
-      <!-- <button mat-button class="btn btn-outline-danger m-1 text-light" (click)="closeSession()">Cerrar Sesion</button> -->
+      <button mat-button class="btn btn-outline-danger m-1 text-light" (click)="closeSession()">Cerrar Sesion</button> 
     </ng-container>
     <ng-template #loggedOut>
-      <!-- <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button> -->
+       <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
       <button class="btn btn-outline-success m-1" (click)="login()">Iniciar Sesion </button>
-    </ng-template>
+    </ng-template> -->
+    <button class="btn btn-outline-success m-1" (click)="login()">Iniciar Sesion </button>
 </mat-toolbar>
