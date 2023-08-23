@@ -4,6 +4,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/services/users/user.service';
 import { RegisterComponent } from '../register/register.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,30 +29,23 @@ export class LoginComponent {
 
   loginUser() {
     if (this.loginForm.valid) {
-      let userName = String(this.loginForm.value.id);
-      let password = String(this.loginForm.value.password)
-      this.userService.getUser(userName).subscribe((data: any) => {
-        //Aca la contraseña tiene que estar hasheada para mayor seguridad
-        if (data.password === password) {
-          this.toastr.success("User Login succesfull!", data.id);
+    //Se debe buscar el usuario con el login y ver que el mismo exzista, retornar el currentUser$ (Observable bolleano)
+    //this.userService.login(userName,password)
+    this.userService.loginUser(this.loginForm).subscribe({
+      next: (user) => {
+        if (user){
+          this.toastr.success("User Login succesfull!");
           this.dialogRef.close();
-        }
-        else {
-          this.toastr.error('Invalid credentials');
+        }else{
+          this.toastr.error('Usuario inexistente/contraseña erronea');
         }
       }
-      );
-    } else {
-      this.toastr.warning('Please enter valid data.')
-    }
+    })
   }
-
-  closePopup(){
-    this.dialogRef.close();
   }
 
   register(){
-    this.closePopup();
+    this.dialogRef.close();
     this.dialog.open(RegisterComponent);
   }
 

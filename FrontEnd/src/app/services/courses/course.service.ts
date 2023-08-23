@@ -7,19 +7,16 @@ import { Injectable } from '@angular/core';
 
 export class CourseService {
 
-  urlBackend: string = "http://localhost:3000/courses";
-
   constructor(
     private http: HttpClient) {
   }
 
   getCourses() {
-    //return arrCourses;
-    return this.http.get(this.urlBackend);
+    return this.http.get('/api/courses');
   }
 
   getCourse(nameCourse: string) {
-    return this.http.get(this.urlBackend + "?name=" + nameCourse);
+    return this.http.get('/api/courses?name='+ nameCourse);
   }
 
 }

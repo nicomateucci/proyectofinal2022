@@ -1,8 +1,8 @@
 .card {
     all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
+    border-radius: 25px;
+    border: 5px solid #000000;
+    background-color: #776363;
     height: 50px;
     width: 200px;
     margin: 0 8px 16px ;
@@ -11,5 +11,4 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    line-height: 24px;
 }

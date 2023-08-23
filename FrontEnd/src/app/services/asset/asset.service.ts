@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class AssetService {
 
-  urlApi = "https://api.livecoinwatch.com/coins/list"
+  // urlApi = "https://api.livecoinwatch.com/coins/list"
   urlBackend: string = "http://localhost:3000/coins/";
 
   constructor(
@@ -15,27 +15,27 @@ export class AssetService {
   ) { }
 
   getDataAllCoins() {
-    return this.http.get(this.urlBackend);
+    return this.http.get('/api/coins/');
   }
 
   getDataCoin(nameCoin:string) {
-    return this.http.get(this.urlBackend+"?name="+nameCoin);
+    return this.http.get('/api/coins?name='+nameCoin);
   }
 
-  getDataFromApi() {
-    let payload = {
-      "currency": "USD",
-      "sort": "rank",
-      "order": "ascending",
-      "offset": 0,
-      "limit": 100,
-      "meta": true
-    }
-    let headers = {
-      'content-type': 'application/json',
-      'x-api-key': 'c6cd5096-b115-4ce0-b4be-5e447cf0b74b'
-    }
-    return this.http.post(this.urlApi, payload, { headers })
-  }
+  // getDataFromApi() {
+  //   let payload = {
+  //     "currency": "USD",
+  //     "sort": "rank",
+  //     "order": "ascending",
+  //     "offset": 0,
+  //     "limit": 100,
+  //     "meta": true
+  //   }
+  //   let headers = {
+  //     'content-type': 'application/json',
+  //     'x-api-key': 'c6cd5096-b115-4ce0-b4be-5e447cf0b74b'
+  //   }
+  //   return this.http.post(this.urlApi, payload, { headers })
+  // }
 }
 

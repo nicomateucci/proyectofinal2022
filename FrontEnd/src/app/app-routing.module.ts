@@ -4,15 +4,36 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { userLogginGuard } from './guards/user-loggin.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: "full" },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { 
+    path: '', 
+    redirectTo: 'home', pathMatch: "full" 
+  },
+  { 
+    path: 'home', 
+    component: HomeComponent 
+  },
+  { 
+    path: 'profile', 
+    component: ProfileComponent,
+    canMatch:[userLogginGuard] 
+  },
+  { 
+    path: 'login', 
+    component: LoginComponent
+  },
+  { 
+    path: 'register', 
+    component: RegisterComponent
+  },
   //Default routes redirect home
-  { path: '**', component: HomeComponent },
+  
+  { 
+    path: '**', 
+    component: HomeComponent 
+  },
 ];
 
 @NgModule({

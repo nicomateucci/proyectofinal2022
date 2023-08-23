@@ -10,11 +10,9 @@ import { AssetService } from 'src/app/services/asset/asset.service';
   styleUrls: ['./cryptocurrency.component.css']
 })
 export class CryptocurrencyComponent implements OnInit, AfterViewInit {
-  @Input()
-  pageSize!: number;
 
-  lenght!:number;
-  pageNum: number = 0;
+  pageSize!: number;
+  pageNum!: number;
   pageSizeOptions = [5, 10, 20]
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['rank', 'name', 'rate', 'allTimeHighUSD', 'volume'];
@@ -44,6 +42,7 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
 
   @ViewChild('paginator') paginator !: MatPaginator;
   @ViewChild('empTbSort') empTbSort !: MatSort;
+  
   ngAfterViewInit() {
     //Esto para pasarle el dato del paginador
     this.dataSource.paginator = this.paginator;

@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from '../services/users/user.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent {
   constructor(
     private service: UserService, 
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialogRef: MatDialogRef<RegisterComponent>
   ){ }
   
   submitted = false;
@@ -25,7 +27,7 @@ export class RegisterComponent {
       password: new FormControl(null,[Validators.required, this.patternValidator()]),
       confirmPassword: new FormControl(null,[this.patternValidator()]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      // gender: new FormControl('male'),
+      gender: new FormControl(),
       // role: new FormControl(''),
       isactive: new FormControl(false)
     },
@@ -44,10 +46,13 @@ export class RegisterComponent {
   registerUser() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      this.service.RegisterUser(this.registerForm.value).subscribe( () => {
-        this.toastr.success('Please contact admin for enable access.', 'Registered successfully')
-        this.router.navigate(['/home'])
-      });
+      this.service.registerUser(this.registerForm.value).subscribe({
+        next: () => {
+          this.toastr.success('Please contact admin for enable access.', 'Registered successfully')
+          this.dialogRef.close();
+          this.router.navigateByUrl('/home');
+        }
+      })
     } else {
       this.toastr.warning('Please enter valid data.')
     }
@@ -71,17 +76,10 @@ export class RegisterComponent {
       const passwordControl = control.get('password');
       const confirmPasswordControl = control.get('confirmPassword');
 
-      if (!passwordControl || !confirmPasswordControl) {
-        return null;
+      if (passwordControl?.value !== confirmPasswordControl?.value) {
+        confirmPasswordControl?.setErrors({ passwordMismatch: true });
       }
-
-      if (confirmPasswordControl.errors && !confirmPasswordControl.errors['passwordMismatch']) {
-        return null;
-      }
-
-      if (passwordControl.value !== confirmPasswordControl.value) {
-        confirmPasswordControl.setErrors({ passwordMismatch: true });
-      }
+      
       return null;
     };
   }
@@ -90,7 +88,7 @@ export class RegisterComponent {
     return (control: AbstractControl) => {
       const userControl = control.get('id');
       setTimeout(() => {
-        if (this.searchUserName(userControl?.value)) {
+        if (this.searchUserName(userControl?.value)) {  
           userControl?.setErrors({ userNameNotAvailable: true })
         }
       }, 1000);

@@ -1,83 +1,79 @@
-<div class="p-3">
-    <mat-card class="m-auto align-items-center w-25  border solid">
-        <mat-card-header>
-            <h2>Registrar</h2>
-        </mat-card-header>
-        <mat-card-content>
-            <form class="example-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
-                <mat-form-field class="col example-full-width">
-                    <mat-label> Username </mat-label>
-                    <input matInput formControlName="id">
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['required']">
-                        Username es requerido
-                    </span>
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['minlength']">
-                        Username debe tener mas de 4 caracteres
-                    </span>
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['userNameNotAvailable']">
-                        Username no esta disponible
-                    </span>
-                </mat-form-field>
+<div class="container-fluid" style="width: 600px;">
+    <h1 mat-dialog-title class="text-center">Registrar</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <mat-dialog-content>
+        <mat-form-field class="col example-full-width">
+            <mat-label> Username </mat-label>
+            <input matInput formControlName="id">
+            <span class="text-danger"
+                *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['required']">
+                Username es requerido
+            </span>
+            <span class="text-danger"
+                *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['minlength']">
+                Username debe tener mas de 4 caracteres
+            </span>
+            <span class="text-danger"
+                *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['userNameNotAvailable']">
+                Username no esta disponible
+            </span>
+        </mat-form-field>
 
-                <mat-form-field class="col example-full-width">
-                    <mat-label> Nombre </mat-label>
-                    <input matInput formControlName="name">
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.name.touched || submitted )  && registerForm.controls.name.errors?.['required']">
-                        Nombre es requerido
-                    </span>
-                </mat-form-field>
+        <mat-form-field class="col example-full-width">
+            <mat-label> Nombre </mat-label>
+            <input matInput formControlName="name">
+            <span class="text-danger"
+                *ngIf="(registerFormControl.name.touched || submitted )  && registerForm.controls.name.errors?.['required']">
+                Nombre es requerido
+            </span>
+        </mat-form-field>
 
-                <mat-form-field class="col example-full-width">
-                    <mat-label> Contraseña </mat-label>
-                    <input type="password" matInput formControlName="password">
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.password.touched || submitted)  && registerFormControl.password.errors?.['required']">
-                        Password es requerida
-                    </span>
-                    <span class="text-danger"
-                        *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.['invalidPassword']">
-                        La contraseña debe ser de 8 caracteres, contener 1 mayuscula, 1 minuscula y 1 numero
-                    </span>
-                </mat-form-field>
+        <mat-form-field class="col example-full-width">
+            <mat-label> Contraseña </mat-label>
+            <input type="password" matInput formControlName="password">
+            <span class="text-danger"
+                *ngIf="(registerFormControl.password.touched || submitted)  && registerFormControl.password.errors?.['required']">
+                Password es requerida
+            </span>
+            <span class="text-danger"
+                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.['invalidPassword']">
+                La contraseña debe ser de 8 caracteres, contener 1 mayuscula, 1 minuscula y 1 numero
+            </span>
+        </mat-form-field>
 
-                <mat-form-field class="col example-full-width">
-                    <mat-label> Repetir contraseña </mat-label>
-                    <input type="password" matInput formControlName="confirmPassword">
-                    <!-- FALTA VER LA VALIDACION DE LAS CONTRASEÑAS -->
-                    <span class="text-danger"
-                        *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.['passwordMismatch']">
-                        Las contraseñas no coiciden
-                    </span>
-                </mat-form-field>
+        <mat-form-field class="col example-full-width">
+            <mat-label> Repetir contraseña </mat-label>
+            <input type="password" matInput formControlName="confirmPassword">
+            <!-- FALTA VER LA VALIDACION DE LAS CONTRASEÑAS -->
+            <span class="text-danger"
+                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.['passwordMismatch']">
+                Las contraseñas no coiciden
+            </span>
+        </mat-form-field>
 
-                <mat-form-field class="col example-full-width">
-                    <mat-label> Email </mat-label>
-                    <input matInput formControlName="email">
-                    <span class="text-danger"
-                        *ngIf="(registerFormControl.email.touched || submitted)  && registerFormControl.email.errors?.['required']">
-                        Email es requerido
-                    </span>
-                    <span class="text-danger"
-                        *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.['email']">
-                        Email invalido
-                    </span>
-                </mat-form-field>
+        <mat-form-field class="col example-full-width">
+            <mat-label> Email </mat-label>
+            <input matInput formControlName="email">
+            <span class="text-danger"
+                *ngIf="(registerFormControl.email.touched || submitted)  && registerFormControl.email.errors?.['required']">
+                Email es requerido
+            </span>
+            <span class="text-danger"
+                *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.['email']">
+                Email invalido
+            </span>
+        </mat-form-field>
 
-                <!-- <mat-radio-group  formControlName="gender" aria-label="Select an option">
-                    <mat-radio-button value="male">Hombre</mat-radio-button>
-                    <mat-radio-button value="female">Mujer</mat-radio-button>
-                </mat-radio-group> -->
+        <mat-radio-group  formControlName="gender" aria-label="Select an option">
+            <mat-radio-button value="male" style="margin-left: 16px;"> Hombre </mat-radio-button>
+            <mat-radio-button value="female" style="margin-left: 16px;"> Mujer </mat-radio-button>
+        </mat-radio-group>
 
-                <div>
-                    <a class="m-1" routerLink="/home" mat-raised-button color="accent">Pagina principal</a>
-                    <button class="m-1" mat-raised-button color="primary" >Registrar</button>
-                </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
-</div>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button class="m-1" mat-raised-button color="warn" [mat-dialog-close]="false">Cerrar</button>
+        <button class="m-1" mat-raised-button color="primary" >Registrar</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
 

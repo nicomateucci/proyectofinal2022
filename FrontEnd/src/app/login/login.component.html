@@ -13,7 +13,7 @@
     </mat-dialog-content>
     <mat-dialog-actions align="start">
       <a mat-button href="https://www.google.com/" [mat-dialog-close]="false" target="_blank">Contraseña olvidada?</a>
-      <a mat-button href="/register"  [mat-dialog-close]="false" >Nuevo?</a>
+      <button mat-button  [mat-dialog-close]="false" (click)="register()" >Nuevo?</button>
     </mat-dialog-actions>
     <mat-dialog-actions align="end">
       <button class="m-1" mat-raised-button color="primary" >Login</button>

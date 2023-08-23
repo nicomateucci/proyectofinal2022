@@ -1,16 +1,15 @@
 <div class="container-fluid">
-    <mat-tab-group animationDuration="800ms">
+    <mat-tab-group animationDuration="800ms" [backgroundColor]="primary">
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon class="m-1">account_balance_wallet</mat-icon>
                 Criptomonedas
-            </ng-template>
-            <!--ACA PODRIAMOS PASAR POR PROPIDAD O NGCLASS EL TIPO Y MOSTRAR LSO ACTIVOS SELECCIONADOS-->
+            </ng-template>        
             <app-cryptocurrency>
             </app-cryptocurrency>
         </mat-tab>
         
-        <mat-tab label="Cereales">
+        <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon class="m-1">bar_chart</mat-icon>
                 Valores

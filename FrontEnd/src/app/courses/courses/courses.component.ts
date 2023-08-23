@@ -10,7 +10,8 @@ import { CourseService } from 'src/app/services/courses/course.service';
 export class CoursesComponent implements OnInit {
   
   courses : any;
-  
+  panelOpenState = false;
+
   constructor(
     private coursesService : CourseService
   ){}

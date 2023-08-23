@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-assets',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./assets.component.css']
 })
 export class AssetsComponent {
+  
+  primary: ThemePalette = 'primary';
 
 }
