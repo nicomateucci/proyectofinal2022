@@ -7,14 +7,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class AssetService {
 
-  // urlApi = "https://api.livecoinwatch.com/coins/list"
-  urlBackend: string = "http://localhost:3000/coins/";
+  //urlApi = "https://api.livecoinwatch.com/coins/list"
+  //EXISTE UN PROXY CONFIGURADO PARA EVITAR POENR LA URL ENTERA
+  //urlBackend: string = "http://localhost:3000/coins/";
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  getDataAllCoins() {
+  getDataCoins() {
     return this.http.get('/api/coins/');
   }
 

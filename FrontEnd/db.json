@@ -2158,42 +2158,11 @@
       "isactive": false
     },
     {
-      "id": "asdsadasd",
-      "name": "Zalito",
-      "password": "Z@lito123",
-      "email": "asdasdas@gmail.com"
-    },
-    {
-      "id": "asasasa",
-      "name": "asasasas",
-      "password": "Zalo12345678@",
-      "confirmPassword": "Zalo12345678@",
-      "email": "asdasdas@gmail.com"
-    },
-    {
       "id": "Zalo1",
       "name": "Gonzalo",
       "password": "Zalito123",
       "confirmPassword": "Zalito123",
       "email": "aaaa@gmail.com",
-      "gender": "male",
-      "isactive": false
-    },
-    {
-      "id": "asdd",
-      "name": "Zalo",
-      "password": "Zalito123",
-      "confirmPassword": "Zalito123",
-      "email": "asd@gmail.com",
-      "gender": "male",
-      "isactive": false
-    },
-    {
-      "id": "asdasd",
-      "name": "asdasdas",
-      "password": "asdasdasA123",
-      "confirmPassword": "asdasdasA123",
-      "email": "asdasd@gmai.com",
       "gender": "male",
       "isactive": false
     }

@@ -12,14 +12,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class RegisterComponent {
 
-  constructor(
-    private service: UserService, 
-    private router: Router,
-    private toastr: ToastrService,
-    private dialogRef: MatDialogRef<RegisterComponent>
-  ){ }
-  
-  submitted = false;
+  registerInvalid : Boolean = false;
+  submitted : Boolean = false;
   registerForm = new FormGroup(
     {
       id: new FormControl(null,[Validators.required, Validators.minLength(4)]),
@@ -39,6 +33,13 @@ export class RegisterComponent {
     }
   );
 
+  constructor(
+    private service: UserService, 
+    private router: Router,
+    private toastr: ToastrService,
+    private dialogRef: MatDialogRef<RegisterComponent>
+  ){ }
+
   get registerFormControl() {
     return this.registerForm.controls;
   }
@@ -54,6 +55,7 @@ export class RegisterComponent {
         }
       })
     } else {
+      this.registerInvalid = true;
       this.toastr.warning('Please enter valid data.')
     }
   }
@@ -84,6 +86,8 @@ export class RegisterComponent {
     };
   }
 
+  //Esto sirve de ejemplo de como se haria para chequear si se vaa la base de datos a buscar Username
+  //Se iria al servicio y se traeria los datos del observable
   validateUserName(): ValidatorFn {
     return (control: AbstractControl) => {
       const userControl = control.get('id');
@@ -95,9 +99,7 @@ export class RegisterComponent {
       return null;
     }
   }
-
-  //Esto sirve de ejemplo de como se haria para chequear si se vaa la base de datos a buscar Username
-  //Se iria al servicio y se traeria los datos del observable
+  
   searchUserName(userName: string) {
     const UserList = ['zalo', 'admin', 'user', 'superuser','Zalo'];
     return (UserList.indexOf(userName) > -1);

@@ -4,8 +4,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/services/users/user.service';
 import { RegisterComponent } from '../register/register.component';
-import { HttpErrorResponse } from '@angular/common/http';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +17,8 @@ export class LoginComponent {
     id: new FormControl('',[Validators.required]),
     password: new FormControl('',[Validators.required])
   });
+  loginInvalid: Boolean = false;
+  submitted : Boolean = false;
 
   constructor(
     private toastr: ToastrService,
@@ -28,15 +28,17 @@ export class LoginComponent {
   ){}
 
   loginUser() {
+    this.submitted = true;
     if (this.loginForm.valid) {
     //Se debe buscar el usuario con el login y ver que el mismo exzista, retornar el currentUser$ (Observable bolleano)
     //this.userService.login(userName,password)
-    this.userService.loginUser(this.loginForm).subscribe({
+    this.userService.login(this.loginForm).subscribe({
       next: (user) => {
         if (user){
           this.toastr.success("User Login succesfull!");
           this.dialogRef.close();
         }else{
+          this.loginInvalid = true;
           this.toastr.error('Usuario inexistente/contraseña erronea');
         }
       }
@@ -47,6 +49,10 @@ export class LoginComponent {
   register(){
     this.dialogRef.close();
     this.dialog.open(RegisterComponent);
+  }
+
+  get loginFormControl() {
+    return this.loginForm.controls;
   }
 
 }

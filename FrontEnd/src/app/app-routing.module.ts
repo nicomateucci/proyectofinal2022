@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
-import { userLogginGuard } from './guards/user-loggin.guard';
+import { isLoggedGuard } from './guards/is-logged.guard';
 
 const routes: Routes = [
   { 
@@ -18,7 +18,7 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
-    canMatch:[userLogginGuard] 
+    canMatch:[isLoggedGuard]
   },
   { 
     path: 'login', 

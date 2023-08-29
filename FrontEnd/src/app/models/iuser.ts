@@ -7,3 +7,7 @@ export interface IUser {
     gender: string,
 }
 
+export interface IUserWithToken extends IUser{
+    token:string,
+}
+

@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit{
   }
 
   checkCurrentUser(){
-   return this.userService.checkAunthentication();
+    return this.userService.checkAunthentication();
   }
 
   //0AUTH METODOS
