@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from '../services/users/user.service';
+import { IUser, IUserWithToken } from '../models/iuser';
 
 @Component({
   selector: 'app-profile',
@@ -11,13 +12,20 @@ export class ProfileComponent implements OnInit {
   profileJSON :any;
 
   constructor(
-    public authService: AuthService
+    // public authService: AuthService
+    private userService : UserService
   ){}
 
   ngOnInit(): void {
-    this.authService.user$.subscribe((dataUser:any) =>{
-      this.profileJSON = JSON.stringify(dataUser,null, 2);
-    })
+    // this.authService.user$.subscribe((dataUser:any) =>{
+    //   this.profileJSON = JSON.stringify(dataUser,null, 2);
+    // })
+    this.userService.getCurrentUser().subscribe(
+      (dataUser:any) =>{
+        //console.log(dataUser)
+        this.profileJSON = JSON.stringify(dataUser,null, 2);
+      }
+    )
   }
 
 }

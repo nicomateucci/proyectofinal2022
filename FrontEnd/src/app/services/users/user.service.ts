@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { IUser, IUserWithToken } from 'src/app/models/iuser';
@@ -18,7 +19,7 @@ export class UserService {
   ){}
 
   //SE RETORNA UN OBSERVABLE, DEPENDIENDO DEL MISMO SI SE MATCHEA CON UN USUARIO O NO
-  login(loginForm: any): Observable<IUser|boolean> {
+  login(loginForm: FormGroup): Observable<IUser|boolean> {
     let userName = String(loginForm.value.id);
     let password = String(loginForm.value.password);
     //this.http.get('/api/users/',loginForm)
@@ -29,8 +30,9 @@ export class UserService {
           //ACA EL ENDPOINT DEBERIA DEVOLVER EL TOKEN CON LA INFORMACION DEL USUARIO ENCRIPTADA
           //JWT O CUALQUIER OTRO GENERADOR PUEDE USARSE
           //WINDOWS.BTOA LO SIMULA
-          const userToken = window.btoa((JSON.stringify(this.currentUser)))
-          this.saveTokenToLocalStore(userToken);
+          //const userToken = window.btoa((JSON.stringify(this.currentUser)))
+          this.saveTokenToLocalStore();
+          location.reload();
         })
       )
       .pipe(catchError(err =>{
@@ -39,11 +41,12 @@ export class UserService {
   }
 
   logout(){
-    this.removeUserFromLocalStorage();
+    localStorage.clear();
     this.currentUser = null;
+    this.router.navigateByUrl('/home')
   }
 
-  registerUser(valueForm: any) {
+  registerUser(valueForm: FormGroup) {
     // ESTE METODO IRIA AL ENDPOINT PERO COMO TRABAJO CON UN FAKE TENGO QUE ADECUAR METODOS
     //DE IGUAL MANERA SE TENDRIA QUE CAMBIAR SOLAMENTE LA RUTA A LA CUAL SE HACE EL PEDIDO
     let options = { 
@@ -58,24 +61,27 @@ export class UserService {
     //ACA LO UNICO QUE TENEMOS FORMA ES DE VERIFICACAR QUE EXISTA EL TOKEN DEL USER
     //PERO ESTO DEBERIA IR AL ENDPOINTY VERIFICAR QUE EL USUARIO ESTE ACTUALMENTE LOGEADO O VER COMO SE HARIA PARA TENER
     //UN USUARIO EN LA SESION
-    if(localStorage.getItem('userToken')){
-      return true;
+    if (!localStorage.getItem('userToken')){
+      return false
     }
-    return false;
+    const userToken = String(localStorage.getItem('userToken'));
+    this.currentUser = this.decodeToken(userToken);
+    return true
   }
 
-  saveTokenToLocalStore(token:string){
+  saveTokenToLocalStore(){
+    const token = window.btoa((JSON.stringify(this.currentUser)))
     localStorage.setItem('userToken', token);
-    //console.log(window.atob(String(localStorage.getItem("token"))))
   }
 
-  private decodeToken(userToken: string): IUserWithToken {
+  private decodeToken(userToken: string): IUser {
     const userInfo = JSON.parse(window.atob(userToken)) as IUser;
-    return { ...userInfo, token: userToken };
+    // return { ...userInfo, token: userToken };
+    return { ...userInfo };
   }
 
-  removeUserFromLocalStorage(){
-    localStorage.clear();
+  getCurrentUser(): Observable< IUserWithToken | IUser | null >{
+    return of(this.currentUser);    
   }
 
 }

@@ -1,13 +1,18 @@
-.container-fluid{
-    background-color: rgb(163, 241, 241);
+.container-fluid {
     min-height: 65vh;
 }
 
-mat-accordion{
+mat-accordion {
     border-radius: 50px;
     margin: 10px;
 }
 
-mat-expansion-panel-header{
+mat-expansion-panel-header {
     height: 100px;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

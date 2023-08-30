@@ -30,20 +30,26 @@ export class LoginComponent {
   loginUser() {
     this.submitted = true;
     if (this.loginForm.valid) {
-    //Se debe buscar el usuario con el login y ver que el mismo exzista, retornar el currentUser$ (Observable bolleano)
-    //this.userService.login(userName,password)
-    this.userService.login(this.loginForm).subscribe({
-      next: (user) => {
-        if (user){
-          this.toastr.success("User Login succesfull!");
-          this.dialogRef.close();
-        }else{
-          this.loginInvalid = true;
-          this.toastr.error('Usuario inexistente/contraseña erronea');
+      //Se debe buscar el usuario con el login y ver que el mismo exzista, retornar el currentUser$ (Observable bolleano)
+      //this.userService.login(userName,password)
+      this.userService.login(this.loginForm).subscribe({
+        next: (user) => {
+          if (user){
+            this.toastr.success("User Login succesfull!");
+            setTimeout(() => {
+              this.toastr.clear();
+              this.dialogRef.close();
+            }, 800);
+          } else{
+            this.loginInvalid = true;
+            this.toastr.error('Usuario inexistente/contraseña erronea');
+            setTimeout(() => {
+              this.toastr.clear();
+            }, 2000);
+          }
         }
-      }
-    })
-  }
+      })
+   }
   }
 
   register(){

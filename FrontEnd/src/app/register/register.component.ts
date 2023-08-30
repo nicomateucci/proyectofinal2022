@@ -47,7 +47,7 @@ export class RegisterComponent {
   registerUser() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      this.service.registerUser(this.registerForm.value).subscribe({
+      this.service.registerUser(this.registerForm).subscribe({
         next: () => {
           this.toastr.success('Please contact admin for enable access.', 'Registered successfully')
           this.dialogRef.close();
