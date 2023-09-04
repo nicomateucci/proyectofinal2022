@@ -4,10 +4,7 @@ export interface IUser {
     name: string,
     password: string,
     email: string,
+    roles:string[], //ESTO PUEDE SER UN ARREGLO O SCOPES
     gender: string,
+    token: string | null,
 }
-
-export interface IUserWithToken extends IUser{
-    token:string,
-}
-

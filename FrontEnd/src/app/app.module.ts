@@ -10,19 +10,24 @@ import { ToastrModule } from 'ngx-toastr';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------MODULOS CUSTOM------------------------------------
-import { UtilitiesModule } from './utilities/utilities.module';
-import { AssetsModule } from './assets/assets.module';
-import { CoursesModule } from './courses/courses.module';
-import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { UiComponentsModule } from './UI-Componets/ui-components.module';
+import { AssetsModule } from './UI-Pages/assets/assets.module';
+import { CoursesModule } from './UI-Pages/courses/courses.module';
+import { AngularMaterialModule } from './UI-Componets/angular-material/angular-material.module';
 //------------------------------------MODULOS CUSTOM------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './UI-Pages/common/profile/profile.component';
+import { HomeComponent } from './UI-Pages/common/home/home.component';
+import { LoginComponent } from './UI-Pages/common/login/login.component';
+import { RegisterComponent } from './UI-Pages/common/register/register.component';
 //------------------------------------COMPONENTES------------------------------------
+
+//------------------------------------DIRECTIVAS------------------------------------
+import { RoleDirective } from './Directives/role.directive';
+
+//------------------------------------DIRECTIVAS------------------------------------
 
 //------------------------------------PIPES------------------------------------
 //Declaracion de pipes custom
@@ -35,6 +40,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    RoleDirective
   ],
   imports: [
     ToastrModule.forRoot({/* ACA VAN LOS CAMBIOS GLOBALES*/ }),
@@ -42,20 +48,20 @@ import { RegisterComponent } from './register/register.component';
     AngularMaterialModule,
     HttpClientModule,
     BrowserModule,
-    UtilitiesModule,
     AssetsModule,
     CoursesModule,
     AppRoutingModule,
-    AuthModule.forRoot({
-      //CAMBIAR DATOS DE M2M, API Y SPA
-      domain: "dev-3h2tiekd.us.auth0.com",
-      clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
-      authorizationParams: {
-        redirect_uri: window.location.origin,
-      }
-      //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
-      //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
-    }),
+    UiComponentsModule,
+    // AuthModule.forRoot({
+    //   //CAMBIAR DATOS DE M2M, API Y SPA
+    //   domain: "dev-3h2tiekd.us.auth0.com",
+    //   clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
+    //   authorizationParams: {
+    //     redirect_uri: window.location.origin,
+    //   }
+    //   //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
+    //   //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
+    // }),
     BrowserAnimationsModule,
   ],
   providers: [],

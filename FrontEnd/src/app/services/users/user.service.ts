@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
-import { IUser, IUserWithToken } from 'src/app/models/iuser';
+import { Observable, catchError, of, tap } from 'rxjs';
+import { IUser } from 'src/app/Models/iuser';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,13 @@ import { IUser, IUserWithToken } from 'src/app/models/iuser';
 
 export class UserService {
 
-  private currentUser! : IUser | IUserWithToken | null;
+  //EXISTE UN PROXY CONFIGURADO PARA EVITAR PONER LA URL ENTERA
+  // private urlBackend='http://localhost:3000/users/'
+  private currentUser! : IUser | null;
   
   constructor(
     private http: HttpClient,
-    private router: Router
+    //private router: Router
   ){}
 
   //SE RETORNA UN OBSERVABLE, DEPENDIENDO DEL MISMO SI SE MATCHEA CON UN USUARIO O NO
@@ -23,16 +25,15 @@ export class UserService {
     let userName = String(loginForm.value.id);
     let password = String(loginForm.value.password);
     //this.http.get('/api/users/',loginForm)
-    return this.http.get('/api/users/'+userName)
+    return this.http.get<IUser>('/api/users/'+userName)
       .pipe(
         tap( (userData:any) =>{
-          this.currentUser = <IUserWithToken>userData;
           //ACA EL ENDPOINT DEBERIA DEVOLVER EL TOKEN CON LA INFORMACION DEL USUARIO ENCRIPTADA
           //JWT O CUALQUIER OTRO GENERADOR PUEDE USARSE
-          //WINDOWS.BTOA LO SIMULA
-          //const userToken = window.btoa((JSON.stringify(this.currentUser)))
-          this.saveTokenToLocalStore();
-          location.reload();
+          //WINDOWS.BTOA LO SIMULA CON LOS DATOS DEL USUARIO DEVUELTO DEL FAKE-BACKEND
+          this.currentUser = <IUser>userData;
+          const token = window.btoa((JSON.stringify(this.currentUser)))
+          localStorage.setItem('userToken', token);
         })
       )
       .pipe(catchError(err =>{
@@ -43,7 +44,7 @@ export class UserService {
   logout(){
     localStorage.clear();
     this.currentUser = null;
-    this.router.navigateByUrl('/home')
+    location.reload()
   }
 
   registerUser(valueForm: FormGroup) {
@@ -66,12 +67,7 @@ export class UserService {
     }
     const userToken = String(localStorage.getItem('userToken'));
     this.currentUser = this.decodeToken(userToken);
-    return true
-  }
-
-  saveTokenToLocalStore(){
-    const token = window.btoa((JSON.stringify(this.currentUser)))
-    localStorage.setItem('userToken', token);
+    return true;
   }
 
   private decodeToken(userToken: string): IUser {
@@ -80,8 +76,12 @@ export class UserService {
     return { ...userInfo };
   }
 
-  getCurrentUser(): Observable< IUserWithToken | IUser | null >{
+  getCurrentUser(): Observable< IUser | null >{
     return of(this.currentUser);    
+  }
+
+  getUser(){
+    return this.currentUser
   }
 
 }

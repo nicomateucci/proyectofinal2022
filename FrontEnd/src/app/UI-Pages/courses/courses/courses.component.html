@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <mat-accordion>
+        <mat-expansion-panel
+            class="specific-class"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h1>Principiantes</h1>
+            </mat-panel-title>
+            <mat-panel-description>
+              <h5>Cursos de nivel principiante</h5>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+          <div *ngIf="true">
+            <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+                Agregar curso
+            </button>
+          </div>
+          <div class="contenedor">
+            <div *ngFor="let course of courses" >
+                <app-card *ngIf="course.level=='Principiante'" [idCourse]="course.name"></app-card>
+            </div>
+          </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+    <mat-accordion>
+        <mat-expansion-panel 
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+        >
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h1>Intermedios</h1>
+            </mat-panel-title>
+            <mat-panel-description>
+                <h5>Cursos de nivel intermedio</h5> 
+            </mat-panel-description>
+            </mat-expansion-panel-header >
+                      <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+            <div *ngIf="true">
+                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+                    Agregar curso
+                </button>
+            </div>
+            <div class="contenedor">
+                <div *ngFor="let course of courses">
+                    <app-card [idCourse]="course.name"></app-card>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+    <mat-accordion>
+        <mat-expansion-panel 
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h1>Avanzados</h1>
+            </mat-panel-title>
+            <mat-panel-description>
+                <h5>Cursos de nivel avanzado</h5> 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+          <div *ngIf="true">
+            <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+                Agregar curso
+            </button>
+            </div>
+          <div class="contenedor">
+            <div *ngFor="let course of courses">
+                <app-card *ngIf="course.level=='Avanzado'" [idCourse]="course.name"></app-card>
+            </div>
+        </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

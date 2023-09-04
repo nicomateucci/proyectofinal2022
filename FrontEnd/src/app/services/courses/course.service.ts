@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
+import { ICourse } from 'src/app/Models/icourse';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,11 @@ export class CourseService {
   }
 
   getCourses() {
-    return this.http.get('/api/courses');
+    return this.http.get<ICourse[]>('/api/courses');
   }
 
   getCourse(nameCourse: string) {
-    return this.http.get('/api/courses?name='+ nameCourse);
+    return this.http.get<ICourse>('/api/courses?name='+ nameCourse);
   }
 
 }

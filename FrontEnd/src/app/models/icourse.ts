@@ -1,3 +1,9 @@
 export interface ICourse {
-    //DATA FOR COURSES
+    id : string,
+    name:string,
+    tags:string[],
+    level:string,
+    free:boolean,
+    professor : string,
+    registered : Date
 }

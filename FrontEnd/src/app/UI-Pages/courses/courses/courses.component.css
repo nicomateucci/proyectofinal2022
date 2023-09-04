@@ -1,0 +1,14 @@
+mat-accordion {
+    border-radius: 50px;
+    margin: 10px;
+}
+
+mat-expansion-panel-header {
+    height: 100px;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
