@@ -33,7 +33,7 @@ export class UserService {
           //WINDOWS.BTOA LO SIMULA CON LOS DATOS DEL USUARIO DEVUELTO DEL FAKE-BACKEND
           this.currentUser = <IUser>userData;
           const token = window.btoa((JSON.stringify(this.currentUser)))
-          localStorage.setItem('userToken', token);
+          localStorage.setItem('Token', token);
         })
       )
       .pipe(catchError(err =>{
@@ -58,14 +58,26 @@ export class UserService {
     return this.http.post('/api/users/', valueForm, options);
   }
 
+  getCurrentUser(): Observable< IUser | null >{
+    return of(this.currentUser);    
+  }
+
+  getUser(){
+    return this.currentUser
+  }
+
+
+  //----------------------------------BACKEND VALIDACIONES----------------------------------//
+
+
   checkAunthentication(): boolean{
     //ACA LO UNICO QUE TENEMOS FORMA ES DE VERIFICACAR QUE EXISTA EL TOKEN DEL USER
     //PERO ESTO DEBERIA IR AL ENDPOINTY VERIFICAR QUE EL USUARIO ESTE ACTUALMENTE LOGEADO O VER COMO SE HARIA PARA TENER
     //UN USUARIO EN LA SESION
-    if (!localStorage.getItem('userToken')){
+    if (!localStorage.getItem('Token')){
       return false
     }
-    const userToken = String(localStorage.getItem('userToken'));
+    const userToken = String(localStorage.getItem('Token'));
     this.currentUser = this.decodeToken(userToken);
     return true;
   }
@@ -76,12 +88,6 @@ export class UserService {
     return { ...userInfo };
   }
 
-  getCurrentUser(): Observable< IUser | null >{
-    return of(this.currentUser);    
-  }
-
-  getUser(){
-    return this.currentUser
-  }
+    //----------------------------------BACKEND VALIDACIONES----------------------------------//
 
 }

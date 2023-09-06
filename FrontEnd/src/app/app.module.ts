@@ -33,6 +33,8 @@ import { RoleDirective } from './Directives/role.directive';
 //Declaracion de pipes custom
 //------------------------------------PIPES------------------------------------
 
+import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,11 @@ import { RoleDirective } from './Directives/role.directive';
     RoleDirective
   ],
   imports: [
-    ToastrModule.forRoot({/* ACA VAN LOS CAMBIOS GLOBALES*/ }),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      maxOpened: 1,
+      preventDuplicates: true
+    }),
     ReactiveFormsModule,
     AngularMaterialModule,
     HttpClientModule,
@@ -64,7 +70,9 @@ import { RoleDirective } from './Directives/role.directive';
     // }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    authTokeninterceptorProvider
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

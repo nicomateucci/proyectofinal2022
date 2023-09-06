@@ -35,22 +35,21 @@ export class LoginComponent {
       this.userService.login(this.loginForm).subscribe({
         next: (user) => {
           if (user){
-            this.toastr.success("User Login succesfull!");
+            this.toastr.success("User Login succesfull!","OK",{
+              progressAnimation : 'increasing'
+            });
             setTimeout(() => {
-              // this.toastr.clear();
-              // this.dialogRef.close();
               location.reload();
             }, 1000);
           } else{
             this.loginInvalid = true;
-            this.toastr.error('Usuario inexistente/contraseña erronea');
-            setTimeout(() => {
-              this.toastr.clear();
-            }, 2000);
+            this.toastr.error('Usuario inexistente/contraseña erronea',"ERROR",{
+              progressAnimation : 'increasing'
+            });
           }
         }
       })
-   }
+    }
   }
 
   register(){

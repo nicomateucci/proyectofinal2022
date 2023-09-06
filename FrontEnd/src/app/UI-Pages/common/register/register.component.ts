@@ -49,14 +49,14 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.service.registerUser(this.registerForm).subscribe({
         next: () => {
-          this.toastr.success('Please contact admin for enable access.', 'Registered successfully')
+          this.toastr.success("Por favor aguarde y sera habilitado para acceder.","Registro exitoso!")
           this.dialogRef.close();
           this.router.navigateByUrl('/home');
         }
       })
     } else {
       this.registerInvalid = true;
-      this.toastr.warning('Please enter valid data.')
+      this.toastr.warning("Info. ingresada es erronea","Existen campos requeridos con errores");
     }
   }
 
