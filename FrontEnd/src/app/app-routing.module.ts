@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './UI-Pages/common/home/home.component';
-import { LoginComponent } from './UI-Pages/common/login/login.component';
-import { ProfileComponent } from './UI-Pages/common/profile/profile.component';
-import { RegisterComponent } from './UI-Pages/common/register/register.component';
+import { HomeComponent } from './UI-Pages/home/home.component';
+import { LoginComponent } from './UI-Pages/login/login.component';
+import { ProfileComponent } from './UI-Pages/profile/profile.component';
+import { RegisterComponent } from './UI-Pages/register/register.component';
 import { isLoggedGuard } from './Guards/is-logged.guard';
 
 const routes: Routes = [
@@ -29,7 +29,6 @@ const routes: Routes = [
     component: RegisterComponent
   },
   //Default routes redirect home
-  
   { 
     path: '**', 
     component: HomeComponent 

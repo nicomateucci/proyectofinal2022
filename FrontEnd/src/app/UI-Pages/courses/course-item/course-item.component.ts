@@ -18,7 +18,7 @@ export class CourseItemComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((data: any) => {
-      this.course = data.id;
+      this.course = data.name;
     })
     this.courseService.getCourse(this.course).subscribe((data: any) => {
       this.course = data[0];

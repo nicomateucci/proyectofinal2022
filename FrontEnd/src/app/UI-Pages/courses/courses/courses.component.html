@@ -16,7 +16,10 @@
             </button>
             <div class="contenedor">
                 <div *ngFor="let course of courses">
-                    <app-card *ngIf="course.level=='Principiante'" [idCourse]="course.name"></app-card>
+                    <app-card 
+                        *ngIf="course.level=='Principiante'" 
+                        [idCourse]="course.name">
+                    </app-card>
                 </div>
             </div>
 
@@ -40,7 +43,10 @@
             </button>
             <div class="contenedor">
                 <div *ngFor="let course of courses">
-                    <app-card *ngIf="course.level=='Intermedio'" [idCourse]="course.name"></app-card>
+                    <app-card 
+                        *ngIf="course.level=='Intermedio'" 
+                        [idCourse]="course.name">
+                    </app-card>
                 </div>
             </div>
         </mat-expansion-panel>
@@ -62,7 +68,10 @@
             </button>
             <div class="contenedor">
                 <div *ngFor="let course of courses">
-                    <app-card *ngIf="course.level=='Avanzado'" [idCourse]="course.name"></app-card>
+                    <app-card 
+                        *ngIf="course.level=='Avanzado'" 
+                        [idCourse]="course.name">
+                    </app-card>
                 </div>
             </div>
         </mat-expansion-panel>

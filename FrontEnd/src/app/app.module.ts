@@ -13,15 +13,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { UiComponentsModule } from './UI-Componets/ui-components.module';
 import { AssetsModule } from './UI-Pages/assets/assets.module';
 import { CoursesModule } from './UI-Pages/courses/courses.module';
-import { AngularMaterialModule } from './UI-Componets/angular-material/angular-material.module';
 //------------------------------------MODULOS CUSTOM------------------------------------
 
 //------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './UI-Pages/common/profile/profile.component';
-import { HomeComponent } from './UI-Pages/common/home/home.component';
-import { LoginComponent } from './UI-Pages/common/login/login.component';
-import { RegisterComponent } from './UI-Pages/common/register/register.component';
+import { ProfileComponent } from './UI-Pages/profile/profile.component';
+import { HomeComponent } from './UI-Pages/home/home.component';
+import { LoginComponent } from './UI-Pages/login/login.component';
+import { RegisterComponent } from './UI-Pages/register/register.component';
 //------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------DIRECTIVAS------------------------------------
@@ -51,7 +50,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
       preventDuplicates: true
     }),
     ReactiveFormsModule,
-    AngularMaterialModule,
+    //AngularMaterialModule,
     HttpClientModule,
     BrowserModule,
     AssetsModule,

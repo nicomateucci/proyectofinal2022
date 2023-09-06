@@ -6,7 +6,7 @@ import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.compone
 import { ValuesComponent } from './values/values.component';
 import { CryptocurrencyItemComponent } from './cryptocurrency-item/cryptocurrency-item.component';
 import { ValuesItemComponent } from './values-item/values-item.component';
-import { AngularMaterialModule } from 'src/app/UI-Componets/angular-material/angular-material.module';
+import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { AngularMaterialModule } from 'src/app/UI-Componets/angular-material/ang
   imports: [
     CommonModule,
     AssetsRoutingModule,
-    AngularMaterialModule,
+    UiComponentsModule
   ]
 })
 export class AssetsModule { }

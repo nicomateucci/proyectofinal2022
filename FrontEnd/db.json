@@ -2142,136 +2142,170 @@
   "users": [
     {
       "id": "zalo",
-      "password" : "1234",
       "index": 0,
-      "age": 23,
-      "name": "Schwartz Franks",
+      "age": 26,
+      "eyeColor": "brown",
+      "name": "Denise Howe",
       "gender": "male",
-      "email": "schwartzfranks@zillan.com",
-      "phone": "+1 (840) 578-2088",
-      "address": "923 Manhattan Court, Naomi, New York, 6268",
-      "registered": "2018-08-22T02:01:54 +03:00",
+      "password": 1234,
+      "email": "denisehowe@quantalia.com",
+      "phone": "+1 (925) 584-3347",
+      "address": "209 Sedgwick Place, Clarktown, Indiana, 2788",
+      "registered": "2019-03-04T01:36:52 +03:00",
+      "subscription": "gold",
       "scopes": [
-        "admin",
-        "user"
+        "admin"
       ]
     },
     {
-      "id": "Ramona",
-      "password" : "1234",
+      "id": "Hubbard",
       "index": 1,
-      "age": 20,
-      "name": "Leola Chavez",
+      "age": 32,
+      "eyeColor": "blue",
+      "name": "Brittney Goodman",
       "gender": "female",
-      "email": "leolachavez@zillan.com",
-      "phone": "+1 (892) 540-2818",
-      "address": "124 Bleecker Street, Glenville, Michigan, 7033",
-      "registered": "2015-06-02T05:55:53 +03:00",
+      "password": 1234,
+      "email": "brittneygoodman@quantalia.com",
+      "phone": "+1 (802) 491-3985",
+      "address": "695 Prospect Avenue, Ballico, New York, 9589",
+      "registered": "2022-12-26T02:13:19 +03:00",
+      "subscription": "free",
       "scopes": [
         "user"
       ]
     },
     {
-      "id": "Lucinda",
-      "password" : "1234",
+      "id": "Della",
       "index": 2,
-      "age": 34,
-      "name": "Darla Marsh",
-      "gender": "female",
-      "email": "darlamarsh@zillan.com",
-      "phone": "+1 (943) 515-3380",
-      "address": "928 Plymouth Street, Flintville, Alaska, 6679",
-      "registered": "2022-10-25T07:56:22 +03:00",
-      "scopes": [
-        "user"
-      ]
-    },
-    {
-      "id": "Macdonald",
-      "password" : "1234",
-      "index": 3,
-      "age": 31,
-      "name": "Roseann Marshall",
-      "gender": "female",
-      "email": "roseannmarshall@zillan.com",
-      "phone": "+1 (957) 509-2693",
-      "address": "102 Leonora Court, Alafaya, California, 2964",
-      "registered": "2020-12-30T05:22:23 +03:00",
-      "scopes": [
-        "user"
-      ]
-    },
-    {
-      "id": "Lynn",
-      "password" : "1234",
-      "index": 4,
-      "age": 33,
-      "name": "Mallory Adams",
-      "gender": "female",
-      "email": "malloryadams@zillan.com",
-      "phone": "+1 (897) 552-3429",
-      "address": "279 Broome Street, Stockdale, Maryland, 3711",
-      "registered": "2017-05-09T05:16:05 +03:00",
-      "scopes": [
-        "user"
-      ]
-    },
-    {
-      "id": "Ofelia",
-      "password" : "1234",
-      "index": 5,
       "age": 30,
-      "name": "Bender Robertson",
+      "eyeColor": "blue",
+      "name": "Hewitt Armstrong",
       "gender": "male",
-      "email": "benderrobertson@zillan.com",
-      "phone": "+1 (802) 426-2471",
-      "address": "220 Marconi Place, Bentonville, Illinois, 6144",
-      "registered": "2020-08-23T12:09:22 +03:00",
+      "password": 1234,
+      "email": "hewittarmstrong@quantalia.com",
+      "phone": "+1 (905) 472-2723",
+      "address": "882 Ocean Parkway, Caroleen, Pennsylvania, 8162",
+      "registered": "2018-07-24T01:35:08 +03:00",
+      "subscription": "free",
       "scopes": [
         "user"
       ]
     },
     {
-      "id": "Norman",
-      "password" : "1234",
+      "id": "Jessie",
+      "index": 3,
+      "age": 27,
+      "eyeColor": "blue",
+      "name": "Alba Caldwell",
+      "gender": "female",
+      "password": 1234,
+      "email": "albacaldwell@quantalia.com",
+      "phone": "+1 (828) 585-2268",
+      "address": "518 Church Lane, Alderpoint, Oklahoma, 3052",
+      "registered": "2014-08-09T12:29:56 +03:00",
+      "subscription": "free",
+      "scopes": [
+        "user"
+      ]
+    },
+    {
+      "id": "Gilbert",
+      "index": 4,
+      "age": 22,
+      "eyeColor": "brown",
+      "name": "Ware Bishop",
+      "gender": "male",
+      "password": 1234,
+      "email": "warebishop@quantalia.com",
+      "phone": "+1 (916) 524-2236",
+      "address": "487 Lois Avenue, Bedias, Palau, 9476",
+      "registered": "2020-06-08T08:58:28 +03:00",
+      "subscription": "free",
+      "scopes": [
+        "user"
+      ]
+    },
+    {
+      "id": "Hobbs",
+      "index": 5,
+      "age": 27,
+      "eyeColor": "green",
+      "name": "Burris Reed",
+      "gender": "male",
+      "password": 1234,
+      "email": "burrisreed@quantalia.com",
+      "phone": "+1 (827) 587-3250",
+      "address": "272 Dorchester Road, Dawn, Ohio, 7174",
+      "registered": "2022-01-24T08:58:26 +03:00",
+      "subscription": "gold",
+      "scopes": [
+        "user"
+      ]
+    },
+    {
+      "id": "Cooley",
       "index": 6,
       "age": 23,
-      "name": "Maynard Brady",
-      "gender": "male",
-      "email": "maynardbrady@zillan.com",
-      "phone": "+1 (813) 549-3018",
-      "address": "513 Seaview Court, Brenton, Virginia, 3641",
-      "registered": "2016-12-25T02:29:38 +03:00",
+      "eyeColor": "green",
+      "name": "Mayra Weeks",
+      "gender": "female",
+      "password": 1234,
+      "email": "mayraweeks@quantalia.com",
+      "phone": "+1 (966) 469-3484",
+      "address": "119 Berkeley Place, Abrams, Idaho, 971",
+      "registered": "2015-02-12T11:13:12 +03:00",
+      "subscription": "gold",
       "scopes": [
         "user"
       ]
     },
     {
-      "id": "Hansen",
-      "password" : "1234",
+      "id": "Swanson",
       "index": 7,
-      "age": 21,
-      "name": "Sophia Kennedy",
-      "gender": "female",
-      "email": "sophiakennedy@zillan.com",
-      "phone": "+1 (963) 554-3950",
-      "address": "705 Clifford Place, Alfarata, Missouri, 1146",
-      "registered": "2014-05-08T09:07:38 +03:00",
+      "age": 25,
+      "eyeColor": "green",
+      "name": "Nichols Harrison",
+      "gender": "male",
+      "password": 1234,
+      "email": "nicholsharrison@quantalia.com",
+      "phone": "+1 (964) 443-2269",
+      "address": "662 Bokee Court, Spokane, North Carolina, 3879",
+      "registered": "2018-11-06T05:21:26 +03:00",
+      "subscription": "gold",
       "scopes": [
         "user"
       ]
     },
     {
-      "id": "Hawkins",
-      "password" : "1234",
+      "id": "Kellie",
       "index": 8,
-      "age": 40,
-      "name": "Corinne Olsen",
-      "gender": "female",
-      "email": "corinneolsen@zillan.com",
-      "phone": "+1 (949) 445-2146",
-      "address": "569 Oliver Street, Como, Mississippi, 2477",
-      "registered": "2017-10-26T04:28:20 +03:00",
+      "age": 32,
+      "eyeColor": "blue",
+      "name": "Carr Mccarthy",
+      "gender": "male",
+      "password": 1234,
+      "email": "carrmccarthy@quantalia.com",
+      "phone": "+1 (941) 565-2746",
+      "address": "526 Walker Court, Wawona, Minnesota, 7465",
+      "registered": "2019-01-03T09:38:15 +03:00",
+      "subscription": "gold",
+      "scopes": [
+        "user"
+      ]
+    },
+    {
+      "id": "Aguilar",
+      "index": 9,
+      "age": 23,
+      "eyeColor": "brown",
+      "name": "Bell Campbell",
+      "gender": "male",
+      "password": 1234,
+      "email": "bellcampbell@quantalia.com",
+      "phone": "+1 (943) 444-3938",
+      "address": "231 Newton Street, Westboro, West Virginia, 7355",
+      "registered": "2016-01-07T02:08:16 +03:00",
+      "subscription": "free",
       "scopes": [
         "user"
       ]
@@ -2280,12 +2314,12 @@
   "courses":[
     {
       "id": 0,
-      "user": false,
       "level": "Intermedio",
       "professor": "Mckinney Valdez",
       "name": "RENOVIZE",
       "about": "Veniam ullamco exercitation est exercitation. Est pariatur ullamco ad laboris consequat laborum id commodo in ad deserunt id aliquip voluptate. Velit labore ullamco eiusmod dolore sit ut tempor occaecat non cillum minim laboris. Commodo magna eiusmod irure duis cupidatat fugiat esse culpa fugiat mollit culpa excepteur. Ullamco eiusmod enim fugiat quis irure veniam labore amet. Sit laborum commodo amet id aute consequat amet aute id. Cupidatat amet duis tempor anim sunt aliquip dolore deserunt tempor voluptate ut.\r\n",
       "registered": "2014-06-15T03:17:13 +03:00",
+      "subscription" : "gold",
       "tags": [
         "fugiat",
         "ex",
@@ -2298,12 +2332,12 @@
     },
     {
       "id": 1,
-      "user": true,
       "level": "Avanzado",
       "professor": "Kemp Cooper",
       "name": "DOGNOSIS",
       "about": "Nisi laboris laborum aliqua anim elit anim adipisicing elit dolor cupidatat anim amet minim excepteur. Occaecat ut voluptate nulla mollit elit sunt sunt veniam. Enim et enim officia ex ex et ea do anim fugiat quis aute sit est.\r\n",
       "registered": "2023-01-23T09:36:58 +03:00",
+      "subscription" : "gold",
       "tags": [
         "laborum",
         "mollit",
@@ -2316,12 +2350,12 @@
     },
     {
       "id": 2,
-      "user": true,
       "level": "Intermedio",
       "professor": "Clark Ball",
       "name": "PLASMOSIS",
       "about": "Nisi duis labore qui nostrud est nostrud eu dolore dolore et ex qui cillum. Eiusmod pariatur id excepteur duis proident ad. Esse aliquip occaecat elit eu proident irure quis non pariatur. Exercitation sunt officia ut pariatur labore voluptate aliquip ipsum fugiat occaecat sit sit aute eu. Fugiat voluptate sint veniam commodo exercitation labore pariatur tempor. Aute irure dolore commodo nulla incididunt esse ad commodo reprehenderit esse deserunt.\r\n",
       "registered": "2016-11-09T07:58:50 +03:00",
+      "subscription" : "gold",
       "tags": [
         "ullamco",
         "labore",
@@ -2334,12 +2368,12 @@
     },
     {
       "id": 3,
-      "user": true,
       "level": "Avanzado",
       "professor": "Leslie Thompson",
       "name": "MEDCOM",
       "about": "Dolore pariatur Lorem dolore consequat et esse anim laborum occaecat consectetur qui anim amet. Consequat voluptate reprehenderit aliquip fugiat adipisicing dolore id tempor veniam id eiusmod. Qui reprehenderit veniam elit elit esse. Enim eiusmod irure non commodo consectetur proident id culpa aute velit.\r\n",
       "registered": "2015-05-17T01:26:29 +03:00",
+      "subscription" : "free",
       "tags": [
         "nostrud",
         "exercitation",
@@ -2352,12 +2386,12 @@
     },
     {
       "id": 4,
-      "user": true,
       "level": "Principiante",
       "professor": "Lakisha Sexton",
       "name": "VIDTO",
       "about": "Amet in nostrud nulla id reprehenderit occaecat pariatur veniam. Est ea excepteur reprehenderit ex dolor mollit esse aliquip ullamco id excepteur quis labore. Ut dolor cupidatat nostrud aliquip et id dolore veniam pariatur est pariatur anim. Sit nisi aute laboris in labore nulla exercitation aliqua incididunt consectetur ullamco pariatur. Tempor occaecat ad ea nostrud velit proident id nisi enim non reprehenderit officia enim aliquip. Ad do elit esse fugiat ad quis deserunt anim. Do cupidatat consectetur in id nulla tempor ipsum nostrud quis excepteur.\r\n",
       "registered": "2023-01-22T01:13:41 +03:00",
+      "subscription" : "free",
       "tags": [
         "elit",
         "eu",
@@ -2370,12 +2404,12 @@
     },
     {
       "id": 5,
-      "user": false,
       "level": "Intermedio",
       "professor": "Mcmahon Rose",
       "name": "INTERFIND",
       "about": "Cillum sunt cupidatat aute adipisicing pariatur labore aute ut eiusmod nostrud ipsum anim. Anim excepteur officia anim amet cillum. Sint ea commodo in aliquip est ad. Qui incididunt enim magna commodo incididunt Lorem et. Exercitation ea laborum id reprehenderit consequat ad non nisi nulla officia reprehenderit. Mollit exercitation qui aliqua est do reprehenderit dolore proident occaecat. Cillum ut ex qui commodo deserunt veniam et officia ea do.\r\n",
       "registered": "2018-12-05T07:36:51 +03:00",
+      "subscription" : "free",
       "tags": [
         "incididunt",
         "non",
@@ -2388,12 +2422,12 @@
     },
     {
       "id": 6,
-      "user": true,
       "level": "Principiante",
       "professor": "Judith Stein",
       "name": "QUONK",
       "about": "Ea voluptate sint elit ea. In reprehenderit Lorem occaecat anim. Voluptate commodo consectetur ullamco qui non. Eu eiusmod velit commodo ad do velit. Irure amet est dolor anim elit sint nulla consectetur.\r\n",
       "registered": "2020-02-23T09:09:30 +03:00",
+      "subscription" : "free",
       "tags": [
         "et",
         "dolore",
@@ -2406,12 +2440,12 @@
     },
     {
       "id": 7,
-      "user": false,
       "level": "Intermedio",
       "professor": "Fox Cleveland",
       "name": "ELPRO",
       "about": "Adipisicing tempor incididunt culpa ipsum reprehenderit nisi dolore. Ad nisi culpa adipisicing quis cillum reprehenderit ea nostrud laboris labore voluptate. Eiusmod deserunt velit incididunt enim laboris aliqua do non et proident eiusmod duis in. Nulla elit anim id laboris deserunt excepteur. Quis in nostrud consequat voluptate aliquip. Quis est irure aute tempor occaecat dolore officia laborum cillum.\r\n",
       "registered": "2020-12-04T09:02:57 +03:00",
+      "subscription" : "free",
       "tags": [
         "veniam",
         "laborum",
@@ -2424,12 +2458,12 @@
     },
     {
       "id": 8,
-      "user": true,
       "level": "Principiante",
       "professor": "Knapp Burgess",
       "name": "BICOL",
       "about": "Esse voluptate excepteur minim fugiat sit consectetur do. Occaecat sit excepteur Lorem quis in pariatur. Enim incididunt adipisicing adipisicing ut veniam ex ipsum. Dolor anim nulla velit dolor non. Ullamco id laborum est fugiat ullamco. Lorem culpa et mollit magna anim.\r\n",
       "registered": "2015-09-10T09:12:51 +03:00",
+      "subscription" : "free",
       "tags": [
         "voluptate",
         "eu",
@@ -2442,12 +2476,12 @@
     },
     {
       "id": 9,
-      "user": false,
       "level": "Principiante",
       "professor": "Bernice Duran",
       "name": "ECSTASIA",
       "about": "Aute magna qui voluptate quis elit anim Lorem eu cillum ullamco culpa in. Exercitation elit velit irure excepteur consequat anim. Veniam officia ipsum ut deserunt qui aliqua eu commodo minim veniam. Laborum nulla voluptate do deserunt non eu qui ipsum esse incididunt laboris nisi culpa. Qui aliquip non occaecat tempor culpa tempor laboris officia ea consectetur labore. Irure tempor dolore dolor laborum elit deserunt aliqua amet dolore. Quis nostrud dolore amet magna nisi deserunt minim in culpa voluptate.\r\n",
       "registered": "2020-02-03T06:57:23 +03:00",
+      "subscription" : "free",
       "tags": [
         "culpa",
         "incididunt",
@@ -2460,12 +2494,12 @@
     },
     {
       "id": 10,
-      "user": false,
       "level": "Principiante",
       "professor": "Allie Guerra",
       "name": "SULTRAXIN",
       "about": "Pariatur officia sunt duis fugiat Lorem enim ea esse ex voluptate commodo sunt duis. Labore culpa culpa consequat cupidatat Lorem aliquip. Do ex consequat exercitation eu consectetur do officia magna officia aliqua labore. Eu incididunt ad sint labore nisi Lorem commodo amet cillum nulla. Sint sit fugiat exercitation laboris ad pariatur ipsum labore do minim eu dolore.\r\n",
       "registered": "2019-11-16T03:53:37 +03:00",
+      "subscription" : "free",
       "tags": [
         "nisi",
         "nulla",
@@ -2478,12 +2512,12 @@
     },
     {
       "id": 11,
-      "user": true,
       "level": "Principiante",
       "professor": "Harvey Howe",
       "name": "GLUKGLUK",
       "about": "Laborum non pariatur laboris nisi pariatur. Proident adipisicing cillum et ea consectetur elit cupidatat nostrud dolor esse do. Proident laboris duis ex excepteur ut dolore. Non non deserunt sunt consectetur eu magna incididunt et.\r\n",
       "registered": "2017-03-22T07:30:16 +03:00",
+      "subscription" : "free",
       "tags": [
         "ea",
         "labore",
@@ -2496,12 +2530,12 @@
     },
     {
       "id": 12,
-      "user": false,
       "level": "Avanzado",
       "professor": "Cecelia Donovan",
       "name": "NITRACYR",
       "about": "Et esse non cillum tempor duis. Id fugiat aliqua commodo officia incididunt ullamco sit pariatur nisi mollit commodo. Cupidatat ad quis id enim deserunt. Ad consequat velit veniam velit quis cillum ad esse dolore eu do magna sit id. Magna non pariatur cupidatat est ullamco adipisicing minim irure dolor cillum mollit ea.\r\n",
       "registered": "2021-12-04T03:07:42 +03:00",
+      "subscription" : "free",
       "tags": [
         "culpa",
         "magna",

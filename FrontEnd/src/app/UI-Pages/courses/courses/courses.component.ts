@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/Services/courses/course.service';
 import { UserService } from 'src/app/Services/users/user.service';
 
@@ -9,14 +9,14 @@ import { UserService } from 'src/app/Services/users/user.service';
 })
 
 export class CoursesComponent implements OnInit {
-  
-  courses : any;
+
+  courses: any;
   panelOpenState = false;
 
   constructor(
-    private coursesService : CourseService,
-    public userService : UserService
-  ){}
+    private coursesService: CourseService,
+    public userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.coursesService.getCourses().subscribe(
@@ -25,8 +25,8 @@ export class CoursesComponent implements OnInit {
       }
     )
   }
-
-  showMessage(){
+  
+  showMessage() {
     alert('Curso Agregado!')
   }
 
