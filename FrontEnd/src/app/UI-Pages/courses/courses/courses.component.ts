@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { CourseService } from 'src/app/Services/courses/course.service';
+import { UserService } from 'src/app/Services/users/user.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,7 +14,8 @@ export class CoursesComponent implements OnInit {
   panelOpenState = false;
 
   constructor(
-    private coursesService : CourseService
+    private coursesService : CourseService,
+    public userService : UserService
   ){}
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class CoursesComponent implements OnInit {
   }
 
   showMessage(){
-    alert('Messi')
+    alert('Curso Agregado!')
   }
 
 }
