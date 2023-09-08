@@ -25,4 +25,8 @@ export class CourseItemComponent implements OnInit {
     })
   }
 
+  startCourse(){
+    alert('Curso comenzado!')
+  }
+
 }

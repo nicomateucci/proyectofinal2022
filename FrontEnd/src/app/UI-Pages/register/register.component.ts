@@ -12,14 +12,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class RegisterComponent {
 
-  registerInvalid : Boolean = false;
-  submitted : Boolean = false;
+  registerInvalid: Boolean = false;
+  submitted: Boolean = false;
   registerForm = new FormGroup(
     {
-      id: new FormControl(null,[Validators.required, Validators.minLength(4)]),
-      name: new FormControl(null,[Validators.required]), 
-      password: new FormControl(null,[Validators.required, this.patternValidator()]),
-      confirmPassword: new FormControl(null,[this.patternValidator()]),
+      id: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      name: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required, this.patternValidator()]),
+      confirmPassword: new FormControl(null, [this.patternValidator()]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       gender: new FormControl(),
       // role: new FormControl(''),
@@ -34,11 +34,11 @@ export class RegisterComponent {
   );
 
   constructor(
-    private service: UserService, 
+    private service: UserService,
     private router: Router,
     private toastr: ToastrService,
     private dialogRef: MatDialogRef<RegisterComponent>
-  ){ }
+  ) { }
 
   get registerFormControl() {
     return this.registerForm.controls;
@@ -49,14 +49,14 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.service.registerUser(this.registerForm).subscribe({
         next: () => {
-          this.toastr.success("Por favor aguarde y sera habilitado para acceder.","Registro exitoso!")
+          this.toastr.success("Por favor aguarde y sera habilitado para acceder.", "Registro exitoso!")
           this.dialogRef.close();
           this.router.navigateByUrl('/home');
         }
       })
     } else {
       this.registerInvalid = true;
-      this.toastr.warning("Info. ingresada es erronea","Existen campos requeridos con errores");
+      this.toastr.warning("Info. ingresada es erronea", "Existen campos requeridos con errores");
     }
   }
 
@@ -81,7 +81,7 @@ export class RegisterComponent {
       if (passwordControl?.value !== confirmPasswordControl?.value) {
         confirmPasswordControl?.setErrors({ passwordMismatch: true });
       }
-      
+
       return null;
     };
   }
@@ -92,16 +92,16 @@ export class RegisterComponent {
     return (control: AbstractControl) => {
       const userControl = control.get('id');
       setTimeout(() => {
-        if (this.searchUserName(userControl?.value)) {  
+        if (this.searchUserName(userControl?.value)) {
           userControl?.setErrors({ userNameNotAvailable: true })
         }
       }, 1000);
       return null;
     }
   }
-  
+
   searchUserName(userName: string) {
-    const UserList = ['zalo', 'admin', 'user', 'superuser','Zalo'];
+    const UserList = ['zalo', 'admin', 'user', 'superuser', 'Zalo'];
     return (UserList.indexOf(userName) > -1);
   }
 

@@ -1,3 +1,22 @@
-div{
+div {
     padding: 10px;
 }
+
+button {
+    margin: 10px;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header {    
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+

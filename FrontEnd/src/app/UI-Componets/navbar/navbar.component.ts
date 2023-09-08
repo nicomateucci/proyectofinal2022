@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 // import { AuthService } from '@auth0/auth0-angular';
 import { IUser } from 'src/app/Models/iuser';
@@ -10,18 +10,18 @@ import { LoginComponent } from 'src/app/UI-Pages/login/login.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
   constructor(
-    private userService : UserService,
-    public dialog : MatDialog,
+    private userService: UserService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
     this.checkCurrentUser()
   }
 
-  checkCurrentUser(){
+  checkCurrentUser() {
     return this.userService.checkAunthentication();
   }
 
@@ -34,12 +34,12 @@ export class NavbarComponent implements OnInit{
   //   this.authService.logout();
   // }
 
-  login(){
+  login() {
     // const dialogRef = this.dialog.open(LoginComponent);
     this.dialog.open(LoginComponent);
   }
 
-  logout(){
+  logout() {
     this.userService.logout();
   }
 

@@ -1,10 +1,15 @@
 export interface IUser {
-    //DATA FOR USER
     id: string,
     name: string,
     password: string,
+    age : number,
     email: string,
-    roles:string[], //ESTO PUEDE SER UN ARREGLO O SCOPES
+    phone : string,
+    address : string,
+    registered : Date
+    scopes: string[],
+    subscription : string | undefined,
     gender: string,
-    token: string | null,
+    token: string | undefined,
 }
+

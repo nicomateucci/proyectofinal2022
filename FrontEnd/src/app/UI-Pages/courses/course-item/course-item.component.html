@@ -1,19 +1,44 @@
 <div class="container-fluid">
-    <div>
-        <h1 class="text-center">Course name : {{course.name}}</h1>
+    <div class="header">
+        <h1> {{course.name}} </h1>
+        <h3> Por {{course.professor}}</h3>
+        <p>
+            {{course.about}}
+        </p>
+        <div class="opciones">
+            <button mat-flat-button color="primary" (click)="startCourse()">
+                <mat-icon>play_circle_outline</mat-icon>
+                <span>Comenzar curso</span>
+            </button>
+            <button mat-flat-button color="primary">
+                <mat-icon>cloud_download</mat-icon>
+                <span>Descargar curso</span>
+            </button>
+        </div>
     </div>
-    <div>
-        <h1>ID : {{course.id}}</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt fuga ea sapiente corrupti veritatis
-            asperiores aspernatur porro repellendus molestiae debitis exercitationem, velit necessitatibus ipsum cumque,
-            maxime culpa modi iusto atque.</p>
-    </div>
-    <div>
-        <h1>FREE : {{course.free}}</h1>
-        <h1>NIVEL : {{course.level}}</h1>
-        <h1>TAGS : {{course.tags}}</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt fuga ea sapiente corrupti veritatis
-            asperiores aspernatur porro repellendus molestiae debitis exercitationem, velit necessitatibus ipsum cumque,
-            maxime culpa modi iusto atque.</p>
+    <span></span>
+    <div class="body">
+        <div>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let tag of course.tags">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <!-- SECCIONES DEL CURSO -->
+                            {{ tag }}
+                            <!-- SECCIONES DEL CURSO -->
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                           Contenido de la seccion
+                            <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <!-- CONTEIDO DE LAS SECCIONES -->
+                    <p>This is the primary content of the panel.</p>
+                    <!-- CONTEIDO DE LAS SECCIONES -->
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
     </div>
 </div>
