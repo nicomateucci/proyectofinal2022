@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/Services/courses/course.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/Services/users/user.service';
 
 @Component({
   selector: 'app-course-item',
@@ -13,7 +14,8 @@ export class CourseItemComponent implements OnInit {
 
   constructor(
     private courseService: CourseService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public userService : UserService) {
   }
 
   ngOnInit() {
@@ -26,7 +28,9 @@ export class CourseItemComponent implements OnInit {
   }
 
   startCourse(){
-    alert('Curso comenzado!')
+    if (this.userService.checkAunthentication()){
+      this.userService.addCourseToUser(this.course.id)
+    }
   }
 
 }

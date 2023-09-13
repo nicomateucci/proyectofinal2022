@@ -2155,6 +2155,12 @@
       "subscription": "gold",
       "scopes": [
         "admin"
+      ],
+      "courses": [
+        0,
+        2,
+        4,
+        6
       ]
     },
     {
@@ -2172,7 +2178,8 @@
       "subscription": "free",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Della",
@@ -2189,7 +2196,8 @@
       "subscription": "free",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Jessie",
@@ -2206,7 +2214,8 @@
       "subscription": "free",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Gilbert",
@@ -2223,7 +2232,8 @@
       "subscription": "free",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Hobbs",
@@ -2240,7 +2250,8 @@
       "subscription": "gold",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Cooley",
@@ -2257,7 +2268,8 @@
       "subscription": "gold",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Swanson",
@@ -2274,7 +2286,8 @@
       "subscription": "gold",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Kellie",
@@ -2291,7 +2304,8 @@
       "subscription": "gold",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     },
     {
       "id": "Aguilar",
@@ -2308,7 +2322,8 @@
       "subscription": "free",
       "scopes": [
         "user"
-      ]
+      ],
+      "courses": []
     }
   ],
   "courses": [
@@ -2447,7 +2462,6 @@
       "registered": "2020-12-04T09:02:57 +03:00",
       "subscription": "free",
       "tags": [
-        "veniam",
         "laborum",
         "excepteur",
         "duis",

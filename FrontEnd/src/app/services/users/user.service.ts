@@ -77,6 +77,53 @@ export class UserService {
   getSubscription(): boolean {
     return this.currentUser?.subscription === 'gold';
   }
+
+  /**
+   * Recibe el ID del curso seleccionado, si no esta iniciado se agregara a los cursos comenzados
+   * @param courseID 
+   */
+  addCourseToUser(courseID : string){
+    // //ESTO DEBERIA SER ALGUN METODO HTTP AL USUARIO Y VERIFICAR QUE EL MISMO NO TENGA EL CURSO
+    // //INICIADO PERO DE ESTA FORMA FUNCIONA
+    // let arr = this.currentUser?.courses
+    // //ESTO COPIA LA DIRECCION DEL ARREGLO, PERMITIENDO ACCEDER Y MODIFICARLO
+    // if (!arr?.includes(courseID)){
+    //   arr?.push(courseID);
+    //   //ACA SE AGREGA SIEMPRE Y CUANDO NO ESTE INCLUIDO DICHO CURSO PARA LUEGO PASARLO POR UN METODO POST AL
+    //   let options = {
+    //     headers: new HttpHeaders(
+    //       { 'Content-Type': 'application/json' }
+    //     )
+    //   };
+    //   this.http.put('api/users/'+this.currentUser?.id , {...this.currentUser} ,options).subscribe(
+    //     data =>{
+    //       console.log(data)
+    //     }
+    //   )
+    // }
+
+    if (this.checkCourse(courseID)){
+      this.currentUser?.courses?.push(courseID);
+      let options = {
+        headers: new HttpHeaders(
+          { 'Content-Type': 'application/json' }
+        )
+      };
+      this.http.patch('api/users/'+this.currentUser?.id , {...this.currentUser} ,options).subscribe(
+        data =>{
+          console.log(data)
+        }
+      )
+    }
+  }
+
+  /**
+   * Se chequea que el curso no este iniciado por parte del usuario
+   */
+  checkCourse(courseID : string) : boolean{
+    return !this.currentUser?.courses?.includes(courseID)
+  }
+
   //----------------------------------BACKEND VALIDACIONES----------------------------------//
 
   /**

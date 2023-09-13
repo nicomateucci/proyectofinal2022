@@ -4,17 +4,20 @@
     <button class="text-light" mat-button [matMenuTriggerFor]="assets"> Activos </button>
 
     <mat-menu #courses="matMenu">
-      <button mat-menu-item routerLink="/courses">Principiantes</button>
-      <button mat-menu-item routerLink="/courses">Intermedios</button>
-      <button mat-menu-item routerLink="/courses">Avanzados</button>
       <button mat-menu-item routerLink="/courses">Todos</button>
+      <div *ngIf="checkCurrentUser()">
+        <!-- ACA FALTA EL TEMA DEL COMPONENTE QUE SE RENDIZARIA -->
+        <button mat-menu-item>Mis cursos</button>
+      </div>
 
     </mat-menu>
 
     <mat-menu #assets="matMenu">
-      <button mat-menu-item routerLink="/assets">Criptomonedas</button>
-      <button mat-menu-item routerLink="/assets">Valores</button>
       <button mat-menu-item routerLink="/assets">Todos</button>
+      <div *ngIf="checkCurrentUser()">
+        <!-- ACA FALTA EL TEMA DEL COMPONENTE QUE SE RENDIZARIA -->
+        <button mat-menu-item>Activos favoritos</button>
+      </div>
 
     </mat-menu>
     

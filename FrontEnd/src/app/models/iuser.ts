@@ -11,5 +11,6 @@ export interface IUser {
     subscription : string | undefined,
     gender: string,
     token: string | undefined,
+    courses : string[]
 }
 

@@ -6,7 +6,7 @@
             {{course.about}}
         </p>
         <div class="opciones">
-            <button mat-flat-button color="primary" (click)="startCourse()">
+            <button mat-flat-button color="primary" (click)="startCourse()" *ngIf="userService.checkAunthentication() && userService.checkCourse(course.id)">
                 <mat-icon>play_circle_outline</mat-icon>
                 <span>Comenzar curso</span>
             </button>
@@ -34,7 +34,10 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <!-- CONTEIDO DE LAS SECCIONES -->
-                    <p>This is the primary content of the panel.</p>
+                        <!-- <div *ngFor="let video of tag.seccion">
+                            <p>This is the primary content of the panel.</p>
+                        </div> -->
+                        <p>This is the primary content of the panel.</p>
                     <!-- CONTEIDO DE LAS SECCIONES -->
                 </mat-expansion-panel>
             </mat-accordion>
