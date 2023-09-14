@@ -5,10 +5,14 @@
         <p>
             {{course.about}}
         </p>
-        <div class="opciones">
-            <button mat-flat-button color="primary" (click)="startCourse()" *ngIf="userService.checkAunthentication() && userService.checkCourse(course.id)">
+        <div class="opciones" *ngIf="userService.checkAunthentication()">
+            <button mat-flat-button color="primary" (click)="startCourse()" *ngIf="!userService.checkCourse(course.id)">
                 <mat-icon>play_circle_outline</mat-icon>
                 <span>Comenzar curso</span>
+            </button>
+            <button mat-flat-button color="warn" (click)="deleteCourse()" *ngIf="userService.checkCourse(course.id)">
+                <mat-icon>play_circle_outline</mat-icon>
+                <span>Abandonar curso</span>
             </button>
             <button mat-flat-button color="primary">
                 <mat-icon>cloud_download</mat-icon>
@@ -20,6 +24,7 @@
     <div class="body">
         <div>
             <mat-accordion>
+                <H1>Videos</H1>
                 <mat-expansion-panel *ngFor="let tag of course.tags">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
@@ -33,6 +38,8 @@
                             <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
                         </mat-panel-description>
                     </mat-expansion-panel-header>
+                    <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
+                    PERO EN UN FUTURO ESTO SE ROMPERIA -->
                     <!-- CONTEIDO DE LAS SECCIONES -->
                         <!-- <div *ngFor="let video of tag.seccion">
                             <p>This is the primary content of the panel.</p>

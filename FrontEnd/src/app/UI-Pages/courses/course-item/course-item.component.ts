@@ -28,9 +28,11 @@ export class CourseItemComponent implements OnInit {
   }
 
   startCourse(){
-    if (this.userService.checkAunthentication()){
-      this.userService.addCourseToUser(this.course.id)
-    }
+    this.userService.addCourse(this.course.id)
+  }
+
+  deleteCourse(){
+    this.userService.deleteCourse(this.course.id);
   }
 
 }
