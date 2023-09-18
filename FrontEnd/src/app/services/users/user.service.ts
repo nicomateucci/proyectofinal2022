@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { IUser } from 'src/app/Models/iuser';
+import { IUser } from 'src/app/models/iuser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,12 @@ export class UserService {
 
   //EXISTE UN PROXY CONFIGURADO PARA EVITAR PONER LA URL ENTERA
   // private urlBackend='http://localhost:3000/users/'
-  private currentUser!: IUser | null;
+  private currentUser: IUser | null = null;
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   //SE RETORNA UN OBSERVABLE, DEPENDIENDO DEL MISMO SI SE MATCHEA CON UN USUARIO O NO
   login(loginForm: FormGroup): Observable<IUser | boolean> {
@@ -45,7 +46,6 @@ export class UserService {
     location.reload();
   }
 
-
   registerUser(valueForm: FormGroup) {
     // ESTE METODO IRIA AL ENDPOINT PERO COMO TRABAJO CON UN FAKE TENGO QUE ADECUAR METODOS
     //DE IGUAL MANERA SE TENDRIA QUE CAMBIAR SOLAMENTE LA RUTA A LA CUAL SE HACE EL PEDIDO
@@ -60,7 +60,7 @@ export class UserService {
   /**
    * Retorna el usuario actual, si es que este existe en forma de observable.
   */
-  getCurrentUser(): Observable<IUser | null> {  
+  getCurrentUser(): Observable<IUser | null> {
     return this.http.get<IUser>('/api/users/' + this.currentUser?.id);
   }
 
@@ -78,50 +78,46 @@ export class UserService {
     return this.currentUser?.subscription === 'gold';
   }
 
+  udpdateUser(){
+    let options = {
+      headers: new HttpHeaders(
+        { 'Content-Type': 'application/json' }
+      )
+    };
+    this.http.patch('api/users/' + this.currentUser?.id, { ...this.currentUser }, options).subscribe(
+      dataUser => {
+        this.currentUser = <IUser>dataUser
+        this.createToken();
+      }
+    );
+  }  
+   
   /**
    * Recibe el ID del curso seleccionado, si no esta iniciado se agregara a los cursos comenzados
    * @param courseID 
    */
-  addCourseToUser(courseID : string){
-    // //ESTO DEBERIA SER ALGUN METODO HTTP AL USUARIO Y VERIFICAR QUE EL MISMO NO TENGA EL CURSO
-    // //INICIADO PERO DE ESTA FORMA FUNCIONA
-    // let arr = this.currentUser?.courses
-    // //ESTO COPIA LA DIRECCION DEL ARREGLO, PERMITIENDO ACCEDER Y MODIFICARLO
-    // if (!arr?.includes(courseID)){
-    //   arr?.push(courseID);
-    //   //ACA SE AGREGA SIEMPRE Y CUANDO NO ESTE INCLUIDO DICHO CURSO PARA LUEGO PASARLO POR UN METODO POST AL
-    //   let options = {
-    //     headers: new HttpHeaders(
-    //       { 'Content-Type': 'application/json' }
-    //     )
-    //   };
-    //   this.http.put('api/users/'+this.currentUser?.id , {...this.currentUser} ,options).subscribe(
-    //     data =>{
-    //       console.log(data)
-    //     }
-    //   )
-    // }
-
-    if (this.checkCourse(courseID)){
-      this.currentUser?.courses?.push(courseID);
-      let options = {
-        headers: new HttpHeaders(
-          { 'Content-Type': 'application/json' }
-        )
-      };
-      this.http.patch('api/users/'+this.currentUser?.id , {...this.currentUser} ,options).subscribe(
-        data =>{
-          console.log(data)
-        }
-      )
+  addCourse(courseID: string) {
+  //HABRIA QUE VER SI HAY UNA MEJOR FORMA DE VERIFICAR ESTOS DATOS, DE ESTA FORMA "FUNCIONA PERO TENGO MIS DUDAS"
+    if (!this.checkCourse(courseID)) {
+      localStorage.clear();
+      this.currentUser?.courses.push(courseID);
+      this.udpdateUser()
     }
+  }
+  
+  deleteCourse(courseID: string){
+    const index = <number>this.currentUser?.courses.indexOf(courseID, 0);
+    if (index > -1) {
+      this.currentUser?.courses.splice(index, 1);
+    }
+    this.udpdateUser();
   }
 
   /**
    * Se chequea que el curso no este iniciado por parte del usuario
    */
-  checkCourse(courseID : string) : boolean{
-    return !this.currentUser?.courses?.includes(courseID)
+  checkCourse(courseID: string): boolean {
+    return <boolean>this.currentUser?.courses.includes(courseID);
   }
 
   //----------------------------------BACKEND VALIDACIONES----------------------------------//
@@ -143,16 +139,14 @@ export class UserService {
 
 
   checkRoles(): boolean {
-    //Primeramente se valida la autentificacion y despues habria que pensar com ose validan los roles
     if (this.checkAunthentication()) {
       //VALIDACION PRECARIA PERO PERMITE SABER EN MEDIDA SI EL USUARIO TIENE ESTE ROL
       return <boolean>this.currentUser?.scopes.includes('admin')
-      //return this.currentUser?.role === 'admin'
     }
     return false
   }
 
-  public createToken() : string {
+  public createToken(): string {
     const token = window.btoa((JSON.stringify(this.currentUser)))
     localStorage.setItem('Token', token);
     return token;

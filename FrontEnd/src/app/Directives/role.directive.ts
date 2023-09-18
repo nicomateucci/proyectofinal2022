@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { UserService } from '../Services/users/user.service';
-import { IUser } from '../Models/iuser';
+import { IUser } from '../models/iuser';
 
 @Directive({
   selector: '[appRole]'
