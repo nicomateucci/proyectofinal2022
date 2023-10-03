@@ -24,6 +24,7 @@ export class CourseItemComponent implements OnInit {
     })
     this.courseService.getCourse(this.course).subscribe((data: any) => {
       this.course = data[0];
+      console.log(data[0])
     })
   }
 
@@ -34,5 +35,6 @@ export class CourseItemComponent implements OnInit {
   deleteCourse(){
     this.userService.deleteCourse(this.course.id);
   }
+
 
 }

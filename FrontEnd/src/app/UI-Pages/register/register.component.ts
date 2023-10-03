@@ -22,6 +22,7 @@ export class RegisterComponent {
       confirmPassword: new FormControl(null, [this.patternValidator()]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       gender: new FormControl(),
+      birthday : new FormControl(),
       // role: new FormControl(''),
       isactive: new FormControl(false)
     },

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid example-headers-align">
     <div class="header">
         <h1> {{course.name}} </h1>
         <h3> Por {{course.professor}}</h3>
@@ -25,11 +25,11 @@
         <div>
             <mat-accordion>
                 <H1>Videos</H1>
-                <mat-expansion-panel *ngFor="let tag of course.tags">
+                <mat-expansion-panel *ngFor="let seccion of course.seccions">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <!-- SECCIONES DEL CURSO -->
-                            {{ tag }}
+                            {{ seccion.name }}
                             <!-- SECCIONES DEL CURSO -->
                         </mat-panel-title>
                         <mat-panel-description>
@@ -40,11 +40,15 @@
                     </mat-expansion-panel-header>
                     <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
                     PERO EN UN FUTURO ESTO SE ROMPERIA -->
-                    <!-- CONTEIDO DE LAS SECCIONES -->
-                        <!-- <div *ngFor="let video of tag.seccion">
-                            <p>This is the primary content of the panel.</p>
-                        </div> -->
-                        <p>This is the primary content of the panel.</p>
+
+                    <mat-card *ngFor="let video of seccion.videos">
+                        <mat-card-content>  
+                            <a href="#" class="text-light">
+                                {{ video.name }} -- {{ video.about }} -- {{ video.duration }} 
+                            </a>
+                        </mat-card-content>
+                    </mat-card>           
+
                     <!-- CONTEIDO DE LAS SECCIONES -->
                 </mat-expansion-panel>
             </mat-accordion>

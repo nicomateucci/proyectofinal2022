@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { IUser } from 'src/app/models/iuser';
+import { IUser } from 'src/app/Models/iuser';
 
 @Injectable({
   providedIn: 'root'

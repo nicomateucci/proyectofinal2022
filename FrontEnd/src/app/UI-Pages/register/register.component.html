@@ -64,6 +64,15 @@
             </span>
         </mat-form-field>
 
+        <mat-form-field class="col example-full-width" >
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthday">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+
         <mat-radio-group  formControlName="gender" aria-label="Select an option">
             <mat-radio-button value="male" style="margin-left: 16px;"> Hombre </mat-radio-button>
             <mat-radio-button value="female" style="margin-left: 16px;"> Mujer </mat-radio-button>
@@ -73,6 +82,7 @@
         <div *ngIf="registerInvalid" class="alert alert-danger text-center">
             <p>Existen campos requeridos con errores</p>
         </div> -->
+
 
       </mat-dialog-content>
       <mat-dialog-actions align="end">

@@ -41,6 +41,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
 
 //---------------------------Angular material---------------------------//
 
@@ -77,7 +78,8 @@ const materialModules = [
   MatRadioModule,
   MatDatepickerModule,
   MatTooltipModule,
-  MatDialogModule
+  MatDialogModule,
+  MatNativeDateModule
 ];
 
 const utilities = [
@@ -89,7 +91,7 @@ const utilities = [
 
 @NgModule({
   declarations: [
-  ...utilities
+    ...utilities
   ],
   imports: [
     CarouselModule,
@@ -97,7 +99,7 @@ const utilities = [
     CommonModule,
     ...materialModules
   ],
-  exports:[
+  exports: [
     ...utilities,
     ...materialModules
   ]
