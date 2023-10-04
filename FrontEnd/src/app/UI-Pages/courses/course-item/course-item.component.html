@@ -1,16 +1,18 @@
-<div class="container-fluid example-headers-align">
+<div class="container-fluid example-headers-align pt-3">
     <div class="header">
         <h1> {{course.name}} </h1>
         <h3> Por {{course.professor}}</h3>
         <p>
             {{course.about}}
         </p>
-        <div class="opciones" *ngIf="userService.checkAunthentication()">
-            <button mat-flat-button color="primary" (click)="startCourse()" *ngIf="!userService.checkCourse(course.id)">
+        <div class="opciones p-1" *ngIf="userService.checkAunthentication()">
+            <button class="m-2" mat-flat-button color="primary" (click)="startCourse()"
+                *ngIf="!userService.checkCourse(course.id)">
                 <mat-icon>play_circle_outline</mat-icon>
                 <span>Comenzar curso</span>
             </button>
-            <button mat-flat-button color="warn" (click)="deleteCourse()" *ngIf="userService.checkCourse(course.id)">
+            <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()"
+                *ngIf="userService.checkCourse(course.id)">
                 <mat-icon>play_circle_outline</mat-icon>
                 <span>Abandonar curso</span>
             </button>
@@ -20,39 +22,55 @@
             </button>
         </div>
     </div>
-    <span></span>
-    <div class="body">
-        <div>
-            <mat-accordion>
-                <H1>Videos</H1>
-                <mat-expansion-panel *ngFor="let seccion of course.seccions">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <!-- SECCIONES DEL CURSO -->
-                            {{ seccion.name }}
-                            <!-- SECCIONES DEL CURSO -->
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                           Contenido de la seccion
-                            <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                        </mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
-                    PERO EN UN FUTURO ESTO SE ROMPERIA -->
+    <mat-accordion>
+        <H1>Videos</H1>
+        <mat-expansion-panel *ngFor="let seccion of course.seccions">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <!-- SECCIONES DEL CURSO -->
+                    {{ seccion.name }}
+                    <!-- SECCIONES DEL CURSO -->
+                </mat-panel-title>
+                <mat-panel-description>
+                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                    Contenido de la seccion
+                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
+            PERO EN UN FUTURO ESTO SE ROMPERIA -->
 
-                    <mat-card *ngFor="let video of seccion.videos">
-                        <mat-card-content>  
-                            <a href="#" class="text-light">
-                                {{ video.name }} -- {{ video.about }} -- {{ video.duration }} 
-                            </a>
-                        </mat-card-content>
-                    </mat-card>           
+            <mat-card *ngFor="let video of seccion.videos">
+                <mat-card-content class="text-center">
+                      {{ video.name }} -- {{ video.about }} -- {{ video.duration }}
+                </mat-card-content>
+            </mat-card>
 
-                    <!-- CONTEIDO DE LAS SECCIONES -->
-                </mat-expansion-panel>
-            </mat-accordion>
-        </div>
+            <!-- CONTEIDO DE LAS SECCIONES -->
+        </mat-expansion-panel>
+    </mat-accordion>
+    <br>
+    <mat-accordion class="p-2">
+        <H1>Material de apoyo</H1>
+        <mat-expansion-panel *ngFor="let material of course.materials">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Material auxiliar para el transcurso del curso
+                </mat-panel-title>
+                <mat-panel-description>
+                    Formato PDF
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
+            PERO EN UN FUTURO ESTO SE ROMPERIA -->
 
-    </div>
+            <mat-card>
+                <mat-card-content class="text-center" (click)="openMessage()">
+                        {{ material.name }} -- {{ material.about }}
+                </mat-card-content>
+            </mat-card>
+
+            <!-- CONTEIDO DE LAS SECCIONES -->
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

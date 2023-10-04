@@ -36,5 +36,9 @@ export class CourseItemComponent implements OnInit {
     this.userService.deleteCourse(this.course.id);
   }
 
+  openMessage(){
+    alert("Simulacion de apertua de PDF o Libro")
+  }
+
 
 }
