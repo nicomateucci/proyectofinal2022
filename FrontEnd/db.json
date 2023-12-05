@@ -2156,7 +2156,9 @@
       "scopes": [
         "admin"
       ],
-      "courses": []
+      "courses": [
+        0
+      ]
     },
     {
       "id": "Hubbard",

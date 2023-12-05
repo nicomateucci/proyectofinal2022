@@ -134,6 +134,7 @@ export class UserService {
       return false
     }
     this.currentUser = this.decodeToken();
+    console.log(true)
     return true;
   }
 

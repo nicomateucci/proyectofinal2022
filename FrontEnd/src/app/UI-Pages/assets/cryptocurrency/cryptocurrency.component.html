@@ -5,9 +5,21 @@
         <ng-container matColumnDef="rank">
             <th mat-header-cell *matHeaderCellDef 
                 mat-sort-header> 
+                &nbsp;&nbsp;
                 Rank. 
             </th>
-            <td mat-cell *matCellDef="let activo">{{activo.rank}}</td>
+            <td mat-cell *matCellDef="let activo">
+                <button mat-icon-button  
+                matTooltip="Agregar a favoritos" 
+                color="warn"
+                aria-label="Example icon-button with a heart icon" 
+                (click)="showMessage()"
+                *ngIf="!checkAutentication()"
+            >
+                    <mat-icon class="pt-1 pe-3">favorite</mat-icon>
+                </button>
+                {{activo.rank}}
+            </td>
         </ng-container>
     
         <!-- Coin Column -->

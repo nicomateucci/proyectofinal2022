@@ -3,6 +3,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AssetService } from 'src/app/Services/asset/asset.service';
+import { UserService } from 'src/app/Services/users/user.service';
 
 @Component({
   selector: 'app-cryptocurrency',
@@ -18,7 +19,8 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['rank', 'name', 'rate', 'allTimeHighUSD', 'volume'];
 
   constructor(
-    private assetService: AssetService
+    private assetService: AssetService,
+    private userService : UserService
   ) {}
 
   handlePage(e: PageEvent) {
@@ -47,5 +49,13 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
     //Esto para pasarle el dato del paginador
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.empTbSort;
+  }
+
+  showMessage(){
+    alert("Agregado a favoritos");
+  }
+
+  checkAutentication(){
+    return !this.userService.checkAunthentication();
   }
 }
