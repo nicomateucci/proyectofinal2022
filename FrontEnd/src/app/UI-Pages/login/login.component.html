@@ -7,19 +7,17 @@
       <mat-form-field class="col example-full-width ">
         <mat-label>Usuario/Email</mat-label>
         <input matInput formControlName="id">
-        <span class="text-danger"
-          *ngIf="(loginFormControl.id.touched || submitted) && loginFormControl.id.errors?.['required']">
-          El username es requerido
-        </span>
+        @if ( (loginFormControl.id.touched || submitted) && loginFormControl.id.errors?.['required'] ) {
+          <span class="text-danger"> El username es requerido </span>
+        }
       </mat-form-field>
 
       <mat-form-field class="col example-full-width ">
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password">
-        <span class="text-danger"
-          *ngIf="(loginFormControl.password.touched || submitted ) && loginFormControl.password.errors?.['required']">
-          La contraseña es requerida
-        </span>
+        @if ( (loginFormControl.password.touched || submitted ) && loginFormControl.password.errors?.['required'] ) {
+          <span class="text-danger"> La contraseña es requerida </span>
+        }
       </mat-form-field>
 
       <!-- <br>

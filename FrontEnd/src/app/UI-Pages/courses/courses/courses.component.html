@@ -10,19 +10,18 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
-            <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()"
-                *ngIf="userService.checkRoles()">
-                Agregar curso
-            </button>
+            @if ( userService.checkRoles()) {
+                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+                    Agregar curso
+                </button>
+            }
             <div class="contenedor">
-                <div *ngFor="let course of courses">
-                    <app-card 
-                        *ngIf="course.level=='Principiante'" 
-                        [idCourse]="course.name">
-                    </app-card>
-                </div>
+                @for (course of courses; track course.id) {
+                    @if ( course.level=='Principiante') {
+                        <app-card [idCourse]="course.name"> </app-card>
+                    }
+                }
             </div>
-
         </mat-expansion-panel>
     </mat-accordion>
 
@@ -37,17 +36,18 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
-            <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()"
-                *ngIf="userService.checkRoles()">
+            @if ( userService.checkRoles() ) {
+                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
                 Agregar curso
             </button>
+            }
+
             <div class="contenedor">
-                <div *ngFor="let course of courses">
-                    <app-card 
-                        *ngIf="course.level=='Intermedio'" 
-                        [idCourse]="course.name">
-                    </app-card>
-                </div>
+                @for (course of courses; track course.id) {
+                    @if ( course.level=='Intermedio') {
+                        <app-card [idCourse]="course.name"> </app-card>
+                    }
+                }
             </div>
         </mat-expansion-panel>
     </mat-accordion>
@@ -62,17 +62,17 @@
                     <h5>Cursos de nivel avanzado</h5>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()"
-                *ngIf="userService.checkRoles()">
+            @if ( userService.checkRoles() ) {
+                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
                 Agregar curso
             </button>
+            }
             <div class="contenedor">
-                <div *ngFor="let course of courses">
-                    <app-card 
-                        *ngIf="course.level=='Avanzado'" 
-                        [idCourse]="course.name">
-                    </app-card>
-                </div>
+                @for (course of courses; track course.id) {
+                    @if ( course.level=='Avanzado') {
+                        <app-card [idCourse]="course.name"> </app-card>
+                    }
+                }
             </div>
         </mat-expansion-panel>
     </mat-accordion>
