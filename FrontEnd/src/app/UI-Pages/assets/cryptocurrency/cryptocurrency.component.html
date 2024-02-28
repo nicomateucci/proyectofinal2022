@@ -9,17 +9,20 @@
                 Rank. 
             </th>
             <td mat-cell *matCellDef="let activo">
-                <button mat-icon-button  
-                matTooltip="Agregar a favoritos" 
-                color="warn"
-                aria-label="Example icon-button with a heart icon" 
-                (click)="showMessage()"
-                *ngIf="!checkAutentication()"
-            >
-                    <mat-icon class="pt-1 pe-3">favorite</mat-icon>
-                </button>
+                @if ( checkAutentication()) {
+                    <button mat-icon-button  
+                    matTooltip="Agregar a favoritos" 
+                    color="warn"
+                    aria-label="Example icon-button with a heart icon" 
+                    (click)="showMessage()"
+                    >
+                        <!--ACA IRIA SI EL ACTIVO ESTA AGREGADO A FAVORITO O NO, HABRIA QUE VER COMO SE LO DESARROLLA O NO-->
+                        <mat-icon class="pt-1 pe-3">favorite</mat-icon>              
+                    </button>
+                }
                 {{activo.rank}}
             </td>
+            
         </ng-container>
     
         <!-- Coin Column -->

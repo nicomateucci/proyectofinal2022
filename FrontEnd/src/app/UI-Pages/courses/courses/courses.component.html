@@ -17,11 +17,18 @@
             }
             <div class="contenedor">
                 @for (course of courses; track course.id) {
-                    @if ( course.level=='Principiante') {
+                    @if ( course.level =='Principiante') {
                         <app-card [idCourse]="course.name"> </app-card>
                     }
-                }
+                }             
             </div>
+            <!--PARA PODER USAR UN APGINADOR, DEBERIAMOS TENER LOS CURSOS POR NIVEL, HABRIA QUE TENER EL SERVICIO DE STA FORMA-->
+            <mat-paginator 
+                [length]="100"
+                [pageSize]="14"
+                [pageSizeOptions]="[14]"
+                aria-label="Select page">
+            </mat-paginator>
         </mat-expansion-panel>
     </mat-accordion>
 

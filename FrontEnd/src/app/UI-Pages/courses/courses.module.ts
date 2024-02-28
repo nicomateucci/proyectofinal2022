@@ -13,8 +13,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    UiComponentsModule,
-    
+    UiComponentsModule, 
   ]
 })
 export class CoursesModule { }

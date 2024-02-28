@@ -13,8 +13,22 @@
     <app-footer></app-footer>
 </ng-template> -->
 
-<app-navbar></app-navbar>   
-<div class="main">
-    <router-outlet> </router-outlet>
-</div>
-<app-footer></app-footer>
+<!--Por defeto el defer muentras el componente una vez cargado y renderizado TODO-->
+<!--El placeholder es lo que se carga primeramente a renderizar mientras se estan cargando lso componenets-->
+<!--El loading funciona mientras se muestra el placeholder y la posterior carga de componentes-->
+@defer () {
+    <app-navbar></app-navbar>   
+    <div class="main">
+        <router-outlet> </router-outlet>
+    </div>
+    <app-footer></app-footer>
+}
+@placeholder () {
+    <h1 class="container-fluid">MESSI EL MEJOR DEL MUNDO</h1>
+}
+@loading {
+
+}
+
+
+

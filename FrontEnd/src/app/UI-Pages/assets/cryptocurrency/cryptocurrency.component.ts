@@ -56,6 +56,6 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
   }
 
   checkAutentication(){
-    return !this.userService.checkAunthentication();
+    return this.userService.checkAunthentication();
   }
 }

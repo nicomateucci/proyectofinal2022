@@ -16,8 +16,8 @@
 
 .card:focus{
     cursor: pointer;
-    border: 5px solid blue;
-    background: yellow;
+    border: 5px solid black;
+    background: gainsboro;
     height: 80px;
     width: 250px;
     transition: 0.5s;
@@ -25,8 +25,8 @@
 
 .card:hover{
     cursor: pointer;
-    border: 5px solid blue;
-    background: yellow;
+    border: 5px solid black;
+    background: gainsboro;
     height: 80px;
     width: 250px;
     transition: 0.5s;
