@@ -7,7 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 
+
   @Input()
-  idCourse!:number
+  name!:number
+
+  @Input()
+  professor!:string
+
+  @Input()
+  about!:string
 
 }

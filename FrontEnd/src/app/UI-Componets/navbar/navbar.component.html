@@ -1,13 +1,16 @@
 <mat-toolbar class="navbar">
   <button class="text-light h3" mat-button routerLink="/home">FinanSys</button>
 
+
+  <a class="text-light" mat-button  routerLink="/Cursos">Cursos</a>
+  
   <!-- ACA PODRIAN IR LAS VISTAS DE CADA CURSO POR NIVEL -->
-  <button class="text-light" mat-button [matMenuTriggerFor]="courses"> Cursos </button>
+  <!-- <button class="text-light" mat-button routerLink="/Cursos"> Cursos </button>
   <mat-menu #courses="matMenu">
-    <button mat-menu-item routerLink="/courses">Principiantes</button>
-    <button mat-menu-item routerLink="/courses">Intermedios</button>
-    <button mat-menu-item routerLink="/courses">Avanzados</button>
-  </mat-menu>
+    <button mat-menu-item routerLink="/Cursos/Principiante" >Principiantes</button>
+    <button mat-menu-item routerLink="/Cursos/Intermedio">Intermedios</button>
+    <button mat-menu-item routerLink="/Cursos/Avanzado">Avanzados</button> 
+  </mat-menu> -->
   
   <button class="text-light" mat-button [matMenuTriggerFor]="assets"> Activos </button>
   <mat-menu #assets="matMenu">

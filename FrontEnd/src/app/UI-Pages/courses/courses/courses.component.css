@@ -12,3 +12,23 @@ mat-expansion-panel-header {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.card {
+    border: 1px solid black;
+    max-width: 350px;
+    margin: 7px;
+    padding-top: 5px;
+}
+
+.card:focus{
+    cursor: pointer;
+    border: 3px solid black;
+    background: gainsboro;
+}
+
+.card:hover{
+    cursor: pointer;
+    border: 3px solid black;
+    background: gainsboro;
+}
+

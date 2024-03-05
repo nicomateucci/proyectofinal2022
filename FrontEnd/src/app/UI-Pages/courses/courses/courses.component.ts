@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/Services/courses/course.service';
 import { UserService } from 'src/app/Services/users/user.service';
 
@@ -10,22 +11,28 @@ import { UserService } from 'src/app/Services/users/user.service';
 
 export class CoursesComponent implements OnInit {
 
-  courses: any;
-  panelOpenState = false;
+  courses : any;
+  level! : string;
+  panelOpenState = true;
 
   constructor(
     private coursesService: CourseService,
-    public userService: UserService
+    public userService: UserService,
+    private route: ActivatedRoute,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
+    this.level = <string>this.route.snapshot.paramMap.get('level')
+    // console.log(this.route.snapshot.paramMap.get('level'))
     this.coursesService.getCourses().subscribe(
-      (data: any) => {
+      (data : any) =>{
         this.courses = data;
+        console.log(this.courses)
       }
     )
   }
-  
+
   showMessage() {
     alert('Curso Agregado!')
   }

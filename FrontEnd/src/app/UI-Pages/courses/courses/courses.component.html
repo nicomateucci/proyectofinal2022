@@ -10,25 +10,33 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+            <!--TODO ESTO HABRI QUE HACER EN EUN METODO PARA OBTNER EL TIPO DE USUARIO Y TRAER DEL BACKEND LAS COSAS
+            COMO NO ESTA DESARROLLADO ESTA ASI-->
             @if ( userService.checkRoles()) {
-                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
-                    Agregar curso
-                </button>
+            <button mat-button color="primary" aria-label="Example icon button with a home icon"
+                (click)="showMessage()">
+                Agregar curso
+            </button>
             }
             <div class="contenedor">
                 @for (course of courses; track course.id) {
                     @if ( course.level =='Principiante') {
-                        <app-card [idCourse]="course.name"> </app-card>
+                    <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
+                        <mat-card-header>
+                            <mat-card-title>
+                                {{course.name}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                Por: {{course.professor}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            {{course.about}}
+                        </mat-card-content>
+                    </mat-card>
                     }
-                }             
+                }
             </div>
-            <!--PARA PODER USAR UN APGINADOR, DEBERIAMOS TENER LOS CURSOS POR NIVEL, HABRIA QUE TENER EL SERVICIO DE STA FORMA-->
-            <mat-paginator 
-                [length]="100"
-                [pageSize]="14"
-                [pageSizeOptions]="[14]"
-                aria-label="Select page">
-            </mat-paginator>
         </mat-expansion-panel>
     </mat-accordion>
 
@@ -42,9 +50,9 @@
                     <h5>Cursos de nivel intermedio</h5>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
             @if ( userService.checkRoles() ) {
-                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+            <button mat-button color="primary" aria-label="Example icon button with a home icon"
+                (click)="showMessage()">
                 Agregar curso
             </button>
             }
@@ -52,7 +60,19 @@
             <div class="contenedor">
                 @for (course of courses; track course.id) {
                     @if ( course.level=='Intermedio') {
-                        <app-card [idCourse]="course.name"> </app-card>
+                    <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
+                        <mat-card-header>
+                            <mat-card-title> 
+                                {{course.name}} 
+                            </mat-card-title>
+                            <mat-card-subtitle> 
+                                Por: {{course.professor}} 
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                            <mat-card-content>
+                                {{course.about}}
+                            </mat-card-content>   
+                    </mat-card> 
                     }
                 }
             </div>
@@ -70,14 +90,27 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             @if ( userService.checkRoles() ) {
-                <button mat-button color="primary" aria-label="Example icon button with a home icon" (click)="showMessage()">
+            <button mat-button color="primary" aria-label="Example icon button with a home icon"
+                (click)="showMessage()">
                 Agregar curso
             </button>
             }
             <div class="contenedor">
                 @for (course of courses; track course.id) {
                     @if ( course.level=='Avanzado') {
-                        <app-card [idCourse]="course.name"> </app-card>
+                    <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
+                        <mat-card-header>
+                            <mat-card-title>
+                                {{course.name}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                Por: {{course.professor}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            {{course.about}}
+                        </mat-card-content>
+                    </mat-card>
                     }
                 }
             </div>
