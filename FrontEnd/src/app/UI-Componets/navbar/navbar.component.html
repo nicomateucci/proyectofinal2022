@@ -1,9 +1,7 @@
 <mat-toolbar class="navbar">
   <button class="text-light h3" mat-button routerLink="/home">FinanSys</button>
+  <button class="text-light" mat-button routerLink="/cursos" >Cursos</button>
 
-
-  <a class="text-light" mat-button  routerLink="/Cursos">Cursos</a>
-  
   <!-- ACA PODRIAN IR LAS VISTAS DE CADA CURSO POR NIVEL -->
   <!-- <button class="text-light" mat-button routerLink="/Cursos"> Cursos </button>
   <mat-menu #courses="matMenu">
@@ -38,6 +36,7 @@
        <button type="button" class="btn btn-outline-success m-1" (click)="loginUser()">Iniciar Sesion</button>
       <button class="btn btn-outline-success m-1" (click)="login()">Iniciar Sesion </button>
     </ng-template> -->
+    
   @if ( !checkCurrentUser() ) {
     <button class="btn btn-outline-success m-1" (click)="login()">Iniciar Sesion </button>
   }

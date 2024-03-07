@@ -6,16 +6,16 @@ import { isLoggedGuard } from 'src/app/Guards/is-logged.guard';
 
 const routes: Routes = [
   { 
-    path: 'Cursos',
+    path: 'cursos',
     component: CoursesComponent
   },
   { 
-    path: 'Cursos/:name',
+    path: 'cursos/:name',
     component: CourseItemComponent,
     // canMatch :[isLoggedGuard]
   },
   { 
-    path: 'courses/:id',
+    path: 'cursos/:id',
     component: CourseItemComponent
   },
 ];

@@ -33,6 +33,7 @@ export class CryptocurrencyComponent implements OnInit, AfterViewInit {
     this.assetService.getDataCoins().subscribe(
       (data: any) => {
         this.dataSource.data = data;
+        console.log(data)
       }
     )
     // this.assetService.getDataFromApi().subscribe(

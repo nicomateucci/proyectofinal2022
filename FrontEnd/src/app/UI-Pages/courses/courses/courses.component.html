@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -9,9 +9,6 @@
                     <h5>Cursos de nivel principiante</h5>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
-            <!--TODO ESTO HABRI QUE HACER EN EUN METODO PARA OBTNER EL TIPO DE USUARIO Y TRAER DEL BACKEND LAS COSAS
-            COMO NO ESTA DESARROLLADO ESTA ASI-->
             @if ( userService.checkRoles()) {
             <button mat-button color="primary" aria-label="Example icon button with a home icon"
                 (click)="showMessage()">
@@ -19,8 +16,7 @@
             </button>
             }
             <div class="contenedor">
-                @for (course of courses; track course.id) {
-                    @if ( course.level =='Principiante') {
+                @for (course of coursePrinc; track course.id) {
                     <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
                         <mat-card-header>
                             <mat-card-title>
@@ -35,10 +31,21 @@
                         </mat-card-content>
                     </mat-card>
                     }
-                }
             </div>
+            <mat-paginator
+                [length]="100"
+                [pageSize]="5"
+                aria-label="Select page"
+                (page)="handlePageEvent($event)"
+                >
+            </mat-paginator>
         </mat-expansion-panel>
     </mat-accordion>
+    
+    <app-accordion
+        [level]="'Principiante'">
+
+    </app-accordion>
 
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -58,8 +65,7 @@
             }
 
             <div class="contenedor">
-                @for (course of courses; track course.id) {
-                    @if ( course.level=='Intermedio') {
+                @for (course of courseInter; track course.id) {
                     <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
                         <mat-card-header>
                             <mat-card-title> 
@@ -74,8 +80,14 @@
                             </mat-card-content>   
                     </mat-card> 
                     }
-                }
             </div>
+            <mat-paginator
+                [length]="100"
+                [pageSize]="5"
+                aria-label="Select page"
+                (page)="handlePageEvent($event)"
+                >
+            </mat-paginator>
         </mat-expansion-panel>
     </mat-accordion>
 
@@ -96,8 +108,7 @@
             </button>
             }
             <div class="contenedor">
-                @for (course of courses; track course.id) {
-                    @if ( course.level=='Avanzado') {
+                @for (course of courseAvanz; track course.id) {
                     <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
                         <mat-card-header>
                             <mat-card-title>
@@ -112,8 +123,23 @@
                         </mat-card-content>
                     </mat-card>
                     }
-                }
             </div>
         </mat-expansion-panel>
     </mat-accordion>
+</div> 
+-->
+<div class="container-fluid">
+
+    <app-accordion
+        [level]="'Principiante'">
+    </app-accordion>
+
+    <app-accordion
+        [level]="'Intermedio'">
+    </app-accordion>
+
+    <app-accordion
+        [level]="'Avanzado'">
+    </app-accordion>
+
 </div>

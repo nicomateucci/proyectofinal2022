@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { CardComponent } from './card/card.component';
+import { AccordionComponent } from './accordion/accordion.component';
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 //---------------------------Angular material---------------------------//
@@ -42,6 +45,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 //---------------------------Angular material---------------------------//
 
@@ -87,7 +91,8 @@ const utilities = [
   FooterComponent,
   NavbarComponent,
   CarrouselComponent,
-  CardComponent
+  CardComponent,
+  AccordionComponent
 ]
 
 @NgModule({
@@ -97,7 +102,7 @@ const utilities = [
   imports: [
     RouterModule,
     CommonModule,
-    ...materialModules
+    ...materialModules,
   ],
   exports: [
     ...utilities,

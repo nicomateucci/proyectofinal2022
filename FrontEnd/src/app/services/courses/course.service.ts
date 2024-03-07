@@ -15,33 +15,42 @@ export class CourseService {
     private userService : UserService
   ) {}
   
-  /**
-   * Devuelve todos los cursos disponibles, dependiendo del usuario y su subscripcion
-   * @returns Observable<ICourse[ ]>
-  */
-  getCourses(): Observable<ICourse[]> {
-    if (this.userService.getSubscription()){
-      //ESTO DEBERIA SER CHEQUEADO CON EL USUARIO ACTUAL EN EL BACKEND Y DEVOLVER LOS CURSOS SEGUN SEAN FREE O GOLD
-      return this.http.get<ICourse[]>('/api/courses');
-    }
-    return this.http.get<ICourse[]>(`/api/courses/?subscription=${"free"}`);
+    /**Retorna el numero de curso segun el tipo especificado */
+  getNumbersOfCourses() {
+
   }
 
+  /**Retorna el curso segun el nombre especificado */
   getCourse(nameCourse: string) {
     return this.http.get<ICourse>(`/api/courses?name=${nameCourse}`);
   }
 
+  /**Retorna el curso segun el ID especificado 
+   * @param IDCourse
+  */
   getCourseByID(IDCourse: number) {
     return this.http.get<ICourse>(`/api/courses?id=${IDCourse}`);
   }
 
-  //LA IDEA DE STO ES QUE POR TIPO SE ALMACENE
-  getCoursesByType(typeCourse : string) : Observable<ICourse[]> {
-    // if (this.userService.getSubscription()){
-    //   //ESTO DEBERIA SER CHEQUEADO CON EL USUARIO ACTUAL EN EL BACKEND Y DEVOLVER LOS CURSOS
-    //   return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}&subscription=${"gold"}`);
-    // }
-    return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}&subscription=${"free"}`);
+  /**Retorna los cursos segun el tipo y la paginacion especificada 
+     * @param typeCourse - Tipo de curso
+     * @param pageNro - Numero de pagina
+     * @param pageSize - Tamaño de pagina (Opcional)
+  */
+  getCoursesPaginated(typeCourse : string, pageNro : number, pageSize ?:number){
+      //ESTO TOMA POR PAGINA EL LIMIETE
+      if (this.userService.getSubscription()){
+        return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}&_page=${pageNro}&_limit=${pageSize}`);
+      }
+      return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}&subscription=${"free"}&_page=${pageNro}&_limit=${pageSize}`);
   }
+
+
+  // getCoursesByType(typeCourse : string) : Observable<ICourse[]> {
+  //   if (this.userService.getSubscription()){
+  //     return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}`);
+  //   }
+  //   return this.http.get<ICourse[]>(`/api/courses?level=${typeCourse}&subscription=${"free"}`);
+  // }
 
 }
