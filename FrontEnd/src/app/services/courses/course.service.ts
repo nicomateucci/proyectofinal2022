@@ -16,7 +16,11 @@ export class CourseService {
   ) {}
   
     /**Retorna el numero de curso segun el tipo especificado */
-  getNumbersOfCourses() {
+  getNumbersOfCourses(typeCourse:string) {
+    if (this.userService.getSubscription()) {
+      return this.http.get<ICourse>(`/api/courses?level=${typeCourse}`);
+    }
+    return this.http.get<ICourse>(`/api/courses?level=${typeCourse}&subscription=${"free"}`);
 
   }
 

@@ -13,6 +13,7 @@ export class AccordionComponent implements OnInit{
   @Input()
   level !: string;
   courses !: any;
+  totalCourses !: any;
   panelOpenState = true;
 
   constructor(
@@ -21,6 +22,12 @@ export class AccordionComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
+    //Habria que ver si conviene tener todos los cursos aca del tipo y ir paginandolos, es lo que salio en el momento
+    //Pero no es potimo
+    this.coursesService.getNumbersOfCourses(this.level).subscribe(
+      (data : any) =>{
+        this.totalCourses = data.length;
+      })
     this.getCourses(0);
   }
 
@@ -28,7 +35,6 @@ export class AccordionComponent implements OnInit{
     this.coursesService.getCoursesPaginated(this.level,pageNro,pageSize).subscribe(
       (data : any) =>{
         this.courses = data;
-        //console.log(this.courses)
       })
   }
 
@@ -44,11 +50,10 @@ export class AccordionComponent implements OnInit{
     this.pageIndex = e.pageIndex + 1;
     this.pageSize = e.pageSize;
     this.getCourses(this.pageIndex,this.pageSize);
-    //console.log(this.courses)
   }
 
   getAllCourses(){
-    return 100
+    return this.totalCourses
   }
 
 }
