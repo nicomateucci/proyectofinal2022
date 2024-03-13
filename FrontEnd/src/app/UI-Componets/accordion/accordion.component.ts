@@ -12,29 +12,22 @@ export class AccordionComponent implements OnInit{
 
   @Input()
   level !: string;
-  courses !: any;
-  totalCourses !: any;
-  panelOpenState = true;
+  cursos !:any;
+  TempListCourses !: any;
 
   constructor(
     private coursesService: CourseService,
     public userService: UserService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    //Habria que ver si conviene tener todos los cursos aca del tipo y ir paginandolos, es lo que salio en el momento
-    //Pero no es potimo
-    this.coursesService.getNumbersOfCourses(this.level).subscribe(
-      (data : any) =>{
-        this.totalCourses = data.length;
-      })
-    this.getCourses(0);
+    this.getCourses();
   }
 
-  getCourses(pageNro:number,pageSize?:number){
-    this.coursesService.getCoursesPaginated(this.level,pageNro,pageSize).subscribe(
+  getCourses(){
+    this.coursesService.getCourses(this.level).subscribe(
       (data : any) =>{
-        this.courses = data;
+        this.cursos = data ;
       })
   }
 
@@ -42,18 +35,18 @@ export class AccordionComponent implements OnInit{
     alert('Curso Agregado!')
   }
 
-  pageIndex = 0;
-  pageSize = 6;
-  pageEvent!: PageEvent;
-
   handlePageEvent(e: PageEvent) {
-    this.pageIndex = e.pageIndex + 1;
-    this.pageSize = e.pageSize;
-    this.getCourses(this.pageIndex,this.pageSize);
+    this.TempListCourses = this.cursos.slice(e.pageIndex * e.pageSize, (e.pageIndex + 1) * e.pageSize);
   }
 
-  getAllCourses(){
-    return this.totalCourses
+  getNumbersOfCourses(){
+    if(this.cursos != undefined){
+      return this.cursos.length
+    }
+  }
+
+  abrirVentana(){
+    this.TempListCourses = this.cursos.slice(0,6)
   }
 
 }

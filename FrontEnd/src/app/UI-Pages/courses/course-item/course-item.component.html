@@ -6,16 +6,19 @@
             {{course.about}}
         </p>
         <div class="opciones p-1" *ngIf="userService.checkAunthentication()">
-            <button class="m-2" mat-flat-button color="primary" (click)="startCourse()"
-                *ngIf="!userService.checkCourse(course.id)">
-                <mat-icon>play_circle_outline</mat-icon>
-                <span>Comenzar curso</span>
-            </button>
-            <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()"
-                *ngIf="userService.checkCourse(course.id)">
-                <mat-icon>play_circle_outline</mat-icon>
-                <span>Abandonar curso</span>
-            </button>
+            @if( !userService.checkCourse(course.id) ) {
+                <button class="m-2" mat-flat-button color="primary" (click)="startCourse()">
+                    <mat-icon>play_circle_outline</mat-icon>
+                    <span>Comenzar curso</span>
+                </button>
+            }
+            @if( userService.checkCourse(course.id) ) {
+                <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()">
+                    <mat-icon>play_circle_outline</mat-icon>
+                    <span>Abandonar curso</span>
+                </button>
+            }
+
             <button mat-flat-button color="primary">
                 <mat-icon>cloud_download</mat-icon>
                 <span>Descargar curso</span>
@@ -24,30 +27,48 @@
     </div>
     <mat-accordion>
         <H1>Videos</H1>
-        <mat-expansion-panel *ngFor="let seccion of course.seccions">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <!-- SECCIONES DEL CURSO -->
-                    {{ seccion.name }}
-                    <!-- SECCIONES DEL CURSO -->
-                </mat-panel-title>
-                <mat-panel-description>
-                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                    Contenido de la seccion
-                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
-            PERO EN UN FUTURO ESTO SE ROMPERIA -->
+        @for (seccion of  course.seccions; track $index) {
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <video src=""></video>
+                    <mat-panel-title>
+                        <!-- SECCIONES DEL CURSO -->
+                        {{ seccion.name }}
+                        <!-- SECCIONES DEL CURSO -->
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                        Contenido de la seccion
+                        <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="d-flex">
+                    <!-- ESTO ESTA ASI PERO DEBERIA TRAERSE EL ARREGLO DE VIDEOS DE CADA SECCION -->
+                    <!-- COMO ESTOY TRABAJANDO CON UN FAKE BACKEND ESTO PERMITE FUNCIONAR PERO DESPUES HAY QUE VER LA LOGICA -->
+                    @for ( video of seccion.videos; track $index) {
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <mat-card-title class="m-1">
+                                    {{video.name}}
+                                </mat-card-title>
+                                <mat-card-subtitle class="m-1">
+                                    {{video.about}}
+                                </mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <youtube-player 
+                                height="300"
+                                width="500"
+                                videoId="mVjYG9TSN88"
+                                suggestedQuality="highres"/>
+                            </mat-card-content>
+                          </mat-card>
+                    }
+                </div>  
+                <!-- CONTEIDO DE LAS SECCIONES -->
+            </mat-expansion-panel>
+        }
 
-            <mat-card *ngFor="let video of seccion.videos">
-                <mat-card-content class="text-center">
-                      {{ video.name }} -- {{ video.about }} -- {{ video.duration }}
-                </mat-card-content>
-            </mat-card>
-
-            <!-- CONTEIDO DE LAS SECCIONES -->
-        </mat-expansion-panel>
     </mat-accordion>
     <br>
     <mat-accordion class="p-2">

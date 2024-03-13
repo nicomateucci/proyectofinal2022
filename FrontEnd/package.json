@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^17.2.4",
     "@angular/platform-browser-dynamic": "^17.2.4",
     "@angular/router": "^17.2.4",
+    "@angular/youtube-player": "^17.2.2",
     "@auth0/auth0-angular": "^2.0.1",
     "@coreui/icons": "^3.0.0",
     "@popperjs/core": "^2.11.6",

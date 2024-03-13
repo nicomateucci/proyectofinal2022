@@ -67,7 +67,7 @@ export class UserService {
   /**
    * Retorna el usuario actual, si es que este existe.
   */
-  getUser() {
+  getUser(): IUser | null {
     return this.currentUser
   }
 
@@ -96,7 +96,7 @@ export class UserService {
    * Recibe el ID del curso seleccionado, si no esta iniciado se agregara a los cursos comenzados
    * @param courseID 
    */
-  addCourse(courseID: string) {
+  addCourse(courseID: number) {
   //HABRIA QUE VER SI HAY UNA MEJOR FORMA DE VERIFICAR ESTOS DATOS, DE ESTA FORMA "FUNCIONA PERO TENGO MIS DUDAS"
     if (!this.checkCourse(courseID)) {
       localStorage.clear();
@@ -105,7 +105,7 @@ export class UserService {
     }
   }
   
-  deleteCourse(courseID: string){
+  deleteCourse(courseID: number){
     const index = <number>this.currentUser?.courses.indexOf(courseID, 0);
     if (index > -1) {
       this.currentUser?.courses.splice(index, 1);
@@ -116,7 +116,7 @@ export class UserService {
   /**
    * Se chequea que el curso no este iniciado por parte del usuario
    */
-  checkCourse(courseID: string): boolean {
+  checkCourse(courseID: number): boolean {
     return <boolean>this.currentUser?.courses.includes(courseID);
   }
 

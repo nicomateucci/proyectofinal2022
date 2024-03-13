@@ -1,0 +1,21 @@
+<div class="container-fluid p-3">
+    <h1 class="text-center p-2">MIS CURSOS!</h1>
+    <div class="contenedor">
+        @for (course of TempListCourses; track course.id) {
+            <mat-card class="card" tabindex="0">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{course.name}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        Por: {{course.professor}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    {{course.about}}
+                </mat-card-content>
+            </mat-card>
+        }
+    </div>
+</div>
+

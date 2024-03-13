@@ -2,7 +2,6 @@
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
-import { CardComponent } from './card/card.component';
 import { AccordionComponent } from './accordion/accordion.component';
 
 import { NgModule } from '@angular/core';
@@ -91,7 +90,6 @@ const utilities = [
   FooterComponent,
   NavbarComponent,
   CarrouselComponent,
-  CardComponent,
   AccordionComponent
 ]
 

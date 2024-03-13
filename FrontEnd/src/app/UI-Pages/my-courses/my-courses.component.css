@@ -4,9 +4,9 @@
     flex-wrap: wrap;
 }
 
-.card{
+.card {
     border: 1px solid black;
-    max-width: 350px;
+    max-width: 300px;
     margin: 7px;
     padding-top: 5px;
 }

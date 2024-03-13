@@ -1,6 +1,6 @@
 <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
+    <mat-expansion-panel (opened)="abrirVentana()" >
+        <mat-expansion-panel-header style="height: 100px;">
             <mat-panel-title>
                 <h1>{{level}}</h1>
             </mat-panel-title>
@@ -8,39 +8,40 @@
                 <h5>Cursos de nivel {{level}}</h5>
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+ <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
         <!--TODO ESTO HABRI QUE HACER EN EUN METODO PARA OBTNER EL TIPO DE USUARIO Y TRAER DEL BACKEND LAS COSAS
         COMO NO ESTA DESARROLLADO ESTA ASI-->
         @if ( userService.checkRoles()) {
-        <button mat-button color="primary" aria-label="Example icon button with a home icon"
-            (click)="showMessage()">
-            Agregar curso
-        </button>
-        }
-        <div class="contenedor">
-            @for (course of courses; track course.id) {
-                <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
-                    <mat-card-header>
-                        <mat-card-title>
-                            {{course.name}}
-                        </mat-card-title>
-                        <mat-card-subtitle>
-                            Por: {{course.professor}}
-                        </mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        {{course.about}}
-                    </mat-card-content>
-                </mat-card>
-                }
-        </div>
-        <mat-paginator
-            [length]="getAllCourses()"
-            [pageSize]="6"
-            [pageSizeOptions]="[3,6,12,18]"
-            aria-label="Select page"
-            (page)="handlePageEvent($event)"
-            >
-        </mat-paginator>
+            <button mat-button color="primary" aria-label="Example icon button with a home icon"
+                (click)="showMessage()">
+                Agregar curso
+            </button>
+            }
+            <div class="d-flex flex-wrap">
+                @for (course of TempListCourses; track course.id) {
+                    <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
+                        <mat-card-header>
+                            <mat-card-title>
+                                {{course.name}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                Por: {{course.professor}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            {{course.about}}
+                        </mat-card-content>
+                    </mat-card>
+                    }
+            </div>
+            <div class="d-flex justify-content-end">
+                <mat-paginator
+                    class="paginador"
+                    [length]="getNumbersOfCourses()"
+                    [pageSizeOptions]="[6,12,18]"
+                    aria-label="Select page"
+                    (page)="handlePageEvent($event)">
+                </mat-paginator>
+            </div>
     </mat-expansion-panel>
 </mat-accordion>

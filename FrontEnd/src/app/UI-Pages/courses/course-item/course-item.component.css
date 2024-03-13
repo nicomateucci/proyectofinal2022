@@ -9,10 +9,14 @@
     text-align: center;
 }
 
-mat-card{
-    background-color:dimgray;
-    color: white;
-    margin-top: 0.5em;
+.example-card {
+    max-width: 550px;
+    margin: 20px;
+    background: rgb(53,53,145);
+    background: -moz-radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
+    background: -webkit-radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
+    background: radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
 }
+  
 
 

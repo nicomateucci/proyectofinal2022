@@ -8,12 +8,6 @@ import { Component, OnInit } from '@angular/core';
 
 export class CoursesComponent implements OnInit {
 
-  courses : any;
-  coursePrinc!:any;
-  courseInter!:any;
-  courseAvanz!:any;
-  panelOpenState = true;
-
   constructor(
   ) { }
 

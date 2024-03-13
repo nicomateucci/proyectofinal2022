@@ -1,29 +1,29 @@
 mat-accordion {
     border-radius: 50px;
-    margin: 10px;
+    margin: 10px;   
 }
 
-mat-expansion-panel-header {
-    height: 100px;
-}
-
-.contenedor{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+mat-expansion-panel{
+    background: rgb(53,53,145);
+    background: -moz-linear-gradient(9deg, rgba(53,53,145,0.7567401960784313) 0%, rgba(242,225,220,0.9612219887955182) 43%, rgba(2,0,36,0.8855917366946778) 100%);
+    background: -webkit-linear-gradient(9deg, rgba(53,53,145,0.7567401960784313) 0%, rgba(242,225,220,0.9612219887955182) 43%, rgba(2,0,36,0.8855917366946778) 100%);
+    background: linear-gradient(9deg, rgba(53,53,145,0.7567401960784313) 0%, rgba(242,225,220,0.9612219887955182) 43%, rgba(2,0,36,0.8855917366946778) 100%);
 }
 
 .card {
     border: 1px solid black;
+    border-radius: 30px;
     max-width: 300px;
     margin: 7px;
-    padding-top: 5px;
+    padding-top: 5px; 
+   
 }
 
 .card:focus{
     cursor: pointer;
     border: 3px solid black;
     background: gainsboro;
+
 }
 
 .card:hover{
@@ -31,4 +31,3 @@ mat-expansion-panel-header {
     border: 3px solid black;
     background: gainsboro;
 }
-

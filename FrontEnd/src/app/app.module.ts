@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 //------------------------------------MODULOS------------------------------------
 
 //------------------------------------MODULOS CUSTOM------------------------------------
@@ -34,6 +35,7 @@ import { RoleDirective } from './Directives/role.directive';
 
 import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
       maxOpened: 1,
       preventDuplicates: true
     }),
+    UiComponentsModule,
     ReactiveFormsModule,
     //AngularMaterialModule,
     HttpClientModule,
@@ -56,7 +59,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
     AssetsModule,
     CoursesModule,
     AppRoutingModule,
-    UiComponentsModule,
+    YouTubePlayerModule,
     // AuthModule.forRoot({
     //   //CAMBIAR DATOS DE M2M, API Y SPA
     //   domain: "dev-3h2tiekd.us.auth0.com",
@@ -67,6 +70,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
     //   //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
     //   //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     // }),
+    
     BrowserAnimationsModule,
   ],
   providers: [
