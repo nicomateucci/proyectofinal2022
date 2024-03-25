@@ -1,8 +1,8 @@
 <div class="container-fluid p-3">
-    <h1 class="text-center p-2">MIS CURSOS!</h1>
-    <div class="contenedor">
+    @if (TempListCourses) {
+        <div class="contenedor">
         @for (course of TempListCourses; track course.id) {
-            <mat-card class="card" tabindex="0">
+            <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
                 <mat-card-header>
                     <mat-card-title>
                         {{course.name}}
@@ -17,5 +17,14 @@
             </mat-card>
         }
     </div>
+    }
+    @else {
+        <h1 class="text-center p-2">El usuario no esta inscripto en cursos </h1>
+    }
 </div>
+
+
+
+
+
 

@@ -5,11 +5,13 @@ import { CoursesComponent } from './courses/courses.component';
 import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { MyCoursesComponent } from './my-courses/my-courses.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     CourseItemComponent,
+    MyCoursesComponent
   ],
   imports: [
     CommonModule,

@@ -5,25 +5,23 @@
         <p>
             {{course.about}}
         </p>
-        <div class="opciones p-1" *ngIf="userService.checkAunthentication()">
-            @if( !userService.checkCourse(course.id) ) {
-                <button class="m-2" mat-flat-button color="primary" (click)="startCourse()">
-                    <mat-icon>play_circle_outline</mat-icon>
-                    <span>Comenzar curso</span>
-                </button>
-            }
-            @if( userService.checkCourse(course.id) ) {
-                <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()">
-                    <mat-icon>play_circle_outline</mat-icon>
-                    <span>Abandonar curso</span>
-                </button>
-            }
+        @if (userService.checkAunthentication()) {
+            <div class="opciones p-1">
+                @if( !userService.checkCourse(course.id) ) {
+                    <button class="m-2" mat-flat-button color="primary" (click)="startCourse()">
+                        <mat-icon>play_circle_outline</mat-icon>
+                        <span>Comenzar curso</span>
+                    </button>
+                }
+                @if( userService.checkCourse(course.id) ) {
+                    <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()">
+                        <mat-icon>play_circle_outline</mat-icon>
+                        <span>Abandonar curso</span>
+                    </button>
+                } 
+            </div>
+        }
 
-            <button mat-flat-button color="primary">
-                <mat-icon>cloud_download</mat-icon>
-                <span>Descargar curso</span>
-            </button>
-        </div>
     </div>
     <mat-accordion>
         <H1>Videos</H1>
@@ -73,25 +71,24 @@
     <br>
     <mat-accordion class="p-2">
         <H1>Material de apoyo</H1>
-        <mat-expansion-panel *ngFor="let material of course.materials">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Material auxiliar para el transcurso del curso
-                </mat-panel-title>
-                <mat-panel-description>
-                    Formato PDF
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <!-- ESTO TENGO TRABAJA CON ARRAYS,HABRIA QUE VER COMO HACER IS ES UN OJBETO O POR DEMAS, YA QUE ASI FUNCIONA 
-            PERO EN UN FUTURO ESTO SE ROMPERIA -->
+        @for (material of course.materials; track $index) {
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Material auxiliar para el transcurso del curso
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Formato PDF
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-card>
+                    <mat-card-content class="text-center" (click)="openMessage()">
+                        {{ material.name }} -- {{ material.about }}                        
+                    </mat-card-content>
+                </mat-card>
+                <!-- CONTEIDO DE LAS SECCIONES -->
+            </mat-expansion-panel>
+        }
 
-            <mat-card>
-                <mat-card-content class="text-center" (click)="openMessage()">
-                        {{ material.name }} -- {{ material.about }}
-                </mat-card-content>
-            </mat-card>
-
-            <!-- CONTEIDO DE LAS SECCIONES -->
-        </mat-expansion-panel>
     </mat-accordion>
 </div>

@@ -36,7 +36,7 @@ export class CourseItemComponent implements OnInit {
   }
 
   openMessage(){
-    alert("Simulacion de apertua de PDF o Libro")
+    alert("PDF Desplegado")
   }
 
 

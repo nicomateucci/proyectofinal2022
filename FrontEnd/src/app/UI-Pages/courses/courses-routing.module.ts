@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { CoursesComponent } from './courses/courses.component';
-import { MyCoursesComponent } from '../my-courses/my-courses.component';
+import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { isLoggedGuard } from 'src/app/Guards/is-logged.guard';
 
 const routes: Routes = [
@@ -15,17 +15,20 @@ const routes: Routes = [
     component: CourseItemComponent,
     // canMatch :[isLoggedGuard]
   },
-  { 
-    path: 'courses/:id',
-    component: CourseItemComponent
-  },
+  // { 
+  //   path: 'courses/:id',
+  //   component: CourseItemComponent
+  // },
   { 
     path: 'myCourses',
     component: MyCoursesComponent,
     canMatch :[isLoggedGuard]
   },
-
-  
+  { 
+    path: 'myCourses/:name',
+    component: CourseItemComponent,
+    // canMatch :[isLoggedGuard]
+  },
 ];
 
 @NgModule({
