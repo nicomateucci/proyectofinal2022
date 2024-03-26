@@ -15,7 +15,7 @@ export class CourseItemComponent implements OnInit {
   constructor(
     private courseService: CourseService,
     private route: ActivatedRoute,
-    public userService : UserService) {
+    public userService: UserService) {
   }
 
   ngOnInit() {
@@ -27,15 +27,15 @@ export class CourseItemComponent implements OnInit {
     })
   }
 
-  startCourse(){
+  startCourse() {
     this.userService.addCourse(this.course.id)
   }
 
-  deleteCourse(){
+  deleteCourse() {
     this.userService.deleteCourse(this.course.id);
   }
 
-  openMessage(){
+  openMessage() {
     alert("PDF Desplegado")
   }
 

@@ -4,6 +4,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { CoursesComponent } from './courses/courses.component';
 import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { isLoggedGuard } from 'src/app/Guards/is-logged.guard';
+import { hasRoleGuard } from 'src/app/Guards/has-role.guard';
 
 const routes: Routes = [
   { 
@@ -13,7 +14,7 @@ const routes: Routes = [
   { 
     path: 'courses/:name',
     component: CourseItemComponent,
-    // canMatch :[isLoggedGuard]
+    canMatch :[isLoggedGuard]
   },
   // { 
   //   path: 'courses/:id',

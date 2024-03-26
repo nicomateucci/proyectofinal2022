@@ -1,3 +1,7 @@
+mat-expansion-panel-header{
+    height : 50px !important;
+}
+
 .contenedor {
     display: flex;
     flex-wrap: wrap;
@@ -9,14 +13,22 @@
     text-align: center;
 }
 
-.example-card {
+.card {
     max-width: 550px;
     margin: 20px;
-    background: rgb(53,53,145);
-    background: -moz-radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
-    background: -webkit-radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
-    background: radial-gradient(circle, rgba(53,53,145,0.7567401960784313) 0%, rgba(219,255,0,0.5970763305322129) 43%, rgba(2,0,36,0.6839110644257703) 100%);
+    background: rgb(0,0,0);
+    background: rgb(0,0,0);
+    background: -moz-radial-gradient(circle, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    background: -webkit-radial-gradient(circle, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    background: radial-gradient(circle, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
 }
   
-
-
+.material-card{
+    max-width: 300px;
+    margin: 20px;
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(3deg, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    background: -webkit-linear-gradient(3deg, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    background: linear-gradient(3deg, rgba(0,0,0,0.14609593837535018) 0%, rgba(152,152,210,0.2553396358543417) 50%, rgba(0,0,0,0.9612219887955182) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);}

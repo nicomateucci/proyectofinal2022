@@ -14,6 +14,7 @@ export class AccordionComponent implements OnInit{
   level !: string;
   cursos !:any;
   TempListCourses !: any;
+  panelOpenState = false;
 
   constructor(
     private coursesService: CourseService,

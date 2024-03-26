@@ -9,15 +9,6 @@
                     <h5>Cursos de nivel {{level}}</h5>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-     <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
-            <!--TODO ESTO HABRI QUE HACER EN EUN METODO PARA OBTNER EL TIPO DE USUARIO Y TRAER DEL BACKEND LAS COSAS
-            COMO NO ESTA DESARROLLADO ESTA ASI-->
-            @if ( userService.checkRoles()) {
-                <button class="m-2" mat-raised-button aria-label="Example icon button with a home icon"
-                    (click)="showMessage()">
-                    Agregar curso
-                </button>
-            }
             <div class="d-flex flex-wrap justify-content-center">
                 @for (course of TempListCourses; track course.id) {
                     <mat-card class="card" tabindex="0" routerLink="{{course.name}}">
@@ -35,9 +26,18 @@
                     </mat-card>
                     }
             </div>
+            <!-- ACA VA EL TEMA DEL RENDERIZADO DE LA VISTA SEGUN LOS PRIVILEGIOS DEL USUARIOS -->
+            <!--TODO ESTO HABRI QUE HACER EN EUN METODO PARA OBTNER EL TIPO DE USUARIO Y TRAER DEL BACKEND LAS COSAS
+            COMO NO ESTA DESARROLLADO ESTA ASI-->
+            @if ( userService.checkRoles()) {
+                <button class="m-2" mat-raised-button aria-label="Example icon button with a home icon"
+                    (click)="showMessage()">
+                    Agregar curso
+                </button>
+            }
             <div class="d-flex justify-content-end">
                 <mat-paginator
-                    class="paginador"
+                    class="paginador justify-content-end"
                     [length]="getNumbersOfCourses()"
                     [pageSizeOptions]="[6,12,18]"
                     aria-label="Select page"

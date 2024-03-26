@@ -6,89 +6,84 @@
             {{course.about}}
         </p>
         @if (userService.checkAunthentication()) {
-            <div class="opciones p-1">
-                @if( !userService.checkCourse(course.id) ) {
-                    <button class="m-2" mat-flat-button color="primary" (click)="startCourse()">
-                        <mat-icon>play_circle_outline</mat-icon>
-                        <span>Comenzar curso</span>
-                    </button>
-                }
-                @if( userService.checkCourse(course.id) ) {
-                    <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()">
-                        <mat-icon>play_circle_outline</mat-icon>
-                        <span>Abandonar curso</span>
-                    </button>
-                } 
-            </div>
+            @if( !userService.checkCourse(course.id) ) {
+            <button class="m-2" mat-flat-button color="primary" (click)="startCourse()">
+                <mat-icon>play_circle_outline</mat-icon>
+                <span>Comenzar curso</span>
+            </button>
+            }
+            @if( userService.checkCourse(course.id) ) {
+            <button class="m-2" mat-flat-button color="warn" (click)="deleteCourse()">
+                <mat-icon>play_circle_outline</mat-icon>
+                <span>Abandonar curso</span>
+            </button>
+            }
         }
-
     </div>
     <mat-accordion>
         <H1>Videos</H1>
-        @for (seccion of  course.seccions; track $index) {
-            <mat-expansion-panel >
-                <mat-expansion-panel-header>
-                    <video src=""></video>
-                    <mat-panel-title>
-                        <!-- SECCIONES DEL CURSO -->
-                        {{ seccion.name }}
-                        <!-- SECCIONES DEL CURSO -->
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                        Contenido de la seccion
-                        <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="d-flex">
-                    <!-- ESTO ESTA ASI PERO DEBERIA TRAERSE EL ARREGLO DE VIDEOS DE CADA SECCION -->
-                    <!-- COMO ESTOY TRABAJANDO CON UN FAKE BACKEND ESTO PERMITE FUNCIONAR PERO DESPUES HAY QUE VER LA LOGICA -->
-                    @for ( video of seccion.videos; track $index) {
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <mat-card-title class="m-1">
-                                    {{video.name}}
-                                </mat-card-title>
-                                <mat-card-subtitle class="m-1">
-                                    {{video.about}}
-                                </mat-card-subtitle>
-                            </mat-card-header>
-                            <mat-card-content>
-                                <youtube-player 
-                                height="300"
-                                width="500"
-                                videoId="mVjYG9TSN88"
-                                suggestedQuality="highres"/>
-                            </mat-card-content>
-                          </mat-card>
-                    }
-                </div>  
-                <!-- CONTEIDO DE LAS SECCIONES -->
-            </mat-expansion-panel>
+        @for (seccion of course.seccions; track $index) {
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <!-- SECCIONES DEL CURSO -->
+                    {{ seccion.name }}
+                    <!-- SECCIONES DEL CURSO -->
+                </mat-panel-title>
+                <mat-panel-description>
+                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                    Contenido de la seccion
+                    <!-- DESCRIPCION DE LA SECCIONES DEL CURSO -->
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="d-flex">
+                <!-- ESTO ESTA ASI PERO DEBERIA TRAERSE EL ARREGLO DE VIDEOS DE CADA SECCION -->
+                <!-- COMO ESTOY TRABAJANDO CON UN FAKE BACKEND ESTO PERMITE FUNCIONAR PERO DESPUES HAY QUE VER LA LOGICA -->
+                @for ( video of seccion.videos; track $index) {
+                <mat-card class="card">
+                    <mat-card-header>
+                        <mat-card-title class="m-1">
+                            {{video.name}}
+                        </mat-card-title>
+                        <mat-card-subtitle class="m-1">
+                            {{video.about}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <youtube-player height="300" width="500" videoId="mVjYG9TSN88" suggestedQuality="highres" />
+                    </mat-card-content>
+                </mat-card>
+                }
+            </div>
+            <!-- CONTEIDO DE LAS SECCIONES -->
+        </mat-expansion-panel>
         }
 
     </mat-accordion>
     <br>
-    <mat-accordion class="p-2">
-        <H1>Material de apoyo</H1>
-        @for (material of course.materials; track $index) {
+    @if (course.materials) {
+        <mat-accordion class="p-2" #material>
+            <H1>Material de apoyo</H1>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Material auxiliar para el transcurso del curso
                     </mat-panel-title>
-                    <mat-panel-description>
-                        Formato PDF
-                    </mat-panel-description>
                 </mat-expansion-panel-header>
-                <mat-card>
-                    <mat-card-content class="text-center" (click)="openMessage()">
-                        {{ material.name }} -- {{ material.about }}                        
-                    </mat-card-content>
-                </mat-card>
-                <!-- CONTEIDO DE LAS SECCIONES -->
+                <div class="d-flex flex-wrap justify-content-around">
+                    @for (material of course.materials; track $index) {
+                    <mat-card class="material-card m-2">
+                        <mat-card-header>
+                            <mat-card-title> {{ material.name }} </mat-card-title>
+                            <mat-card-subtitle> {{ material.about }} </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-actions class="justify-content-center">
+                            <a mat-button href="https://bitcoin.org/files/bitcoin-paper/bitcoin_es_latam.pdf" target="_blank">Visulizar</a>
+                        </mat-card-actions>
+                    </mat-card>
+                    }
+                </div>
             </mat-expansion-panel>
-        }
-
-    </mat-accordion>
+        </mat-accordion>
+    }
 </div>
