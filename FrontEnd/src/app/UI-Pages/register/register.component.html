@@ -1,20 +1,25 @@
-<div class="container-fluid" style="width: 600px;">
-    <h1 mat-dialog-title class="text-center">Registrar</h1>
+<div class="registerBody">
+    <h1 mat-dialog-title class="text-center">Registrarme</h1>
     <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-      <mat-dialog-content>
+        <mat-dialog-content>
         <mat-form-field class="col example-full-width">
             <mat-label> Username </mat-label>
             <input matInput formControlName="id">
-            <span class="text-danger"
+            @if( (registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['required']){
+                <span class="text-danger">
+                    Username es requerido
+                </span>    
+            }
+            <!-- <span class="text-danger"
                 *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['required']">
                 Username es requerido
-            </span>
+            </span> -->
             <span class="text-danger"
                 *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['minlength']">
                 Username debe tener mas de 4 caracteres
             </span>
             <span class="text-danger"
-                *ngIf="(registerFormControl.id.touched || submitted ) && registerForm.controls.id.errors?.['userNameNotAvailable']">
+                *ngIf="registerForm.controls.id.errors?.['userNameNotAvailable']">
                 Username no esta disponible
             </span>
         </mat-form-field>
@@ -25,6 +30,19 @@
             <span class="text-danger"
                 *ngIf="(registerFormControl.name.touched || submitted )  && registerForm.controls.name.errors?.['required']">
                 Nombre es requerido
+            </span>
+        </mat-form-field>
+
+        <mat-form-field class="col example-full-width">
+            <mat-label> Email </mat-label>
+            <input matInput formControlName="email">
+            <span class="text-danger"
+                *ngIf="(registerFormControl.email.touched || submitted)  && registerFormControl.email.errors?.['required']">
+                Email es requerido
+            </span>
+            <span class="text-danger"
+                *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.['email']">
+                Email invalido
             </span>
         </mat-form-field>
 
@@ -44,52 +62,36 @@
         <mat-form-field class="col example-full-width">
             <mat-label> Repetir contraseña </mat-label>
             <input type="password" matInput formControlName="confirmPassword">
-            <!-- FALTA VER LA VALIDACION DE LAS CONTRASEÑAS -->
             <span class="text-danger"
                 *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.['passwordMismatch']">
                 Las contraseñas no coiciden
             </span>
         </mat-form-field>
 
-        <mat-form-field class="col example-full-width">
-            <mat-label> Email </mat-label>
-            <input matInput formControlName="email">
-            <span class="text-danger"
-                *ngIf="(registerFormControl.email.touched || submitted)  && registerFormControl.email.errors?.['required']">
-                Email es requerido
-            </span>
-            <span class="text-danger"
-                *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.['email']">
-                Email invalido
-            </span>
-        </mat-form-field>
-
-        <mat-form-field class="col example-full-width" >
+        <!-- <mat-form-field class="col example-full-width" >
             <mat-label>Fecha de nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="birthday">
             
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <br>
+        </mat-form-field> -->
 
-        <mat-radio-group  formControlName="gender" aria-label="Select an option">
+
+        <mat-radio-group  formControlName="gender" aria-label="Select an option" class="d-flex flex-wrap pt-2 pb-2">
             <mat-radio-button value="male" style="margin-left: 16px;"> Hombre </mat-radio-button>
             <mat-radio-button value="female" style="margin-left: 16px;"> Mujer </mat-radio-button>
         </mat-radio-group>
-<!-- 
-        <br>
-        <div *ngIf="registerInvalid" class="alert alert-danger text-center">
-            <p>Existen campos requeridos con errores</p>
-        </div> -->
 
-
-      </mat-dialog-content>
-      <mat-dialog-actions align="end">
+        </mat-dialog-content>
+        <mat-dialog-actions align="end" class="d-flex flex-wrap pl-2">
         <button class="m-1" mat-raised-button color="warn" [mat-dialog-close]="false">Cerrar</button>
         <button class="m-1" mat-raised-button color="primary" >Registrar</button>
-      </mat-dialog-actions>
+        </mat-dialog-actions>
     </form>
-  </div>
+</div>
+    
+
+
+
 

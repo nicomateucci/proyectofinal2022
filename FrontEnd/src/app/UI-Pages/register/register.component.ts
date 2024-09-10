@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/Services/users/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
+  standalone : true,
+  imports : [
+    UiComponentsModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -37,8 +45,7 @@ export class RegisterComponent {
   constructor(
     private service: UserService,
     private router: Router,
-    private toastr: ToastrService,
-    private dialogRef: MatDialogRef<RegisterComponent>
+    private toastr: ToastrService
   ) { }
 
   get registerFormControl() {
@@ -51,7 +58,6 @@ export class RegisterComponent {
       this.service.registerUser(this.registerForm).subscribe({
         next: () => {
           this.toastr.success("Por favor aguarde y sera habilitado para acceder.", "Registro exitoso!")
-          this.dialogRef.close();
           this.router.navigateByUrl('/home');
         }
       })

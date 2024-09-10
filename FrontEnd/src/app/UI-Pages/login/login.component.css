@@ -1,0 +1,13 @@
+.loginBody{
+    padding: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+
+    @media (max-width:500px) {
+        max-width: 300px;
+    }
+}

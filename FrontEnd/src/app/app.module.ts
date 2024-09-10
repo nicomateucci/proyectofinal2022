@@ -19,9 +19,6 @@ import { CoursesModule } from './UI-Pages/courses/courses.module';
 //------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './UI-Pages/profile/profile.component';
-import { HomeComponent } from './UI-Pages/home/home.component';
-import { LoginComponent } from './UI-Pages/login/login.component';
-import { RegisterComponent } from './UI-Pages/register/register.component';
 //------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------DIRECTIVAS------------------------------------
@@ -39,9 +36,6 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
   declarations: [
     AppComponent,
     ProfileComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     RoleDirective
   ],
   imports: [
@@ -59,7 +53,6 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
     CoursesModule,
     AppRoutingModule,
     YouTubePlayerModule,
-
     // AuthModule.forRoot({
     //   //CAMBIAR DATOS DE M2M, API Y SPA
     //   domain: "dev-3h2tiekd.us.auth0.com",
@@ -70,7 +63,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
     //   //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
     //   //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     // }),
-    
+
     BrowserAnimationsModule,
   ],
   providers: [
