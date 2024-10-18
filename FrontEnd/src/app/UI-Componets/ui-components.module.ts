@@ -1,6 +1,5 @@
 
 import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { AccordionComponent } from './accordion/accordion.component';
 
@@ -44,7 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { NavbarModule } from './navbar/navbar.module';
 
 //---------------------------Angular material---------------------------//
 
@@ -88,7 +87,6 @@ const materialModules = [
 
 const utilities = [
   FooterComponent,
-  NavbarComponent,
   CarrouselComponent,
   AccordionComponent
 ]
@@ -101,10 +99,11 @@ const utilities = [
     RouterModule,
     CommonModule,
     ...materialModules,
-  ],
+    NavbarModule
+],
   exports: [
     ...utilities,
-    ...materialModules
+    ...materialModules,
   ]
 })
 export class UiComponentsModule { }
