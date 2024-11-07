@@ -34,6 +34,7 @@ import { RoleDirective } from './Directives/role.directive';
 //------------------------------------PIPES------------------------------------
 
 import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
+import { NavbarModule } from './UI-Componets/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
     CoursesModule,
     AppRoutingModule,
     YouTubePlayerModule,
-
+    NavbarModule,
     // AuthModule.forRoot({
     //   //CAMBIAR DATOS DE M2M, API Y SPA
     //   domain: "dev-3h2tiekd.us.auth0.com",
