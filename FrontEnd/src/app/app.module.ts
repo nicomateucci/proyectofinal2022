@@ -19,9 +19,6 @@ import { CoursesModule } from './UI-Pages/courses/courses.module';
 //------------------------------------COMPONENTES------------------------------------
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './UI-Pages/profile/profile.component';
-import { HomeComponent } from './UI-Pages/home/home.component';
-import { LoginComponent } from './UI-Pages/login/login.component';
-import { RegisterComponent } from './UI-Pages/register/register.component';
 //------------------------------------COMPONENTES------------------------------------
 
 //------------------------------------DIRECTIVAS------------------------------------
@@ -40,9 +37,6 @@ import { NavbarModule } from './UI-Componets/navbar/navbar.module';
   declarations: [
     AppComponent,
     ProfileComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     RoleDirective
   ],
   imports: [
@@ -71,7 +65,7 @@ import { NavbarModule } from './UI-Componets/navbar/navbar.module';
     //   //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
     //   //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
     // }),
-    
+
     BrowserAnimationsModule,
   ],
   providers: [

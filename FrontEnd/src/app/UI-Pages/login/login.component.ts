@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
 import { UserService } from 'src/app/Services/users/user.service';
 import { RegisterComponent } from '../register/register.component';
+import { Router } from '@angular/router';
+import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
+  standalone:true,
+  imports:[
+    UiComponentsModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -23,8 +32,7 @@ export class LoginComponent {
   constructor(
     private toastr: ToastrService,
     private userService: UserService,
-    private dialog : MatDialog,
-    private dialogRef: MatDialogRef<LoginComponent>
+    private router : Router
   ){}
 
   loginUser() {
@@ -53,8 +61,9 @@ export class LoginComponent {
   }
 
   register(){
-    this.dialogRef.close();
-    this.dialog.open(RegisterComponent);
+    //this.dialogRef.close();
+    // this.dialog.open(RegisterComponent);
+    this.router.navigateByUrl('/register');
   }
 
   get loginFormControl() {

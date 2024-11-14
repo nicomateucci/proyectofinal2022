@@ -1,44 +1,37 @@
-<div class="container-fluid ">
-  <h1 mat-dialog-title class="text-center">Login</h1>
+<div class="loginBody">
+    <div>
+        <h1 class="text-center">Login</h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <mat-dialog-content>
   
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-    <mat-dialog-content>
-
-      <mat-form-field class="col example-full-width ">
-        <mat-label>Usuario/Email</mat-label>
-        <input matInput formControlName="id">
-        @if ( (loginFormControl.id.touched || submitted) && loginFormControl.id.errors?.['required'] ) {
-          <span class="text-danger"> El username es requerido </span>
-        }
-      </mat-form-field>
-
-      <mat-form-field class="col example-full-width ">
-        <mat-label>Contraseña</mat-label>
-        <input matInput type="password" formControlName="password">
-        @if ( (loginFormControl.password.touched || submitted ) && loginFormControl.password.errors?.['required'] ) {
-          <span class="text-danger"> La contraseña es requerida </span>
-        }
-      </mat-form-field>
-
-      <!-- <br>
-      <div *ngIf="loginInvalid" class="alert alert-danger">
-        <p>Usuario inexistente/contraseña erronea</p>
-      </div> -->
-
-    </mat-dialog-content>
-
-    <mat-dialog-actions align="start">
-      <a mat-button href="https://www.google.com/" [mat-dialog-close]="false" target="_blank">Contraseña olvidada?</a>
-      <button mat-button  [mat-dialog-close]="false" (click)="register()" >Nuevo?</button>
-    </mat-dialog-actions>
-
-    <mat-dialog-actions align="end">
-      <button mat-raised-button color="warn" [mat-dialog-close]="false">Cerrar</button>
-      <button class="m-1" mat-raised-button color="primary" >Login</button>
-    </mat-dialog-actions>
-
-  </form>
-</div>
-
-
-
+        <mat-form-field class="col example-full-width ">
+          <mat-label>Usuario/Email</mat-label>
+          <input matInput formControlName="id">
+          @if ( (loginFormControl.id.touched || submitted) && loginFormControl.id.errors?.['required'] ) {
+            <span class="text-danger"> El username es requerido </span>
+          }
+        </mat-form-field>
+  
+        <mat-form-field class="col example-full-width ">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password">
+          @if ( (loginFormControl.password.touched || submitted ) && loginFormControl.password.errors?.['required'] ) {
+            <span class="text-danger"> La contraseña es requerida </span>
+          }
+        </mat-form-field>
+      
+      </mat-dialog-content>
+  
+      <mat-dialog-actions align="start">
+        <a mat-button href="https://www.google.com/" [mat-dialog-close]="false" target="_blank">Contraseña olvidada?</a>
+        <button mat-button  [mat-dialog-close]="false" (click)="register()" >Nuevo?</button>
+      </mat-dialog-actions>
+  
+      <mat-dialog-actions align="end" class="d-flex flex-wrap pl-2">
+        <button class="m-1" mat-raised-button color="warn" [mat-dialog-close]="false">Cerrar</button>
+        <button class="m-1" mat-raised-button color="primary" >Login</button>
+      </mat-dialog-actions>
+  
+    </form>
+</div>  
