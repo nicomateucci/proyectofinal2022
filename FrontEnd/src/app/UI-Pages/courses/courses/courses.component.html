@@ -1,14 +1,14 @@
-
-<app-accordion
-    [level]="'Principiante'">   
-</app-accordion>
-
-<app-accordion
-    [level]="'Intermedio'">
-</app-accordion>
-
-<app-accordion
-    [level]="'Avanzado'">
-</app-accordion>
-
-
+<div class="main-container">
+    <!-- Barra lateral (aside) -->
+    <aside class="sidebar">
+      <app-navigation></app-navigation>
+    </aside>
+  
+    <!-- Contenido principal con los acordeones -->
+    <div class="content-course-page">
+        <!--ACA TENDRIA QUE MOSTRARSE EL CONTENIDO QUE BUSCA POR EL NAVBAR-->
+        <app-accordion [level]="'Principiante'"></app-accordion>
+        <app-accordion [level]="'Intermedio'"></app-accordion>
+        <app-accordion [level]="'Avanzado'"></app-accordion>
+    </div>
+</div>

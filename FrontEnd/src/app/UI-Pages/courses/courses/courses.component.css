@@ -1,0 +1,35 @@
+/* Contenedor principal que usará flexbox */
+.main-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+
+    @media (max-width:768px) {
+        flex-direction: column;  /* Cambia la dirección del layout a columna */
+    }
+}
+  
+.sidebar { 
+    padding: 20px;
+    border-right: 2px solid black;
+    overflow-y: auto;
+
+    @media (max-width: 768px) {
+        width: 100%; 
+        order: -1;  
+        border-right: none;  
+        border-bottom: 2px solid black; 
+    }
+
+}
+
+/* Contenido principal que ocupará el espacio restante */
+.content-course-page {
+    flex-grow: 1;  /* Hace que el contenido ocupe el espacio restante */
+    padding: 20px;
+    overflow-y: auto;
+
+    @media (max-width: 768px)  {
+        padding-top: 20px;  /* Añadimos un poco de espacio en la parte superior para separar el contenido */
+    }
+}

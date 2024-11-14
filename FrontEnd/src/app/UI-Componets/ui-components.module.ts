@@ -44,6 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NavbarModule } from './navbar/navbar.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FormsModule } from '@angular/forms';
 
 //---------------------------Angular material---------------------------//
 
@@ -88,7 +90,8 @@ const materialModules = [
 const utilities = [
   FooterComponent,
   CarrouselComponent,
-  AccordionComponent
+  AccordionComponent,
+  NavigationComponent
 ]
 
 @NgModule({
@@ -96,9 +99,10 @@ const utilities = [
     ...utilities
   ],
   imports: [
+    ...materialModules,
     RouterModule,
     CommonModule,
-    ...materialModules,
+    FormsModule,
     NavbarModule
 ],
   exports: [
