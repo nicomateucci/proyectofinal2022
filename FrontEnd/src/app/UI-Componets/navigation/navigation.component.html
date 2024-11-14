@@ -1,0 +1,28 @@
+<p class="m-2">Filtrar por:</p>
+
+<mat-form-field class="w-100">
+    <mat-label>Seleccione una opcion</mat-label>
+        <mat-select [(ngModel)]="filterCategory">
+            <!--ACA DEBERIAN TOMARSE LOS VALORES DE BACKEND O PREDEFINIRLOS POR DEFECTO A CADA UNO-->
+            @for (filter of filterValues; track filter) {
+                <mat-option value="{{filter.value}}" (click)="filterURL(filter.value)">{{filter.viewValue}}</mat-option>
+            }
+        </mat-select>
+</mat-form-field>
+<div class="d-flex justify-content-between button-container">
+    <button mat-stroked-button (click)="applyFilters()">Filtrar</button>
+    <button mat-stroked-button (click)="resetFilters()">Borrar filtros</button>
+</div>
+
+<p class="m-2">Ordenar por:</p>
+
+<mat-form-field class="w-100">
+    <mat-label>Seleccione una opcion</mat-label>
+        <mat-select [(ngModel)]="filterCourses">
+            <!--ACA DEBERIAN TOMARSE LOS VALORES DE BACKEND O PREDEFINIRLOS POR DEFECTO A CADA UNO-->
+            @for (course of coursesValue; track course) {
+                <mat-option value="{{course.value}}" (click)="searchCourses(course.value)">{{course.viewValue}}</mat-option>
+            }
+        </mat-select>
+</mat-form-field>
+

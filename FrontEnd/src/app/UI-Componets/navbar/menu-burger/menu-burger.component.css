@@ -1,0 +1,43 @@
+
+.nav-list {
+    display: none;
+
+    @media (max-width: 768px) {
+        top: 64px; /* Ajusta según la altura de tu toolbar */
+        display: flex;
+        flex-direction: column;
+        position: absolute; /* Cambia a fixed para ocupar toda la pantalla */
+        left: 0;
+        right: 0;
+        background-color: #3f51b5; /* Color de fondo del menú */
+        z-index: 2;
+    }
+
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}
+
+.menu-burger-container{
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.bar {
+    height: 4px;
+    width: 30px;
+    background-color: white;
+    margin: 2px;
+}

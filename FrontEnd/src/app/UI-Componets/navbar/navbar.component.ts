@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 // import { AuthService } from '@auth0/auth0-angular';
 import { IUser } from 'src/app/Models/iuser';
@@ -12,9 +12,11 @@ import { LoginComponent } from 'src/app/UI-Pages/login/login.component';
 })
 export class NavbarComponent implements OnInit {
 
+  isFixed = false;
+
   constructor(
-    private userService: UserService,
-    public dialog: MatDialog,
+    protected userService: UserService,
+    protected dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -42,5 +44,11 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.userService.logout();
   }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isFixed = window.scrollY > 50; // Cambia este valor según sea necesario
+  }
+
 
 }

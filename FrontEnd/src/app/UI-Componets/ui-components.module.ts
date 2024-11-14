@@ -1,6 +1,5 @@
 
 import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { AccordionComponent } from './accordion/accordion.component';
 
@@ -44,7 +43,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { NavbarModule } from './navbar/navbar.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FormsModule } from '@angular/forms';
 
 //---------------------------Angular material---------------------------//
 
@@ -88,9 +89,9 @@ const materialModules = [
 
 const utilities = [
   FooterComponent,
-  NavbarComponent,
   CarrouselComponent,
-  AccordionComponent
+  AccordionComponent,
+  NavigationComponent
 ]
 
 @NgModule({
@@ -98,13 +99,15 @@ const utilities = [
     ...utilities
   ],
   imports: [
+    ...materialModules,
     RouterModule,
     CommonModule,
-    ...materialModules,
-  ],
+    FormsModule,
+    NavbarModule
+],
   exports: [
     ...utilities,
-    ...materialModules
+    ...materialModules,
   ]
 })
 export class UiComponentsModule { }
