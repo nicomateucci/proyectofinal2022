@@ -46,6 +46,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NavbarModule } from './navbar/navbar.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FormsModule } from '@angular/forms';
+import { CardCoursesComponent } from './card-courses/card-courses.component';
+import { ListCoursesComponent } from './list-courses/list-courses.component';
 
 //---------------------------Angular material---------------------------//
 
@@ -91,7 +93,9 @@ const utilities = [
   FooterComponent,
   CarrouselComponent,
   AccordionComponent,
-  NavigationComponent
+  NavigationComponent,
+  CardCoursesComponent,
+  ListCoursesComponent
 ]
 
 @NgModule({

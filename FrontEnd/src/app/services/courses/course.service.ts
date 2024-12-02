@@ -25,7 +25,12 @@ export class CourseService {
       return this.http.get<ICourse>(`${this.url}?level=${typeCourse}`);
     }
     return this.http.get<ICourse>(`${this.url}?level=${typeCourse}&subscription=${"free"}`);
+  }
 
+  //ESTO PODRIA VERIFICARSE EN EL TOKEN DEL BACKEND, SEGUN EL ENCABEZADO
+  //COMO TRABAJO CON UN FAKE BACKEND,ES LO UNICO QUE PUEDO HACER
+  getAllCourses() {
+    return this.http.get<ICourse>(`${this.url}`);
   }
 
   /**Retorna el curso segun el nombre especificado */

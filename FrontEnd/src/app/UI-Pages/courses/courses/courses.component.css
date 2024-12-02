@@ -1,7 +1,6 @@
 /* Contenedor principal que usará flexbox */
 .main-container {
     display: flex;
-    height: 100vh;
     justify-content: center;
 
     @media (max-width:768px) {
@@ -12,7 +11,7 @@
 .sidebar { 
     padding: 20px;
     border-right: 2px solid black;
-    overflow-y: auto;
+    overflow: visible;
 
     @media (max-width: 768px) {
         width: 100%; 

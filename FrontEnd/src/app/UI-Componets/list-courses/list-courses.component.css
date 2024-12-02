@@ -1,0 +1,33 @@
+.custom-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Puedes ajustar el valor según lo necesites */
+    margin : 20px;
+}
+
+.grid-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: center;
+    padding: 20px; 
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, minmax(350px, 1fr)); /* Dos columnas por fila cuando el ancho es menor a 800px */
+    }
+      
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr; /* Una columna por fila cuando el ancho es menor a 500px */
+    }
+}
+
+.list-course-container{
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
