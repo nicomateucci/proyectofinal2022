@@ -1,19 +1,25 @@
-<div class="list-course-container">
-    <div class="grid-container">
-        @for (course of TempListCourses; track course.id) {
-            <app-card-courses
-                [course]="course"
-            ></app-card-courses>
-            }
+<ng-container *ngIf="TempListCourses && TempListCourses.length > 0; else notContent">
+    <div class="list-course-container">
+        <div class="grid-container">
+            <div *ngFor="let course of TempListCourses">
+                <app-card-courses [course]="course"></app-card-courses>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="d-flex justify-content-end">
-    <mat-paginator
-        class="paginador justify-content-end"
-        [length]="getNumbersOfCourses()"
-        [pageSizeOptions]="[6]"
-        aria-label="Select page"
-        (page)="handlePageEvent($event)">
-    </mat-paginator>
-</div>
+    <div class="d-flex justify-content-end">
+        <mat-paginator
+            class="paginador justify-content-end"
+            [length]="getNumbersOfCourses()"
+            [pageSizeOptions]="[6]"
+            aria-label="Select page"
+            (page)="handlePageEvent($event)">
+        </mat-paginator>
+    </div>
+</ng-container>
+
+<ng-template #notContent>
+    <div class="m-3 d-flex justify-content-center align-items-center">
+        <h1>No existe contenido a mostrar momentáneamente</h1>
+    </div>
+</ng-template>

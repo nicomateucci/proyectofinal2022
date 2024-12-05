@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CourseService } from 'src/app/Services/courses/course.service';
 import { UserService } from 'src/app/Services/users/user.service';
 
@@ -12,17 +13,29 @@ export class ListCoursesComponent {
 
   @Input() level !: string;
   cursos !:any;
-  TempListCourses !: any;
+  TempListCourses !: [] | null;
   panelOpenState = false;
+
+  filterCourses !: string;
+  filterCategory !: string ;
 
   constructor(
     private coursesService: CourseService,
     public userService: UserService,
-    private cdr : ChangeDetectorRef
+    private cdr : ChangeDetectorRef,
+    private route : ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.getAllCourses();
+    this.route.queryParams.subscribe( params => {
+      if ( params['CoursesType'] || params['CoursesByCategory']){
+        this.filterCourses = params['CoursesType']; 
+        this.filterCategory = params['CoursesByCategory']; 
+        this.getCoursesByLevel();
+      } else{
+        this.getAllCourses();
+      }
+    });
   }
 
   getAllCourses(){
@@ -36,22 +49,26 @@ export class ListCoursesComponent {
   }
 
   getCoursesByLevel(){
-    this.coursesService.getCourses(this.level).subscribe(
-      (data : any) =>{
-        this.cursos = data ;
-      })
-      //Para paginar lso primeros 6 cursos
-      this.TempListCourses = this.cursos.slice(0,6);
-      this.cdr.detectChanges();
+    this.coursesService.getCourses(this.filterCourses).subscribe(
+      (data: any) => {
+        this.cursos = data;
+        this.TempListCourses = this.cursos.slice(0, 6);
+        this.cdr.detectChanges();
+      },
+      (error) => {
+        console.error('Error al obtener cursos:', error);
+      }
+    );
   }
 
   showMessage() {
     alert('Curso Agregado!')
   }
 
+  //Esto deberia hacerse en el Backend paginando por tamaño de ventana
   handlePageEvent(e: PageEvent) {
     this.TempListCourses = this.cursos.slice(e.pageIndex * e.pageSize, (e.pageIndex + 1) * e.pageSize);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    //window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   getNumbersOfCourses(){
