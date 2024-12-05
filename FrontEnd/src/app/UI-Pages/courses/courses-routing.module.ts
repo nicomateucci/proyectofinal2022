@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { CoursesComponent } from './courses/courses.component';
 import { MyCoursesComponent } from './my-courses/my-courses.component';
-import { isLoggedGuard } from 'src/app/Guards/is-logged.guard';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   { 
@@ -13,7 +13,9 @@ const routes: Routes = [
   { 
     path: 'courses/:name',
     component: CourseItemComponent,
-    canMatch :[isLoggedGuard]
+    canActivate : [
+      AuthGuard
+    ]
   },
   // { 
   //   path: 'courses/:id',
@@ -22,7 +24,9 @@ const routes: Routes = [
   { 
     path: 'myCourses',
     component: MyCoursesComponent,
-    canMatch :[isLoggedGuard]
+    canMatch : [
+
+    ]
   },
   { 
     path: 'myCourses/:name',

@@ -30,7 +30,7 @@ export class ListCoursesComponent {
     this.coursesService.getAllCourses().subscribe(
       (data : any) =>{
         this.cursos = data ;
-        this.TempListCourses = data.slice(0,6);
+        this.TempListCourses = data.slice(0,8);
       });
       this.cdr.detectChanges();
   }
@@ -41,7 +41,7 @@ export class ListCoursesComponent {
         this.cursos = data ;
       })
       //Para paginar lso primeros 6 cursos
-      this.TempListCourses = this.cursos.slice(0,6);
+      this.TempListCourses = this.cursos.slice(0,8);
       this.cdr.detectChanges();
   }
 

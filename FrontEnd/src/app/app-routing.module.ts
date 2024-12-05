@@ -19,9 +19,9 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
-    canMatch:[
-      isLoggedGuard
-    ]
+    // canMatch:[
+    //   isLoggedGuard
+    // ]
   },
   { 
     path: 'login', 

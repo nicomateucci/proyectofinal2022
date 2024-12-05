@@ -33,6 +33,8 @@ import { RoleDirective } from './Directives/role.directive';
 import { authTokeninterceptorProvider } from './Interceptors/jwt.interceptor';
 import { NavbarModule } from './UI-Componets/navbar/navbar.module';
 
+import { Auth0Credentials } from '../environments/Auth0';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,6 @@ import { NavbarModule } from './UI-Componets/navbar/navbar.module';
     }),
     UiComponentsModule,
     ReactiveFormsModule,
-    //AngularMaterialModule,
     HttpClientModule,
     BrowserModule,
     AssetsModule,
@@ -55,16 +56,18 @@ import { NavbarModule } from './UI-Componets/navbar/navbar.module';
     AppRoutingModule,
     YouTubePlayerModule,
     NavbarModule,
-    // AuthModule.forRoot({
-    //   //CAMBIAR DATOS DE M2M, API Y SPA
-    //   domain: "dev-3h2tiekd.us.auth0.com",
-    //   clientId: "VxudccHi4sMvsN1cGIKLNSdaG0B2bZpT",
-    //   authorizationParams: {
-    //     redirect_uri: window.location.origin,
-    //   }
-    //   //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
-    //   //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
-    // }),
+    AuthModule.forRoot({
+      //CAMBIAR DATOS DE M2M, API Y SPA
+      domain: Auth0Credentials.domain,
+      clientId: Auth0Credentials.clientID,
+      useRefreshTokens: true,
+      cacheLocation: 'localstorage',
+      authorizationParams: {
+        redirect_uri: window.location.origin,
+      }
+      //M2MClientId: "dHdo47orvAJbxMVTjCOLyJfHNxjczzlM",
+      //M2MClientSecret : "CAjDQePWm49SZX1fAYBZ2LLKHnOLFWEtRW3R9fAHDmT0iUyhVIEwDVcshpGETjm_"
+    }),
 
     BrowserAnimationsModule,
   ],

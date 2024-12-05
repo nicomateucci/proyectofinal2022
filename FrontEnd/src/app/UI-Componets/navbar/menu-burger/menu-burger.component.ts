@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/Services/users/user.service';
 import { LoginComponent } from 'src/app/UI-Pages/login/login.component';
 import { NavbarComponent } from '../navbar.component';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-menu-burger',
@@ -14,10 +15,11 @@ export class MenuBurgerComponent extends NavbarComponent implements OnInit  {
   isMenuOpen = false;
   
   constructor(
-    protected override  userService: UserService,
-    protected override  dialog: MatDialog
+    protected override userService: UserService,
+    protected override dialog: MatDialog,
+    protected override authService : AuthService
   ) { 
-    super(userService,dialog);
+    super(userService,dialog,authService);
   }
 
   toggleMenu() {

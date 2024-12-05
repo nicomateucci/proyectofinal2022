@@ -22,10 +22,10 @@
         }
  
         @if (!checkCurrentUser()) {
-            <button class="btn btn-outline-success m-1" (click)="login()" (click)="closeMenuClick($event)">Iniciar Sesion</button>
+            <button class="btn btn-outline-success m-1" (click)="loginUser()" (click)="closeMenuClick($event)">Iniciar Sesion</button>
         }@else {
             <button type="button" class="btn btn-outline-primary m-1" routerLink="/profile" (click)="closeMenuClick($event)">Perfil</button>
-            <button class="btn btn-outline-success m-1" (click)="logout()" (click)="closeMenuClick($event)">Cerrar Sesion</button>
+            <button class="btn btn-outline-success m-1" (click)="logoutUser()" (click)="closeMenuClick($event)">Cerrar Sesion</button>
         }
     </div>
 </div>

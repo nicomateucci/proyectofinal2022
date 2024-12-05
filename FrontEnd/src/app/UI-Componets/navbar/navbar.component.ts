@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '@auth0/auth0-angular';
 // import { AuthService } from '@auth0/auth0-angular';
 import { IUser } from 'src/app/Models/iuser';
 import { UserService } from 'src/app/Services/users/user.service';
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     protected userService: UserService,
     protected dialog: MatDialog,
+    protected authService : AuthService
   ) { }
 
   ngOnInit(): void {
@@ -28,22 +30,22 @@ export class NavbarComponent implements OnInit {
   }
 
   //0AUTH METODOS
-  // loginUser(){
-  //   this.authService.loginWithRedirect();
-  // }
-
-  // closeSession(){
-  //   this.authService.logout();
-  // }
-
-  login() {
-    // const dialogRef = this.dialog.open(LoginComponent);
-    this.dialog.open(LoginComponent);
+  loginUser(){
+    this.authService.loginWithRedirect();
   }
 
-  logout() {
-    this.userService.logout();
+  logoutUser(){
+    this.authService.logout();
   }
+
+  // login() {
+  //   // const dialogRef = this.dialog.open(LoginComponent);
+  //   this.dialog.open(LoginComponent);
+  // }
+
+  // logout() {
+  //   this.userService.logout();
+  // }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
