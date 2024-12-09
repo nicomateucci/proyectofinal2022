@@ -1,5 +1,6 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, Input } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CourseService } from 'src/app/Services/courses/course.service';
 import { UserService } from 'src/app/Services/users/user.service';
 
@@ -12,18 +13,31 @@ export class ListCoursesComponent {
 
   @Input() level !: string;
   cursos !:any;
-  TempListCourses !: any;
+  TempListCourses !: [] | null;
   panelOpenState = false;
   pageSize!: number;
   pageSizeOptions!: number[];
 
+  filterCourses !: string;
+  filterCategory !: string ;
+
   constructor(
     private coursesService: CourseService,
     public userService: UserService,
+    private cdr : ChangeDetectorRef,
+    private route : ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.getAllCourses();
+    this.route.queryParams.subscribe( params => {
+      if ( params['CoursesType'] || params['CoursesByCategory']){
+        this.filterCourses = params['CoursesType']; 
+        this.filterCategory = params['CoursesByCategory']; 
+        this.getCoursesByLevel();
+      } else{
+        this.getAllCourses();
+      }
+    });
   }
 
   getAllCourses(){
@@ -37,12 +51,16 @@ export class ListCoursesComponent {
   }
 
   getCoursesByLevel(){
-    this.updatePageSize();
-    this.coursesService.getCourses(this.level).subscribe(
-      (data : any) =>{
-        this.cursos = data ;
-      })
-      this.TempListCourses = this.cursos.slice(0,this.pageSize);
+    this.coursesService.getCourses(this.filterCourses).subscribe(
+      (data: any) => {
+        this.cursos = data;
+        this.TempListCourses = this.cursos.slice(0,this.pageSize);
+        this.cdr.detectChanges();
+      },
+      (error) => {
+        console.error('Error al obtener cursos:', error);
+      }
+    );
   }
 
   showMessage() {

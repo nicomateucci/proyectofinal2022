@@ -1,25 +1,25 @@
 import { NONE_TYPE } from '@angular/compiler';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   //ESTO DEBERIA SER UNA INTERFAZ O ALGO POR EL ESTILO
   coursesValue: any[] = [
     {
-      value: 'principiante',
+      value: 'Principiante',
       viewValue: 'Principiante'
     },
     { 
-      value: 'intermedio', 
+      value: 'Intermedio', 
       viewValue: 'Intermedio'
     },
     { 
-      value: 'avanzado', 
+      value: 'Avanzado', 
       viewValue: 'Avanzado'
     },
   ];
@@ -47,13 +47,23 @@ export class NavigationComponent {
     },
   ];
 
-  filterCourses : string | null = null;
-  filterCategory : string | null = null;
+  filterCourses !: string | null ;
+  filterCategory !: string | null ;
+
+  //ACA QUEDARIA PENDIENTE COMO TRABAJAMOS EL TEMA DE LOS VALORES APRA FILTRADO Y POR DEMAS, POR DEFECTO LOS TOMA DE UN OBJETO DEFINIDO
+  //HABRIA QUE VER SI LOS TRAEMOS DEL BACK O LOS DEJAMOS ESTATICOS ASI
 
   constructor(
-    private router :Router
-  ){
+    private router :Router,
+    private route: ActivatedRoute
+  ){ }
 
+  ngOnInit() {
+    // Suscribirse a los parámetros de la URL
+    this.route.queryParams.subscribe(params => {
+      this.filterCourses = params['CoursesType']; 
+      this.filterCategory = params['CoursesByCategory']; 
+    });
   }
 
   searchCourses(valueSelected : string){ 
@@ -69,15 +79,22 @@ export class NavigationComponent {
   }
 
   applyFilters(){
-    console.log("Navegando a la ruta de cursos "+this.filterCourses+" Cursos filtrados por el valor "+this.filterCategory);
-    //ACA VA EL ROUTER APLICANDO LA URL CON EL FILTRO SI ES QUE EXISTEN
-    this.resetFilters();
+    if(this.filterCourses || this.filterCategory){
+      this.router.navigate(
+        ['/courses'], {
+        queryParams: 
+          { 
+            CoursesType : this.filterCourses,
+            CoursesByCategory : this.filterCategory,
+          }, 
+      });
+    }
   }
 
   resetFilters(){
-    console.log("Filtros eliminados");
     this.filterCourses = null;
     this.filterCategory = null;
+    this.router.navigate(['/courses']);
   }
   
 }
