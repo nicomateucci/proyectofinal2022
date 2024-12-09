@@ -12,7 +12,7 @@
     <mat-paginator
         class="paginador justify-content-end"
         [length]="getNumbersOfCourses()"
-        [pageSizeOptions]="[6]"
+        [pageSizeOptions]="pageSizeOptions"
         aria-label="Select page"
         (page)="handlePageEvent($event)">
     </mat-paginator>
