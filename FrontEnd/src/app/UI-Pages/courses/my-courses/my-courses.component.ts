@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ICourse } from 'src/app/Models/icourse';
-import { CourseService } from 'src/app/Services/courses/course.service';
-import { UserService } from 'src/app/Services/users/user.service';
+import { ICourse } from 'src/app/models/icourse';
+import { CourseService } from 'src/app/services/courses/course.service';
+import { UserService } from 'src/app/services/users/user.service';
 
 
 @Component({

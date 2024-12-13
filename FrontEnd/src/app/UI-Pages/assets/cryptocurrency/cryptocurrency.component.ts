@@ -3,7 +3,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AssetService } from 'src/app/Services/asset/asset.service';
-import { UserService } from 'src/app/Services/users/user.service';
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-cryptocurrency',

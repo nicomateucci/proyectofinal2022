@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { CourseService } from 'src/app/Services/courses/course.service';
-import { UserService } from 'src/app/Services/users/user.service';
+import { CourseService } from 'src/app/services/courses/course.service';
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-accordion',

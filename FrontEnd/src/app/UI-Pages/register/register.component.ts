@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
-import { UserService } from 'src/app/Services/users/user.service';
+import { UserService } from 'src/app/services/users/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
 import { CommonModule } from '@angular/common';

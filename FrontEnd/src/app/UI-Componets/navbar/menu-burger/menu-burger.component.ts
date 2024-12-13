@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UserService } from 'src/app/Services/users/user.service';
+import { UserService } from 'src/app/services/users/user.service';
 import { LoginComponent } from 'src/app/UI-Pages/login/login.component';
 import { NavbarComponent } from '../navbar.component';
 

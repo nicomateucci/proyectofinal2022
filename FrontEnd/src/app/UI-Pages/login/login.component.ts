@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr'
-import { UserService } from 'src/app/Services/users/user.service';
+import { UserService } from 'src/app/services/users/user.service';
 import { RegisterComponent } from '../register/register.component';
 import { Router } from '@angular/router';
 import { UiComponentsModule } from 'src/app/UI-Componets/ui-components.module';
