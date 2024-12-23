@@ -46,9 +46,11 @@ export class LoginComponent {
             this.toastr.success("User Login succesfull!","OK",{
               progressAnimation : 'increasing'
             });
+            //ESTO DE LLEVAR AL HOME DEBERIA SER SIEMPRE Y CUANDO NO SE DESPLIEGUE EL FORMATO MODAL, SI NO DEBERIA RECARGAR SOLAMENTE LA PESTAÑA
+            this.router.navigateByUrl('/home'); 
             setTimeout(() => {
               location.reload();
-            }, 1000);
+            }, 500);
           } else{
             this.loginInvalid = true;
             this.toastr.error('Usuario inexistente/contraseña erronea',"ERROR",{

@@ -17,11 +17,11 @@
 <!--El placeholder es lo que se carga primeramente a renderizar mientras se estan cargando lso componenets-->
 <!--El loading funciona mientras se muestra el placeholder y la posterior carga de componentes-->
 @defer () {
-    <app-navbar></app-navbar>   
+    <app-navbar [ngClass]="{ 'hide-navbar': hideNavbar }" ></app-navbar>   
     <div>
         <router-outlet></router-outlet>
     </div>
-    <app-footer></app-footer>
+    <app-footer [ngClass]="{'hide-footer': hideFooter}" ></app-footer>
 }
 @placeholder () {
     <div class="container-fluid">
